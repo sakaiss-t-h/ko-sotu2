@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>高卒認定 数学 集中対策</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --white: #ffffff;
+  --ink: #18160f;
+  --ink2: #4a4740;
+  --ink3: #9a9690;
+  --border: rgba(24,22,15,0.09);
+  --border2: rgba(24,22,15,0.16);
+  --orange: #e84c0d;
+  --orange-lt: #fff2ec;
+  --blue: #1754a8;
+  --blue-lt: #eaf1fc;
+  --green: #167a42;
+  --green-lt: #e9f6ef;
+  --red-lt: #fdf0f0;
+  --red: #c93030;
+  --gold: #b87800;
+  --gold-lt: #fdf5e0;
+  --purple: #5e35b1;
+  --purple-lt: #f0edfb;
+  --shadow-sm: 0 1px 4px rgba(24,22,15,0.07);
+  --shadow: 0 2px 10px rgba(24,22,15,0.09);
+  --r: 14px;
+  --r-sm: 8px;
+  --sans: 'Noto Sans JP', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;min-height:100vh;}
+
+/* =========== SCREEN SYSTEM =========== */
+.screen{display:none;min-height:100vh;}
+.screen.visible{display:block;}
+
+/* =========== HOME =========== */
+#s-home{}
+.home-top{
+  background:var(--ink);
+  padding:36px 20px 28px;
+  position:relative;
+  overflow:hidden;
+}
+.home-top::before{
+  content:'';position:absolute;
+  right:-40px;top:-40px;
+  width:200px;height:200px;
+  border-radius:50%;
+  border:40px solid rgba(255,255,255,0.04);
+}
+.home-top::after{
+  content:'';position:absolute;
+  right:30px;bottom:-30px;
+  width:120px;height:120px;
+  border-radius:50%;
+  border:30px solid rgba(255,255,255,0.03);
+}
+.home-eyebrow{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--orange);color:white;
+  font-size:11px;font-weight:700;letter-spacing:0.1em;
+  padding:4px 12px;border-radius:4px;margin-bottom:14px;
+}
+.home-title{
+  font-size:26px;font-weight:900;color:white;
+  line-height:1.25;margin-bottom:10px;
+}
+.home-title em{color:#ffc96e;font-style:normal;}
+.home-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;}
+.home-pills{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;
+}
+.home-pill{
+  background:rgba(255,255,255,0.09);
+  border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.7);
+  font-size:11px;padding:4px 10px;border-radius:100px;
+}
+
+/* progress bar */
+.home-progress{
+  margin:16px 20px 0;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:14px 16px;
+  box-shadow:var(--shadow-sm);
+}
+.hp-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.hp-label{font-size:13px;font-weight:700;}
+.hp-pct{font-size:13px;font-weight:700;color:var(--orange);}
+.hp-bar{height:6px;background:#ede9df;border-radius:3px;overflow:hidden;}
+.hp-fill{height:100%;background:linear-gradient(90deg,var(--orange),#f87c3d);border-radius:3px;transition:width .8s ease;}
+.hp-sub{font-size:11px;color:var(--ink3);margin-top:6px;}
+
+/* unit cards */
+.section-label{
+  font-size:11px;font-weight:700;letter-spacing:0.12em;
+  color:var(--ink3);text-transform:uppercase;
+  padding:22px 20px 10px;
+}
+.units{padding:0 20px 32px;display:flex;flex-direction:column;gap:10px;}
+.unit-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--shadow-sm);cursor:pointer;
+  transition:transform .12s,box-shadow .12s;
+}
+.unit-card:active{transform:scale(0.985);}
+.unit-card-body{display:flex;align-items:center;gap:14px;padding:15px 16px;}
+.unit-icon{
+  width:46px;height:46px;min-width:46px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:900;
+}
+.unit-text{flex:1;min-width:0;}
+.unit-name{font-size:15px;font-weight:700;margin-bottom:2px;}
+.unit-sub{font-size:12px;color:var(--ink3);}
+.unit-tags{display:flex;gap:6px;margin-top:5px;align-items:center;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;letter-spacing:0.04em;}
+.tag-hot{background:var(--orange-lt);color:var(--orange);}
+.tag-imp{background:var(--gold-lt);color:var(--gold);}
+.tag-done{background:var(--green-lt);color:var(--green);}
+.unit-arrow{font-size:18px;color:#ccc;flex-shrink:0;}
+.unit-prog{height:3px;background:#ede9df;}
+.unit-prog-fill{height:100%;background:var(--orange);transition:width .6s;}
+
+/* exam tip card */
+.tip-card{
+  margin:0 20px 24px;
+  background:var(--blue-lt);border:1px solid rgba(23,84,168,0.18);
+  border-radius:var(--r);padding:16px;
+}
+.tip-title{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:0.07em;margin-bottom:6px;}
+.tip-body{font-size:13px;color:#2a3d60;line-height:1.7;}
+.tip-body strong{color:var(--blue);}
+
+/* =========== UNIT SCREEN =========== */
+#s-unit{}
+.unit-header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(247,245,240,0.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+  padding:10px 16px;
+}
+.back-btn{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--white);border:1px solid var(--border2);
+  cursor:pointer;font-size:16px;display:flex;
+  align-items:center;justify-content:center;
+  flex-shrink:0;transition:background .12s;
+  color:var(--ink);
+}
+.back-btn:hover{background:#ede9df;}
+.uh-info{flex:1;min-width:0;}
+.uh-title{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.uh-sub{font-size:11px;color:var(--ink3);}
+
+/* =========== LESSON BLOCKS =========== */
+.lesson-wrap{padding:16px 16px 100px;}
+
+/* Chapter heading */
+.ch{
+  display:flex;align-items:center;gap:10px;
+  margin:0 0 14px;
+}
+.ch-num{
+  width:28px;height:28px;min-width:28px;
+  background:var(--orange);color:white;
+  border-radius:50%;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.ch-title{font-size:17px;font-weight:700;color:var(--ink);}
+
+/* Text blocks */
+.prose{font-size:14px;color:var(--ink2);line-height:1.85;margin-bottom:12px;}
+.prose strong{color:var(--ink);font-weight:700;}
+.prose em{font-style:normal;background:linear-gradient(transparent 60%,#ffd77a88 60%);padding:0 2px;}
+
+/* Formula */
+.formula{
+  background:var(--ink);border-radius:var(--r-sm);
+  padding:14px 18px;margin:12px 0;text-align:center;
+}
+.formula-lbl{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);margin-bottom:6px;text-transform:uppercase;}
+.formula-txt{font-size:17px;font-weight:700;color:#ffc96e;letter-spacing:0.04em;line-height:1.5;}
+
+/* Callout */
+.callout{border-radius:var(--r-sm);padding:12px 14px;margin:10px 0;font-size:13px;line-height:1.75;}
+.co-orange{background:var(--orange-lt);border-left:3px solid var(--orange);}
+.co-blue{background:var(--blue-lt);border-left:3px solid var(--blue);}
+.co-gold{background:var(--gold-lt);border-left:3px solid var(--gold);}
+.co-green{background:var(--green-lt);border-left:3px solid var(--green);}
+.co-lbl{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;}
+.co-orange .co-lbl{color:var(--orange);}
+.co-blue .co-lbl{color:var(--blue);}
+.co-gold .co-lbl{color:var(--gold);}
+.co-green .co-lbl{color:var(--green);}
+
+/* Steps */
+.steps{margin:10px 0;}
+.s-step{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.s-num{
+  width:24px;height:24px;min-width:24px;border-radius:50%;
+  background:var(--orange);color:white;
+  font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:3px;
+}
+.s-txt{font-size:13px;color:var(--ink2);line-height:1.7;flex:1;}
+.s-txt strong{color:var(--ink);}
+
+/* SVG wrap */
+.fig{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:14px;margin:10px 0;
+  overflow-x:auto;
+}
+
+/* Divider */
+.div-block{height:1px;background:var(--border);margin:20px 0;}
+
+/* =========== QUIZ INSIDE LESSON =========== */
+.quiz-header{
+  background:var(--ink);border-radius:var(--r);
+  padding:16px 18px;margin:20px 0 16px;
+  display:flex;align-items:center;gap:12px;
+}
+.quiz-header-icon{font-size:24px;}
+.quiz-header-text h3{font-size:15px;font-weight:700;color:white;margin-bottom:2px;}
+.quiz-header-text p{font-size:12px;color:rgba(255,255,255,0.5);}
+
+.q-block{margin-bottom:4px;}
+.q-num{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:0.09em;text-transform:uppercase;margin-bottom:6px;}
+.q-text{font-size:14px;font-weight:500;color:var(--ink);line-height:1.6;margin-bottom:8px;}
+.q-expr{
+  background:var(--ink);color:#ffc96e;
+  border-radius:var(--r-sm);padding:10px 16px;
+  font-size:16px;font-weight:700;text-align:center;
+  letter-spacing:0.04em;margin-bottom:14px;
+}
+
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+.opt{
+  background:var(--white);border:1.5px solid var(--border2);
+  border-radius:var(--r-sm);padding:12px 14px;
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;font-size:14px;font-family:var(--sans);
+  color:var(--ink);text-align:left;transition:all .13s;
+}
+.opt:hover:not(:disabled){background:#f5f2ec;border-color:#b0ada5;}
+.opt:disabled{cursor:default;}
+.opt.correct{background:var(--green-lt);border-color:#4aab73;color:var(--green);}
+.opt.wrong{background:var(--red-lt);border-color:#e88888;color:var(--red);}
+.opt.reveal{background:var(--blue-lt);border-color:#7ca8e0;color:var(--blue);}
+.opt-lbl{
+  width:26px;height:26px;min-width:26px;border-radius:50%;
+  border:1.5px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;transition:all .13s;
+  flex-shrink:0;
+}
+.opt.correct .opt-lbl{background:var(--green);border-color:var(--green);color:white;}
+.opt.wrong .opt-lbl{background:var(--red);border-color:var(--red);color:white;}
+.opt.reveal .opt-lbl{background:var(--blue);border-color:var(--blue);color:white;}
+
+.exp-box{
+  background:#f5f2ec;border-left:3px solid var(--orange);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:13px 15px;margin-bottom:12px;
+  display:none;animation:slideIn .22s ease;
+}
+.exp-box.show{display:block;}
+.exp-title{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px;}
+.exp-body{font-size:13px;color:var(--ink2);line-height:1.8;margin-bottom:7px;}
+.exp-step{
+  background:white;border-radius:6px;
+  padding:7px 11px;font-size:13px;color:var(--ink);
+  margin-top:5px;border-left:2px solid #ddd;
+}
+
+/* sticky nav */
+.q-nav{
+  position:sticky;bottom:0;
+  background:rgba(247,245,240,0.95);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--border);
+  padding:10px 16px 14px;
+  margin:0 -16px;
+  display:flex;gap:8px;
+}
+.q-skip{
+  flex:1;background:var(--white);border:1.5px solid var(--border2);
+  border-radius:var(--r-sm);padding:11px 10px;
+  font-size:13px;font-family:var(--sans);color:var(--ink2);cursor:pointer;
+  transition:background .12s;
+}
+.q-skip:hover{background:#ede9df;}
+.q-next{
+  flex:2;background:var(--orange);border:none;
+  border-radius:var(--r-sm);padding:11px 10px;
+  font-size:14px;font-weight:700;font-family:var(--sans);
+  color:white;cursor:pointer;transition:background .15s;letter-spacing:0.03em;
+}
+.q-next:hover{background:#c73a09;}
+.q-next:disabled{opacity:.35;cursor:default;}
+
+/* =========== UNIT COMPLETE =========== */
+.unit-complete{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:28px 20px;
+  text-align:center;margin-top:20px;
+}
+.uc-icon{font-size:44px;margin-bottom:12px;}
+.uc-score{font-size:38px;font-weight:900;margin-bottom:4px;}
+.uc-label{font-size:14px;color:var(--ink2);margin-bottom:16px;}
+.uc-msg{
+  background:var(--bg);border-radius:var(--r-sm);
+  padding:12px 16px;font-size:13px;color:var(--ink2);
+  line-height:1.7;margin-bottom:18px;text-align:left;
+}
+.uc-btn{
+  width:100%;background:var(--ink);border:none;
+  border-radius:var(--r-sm);padding:14px;
+  font-size:15px;font-weight:700;font-family:var(--sans);
+  color:white;cursor:pointer;margin-bottom:8px;transition:opacity .15s;
+}
+.uc-btn:hover{opacity:.85;}
+.uc-btn-ghost{
+  width:100%;background:transparent;
+  border:1.5px solid var(--border2);border-radius:var(--r-sm);
+  padding:12px;font-size:14px;font-family:var(--sans);
+  color:var(--ink2);cursor:pointer;transition:background .12s;
+}
+.uc-btn-ghost:hover{background:#ede9df;}
+
+/* =========== Animations =========== */
+@keyframes slideIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.fadein{animation:fadeUp .35s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ============================== HOME ============================== -->
+<div id="s-home" class="screen visible">
+  <div class="home-top">
+    <div class="home-eyebrow">🎯 高卒認定 数学 集中対策</div>
+    <h1 class="home-title">数学<em>ゼロ</em>から<br>合格点を取る</h1>
+    <p class="home-desc">解説を読んで→すぐ練習の繰り返しで<br>頻出分野だけに絞って効率よく対策</p>
+    <div class="home-pills">
+      <span class="home-pill">📖 解説つき</span>
+      <span class="home-pill">✏️ 即練習</span>
+      <span class="home-pill">📊 進捗記録</span>
+      <span class="home-pill">🔁 何度でも</span>
+    </div>
+  </div>
+
+  <div class="home-progress">
+    <div class="hp-row">
+      <span class="hp-label">学習の進み具合</span>
+      <span class="hp-pct" id="hp-pct">0%</span>
+    </div>
+    <div class="hp-bar"><div class="hp-fill" id="hp-fill" style="width:0%"></div></div>
+    <div class="hp-sub" id="hp-sub">まだ始まっていません。一番上の単元からどうぞ！</div>
+  </div>
+
+  <div class="section-label">📚 頻出5分野（上から順番に学ぶのがおすすめ）</div>
+  <div class="units" id="unit-list"></div>
+
+  <div class="tip-card">
+    <div class="tip-title">📌 試験のポイント</div>
+    <div class="tip-body">高卒認定の数学は<strong>100点満点・40〜45点前後で合格</strong>が目安。全部完璧にしなくてOK。この5分野を押さえるだけで合格圏が見えてきます。</div>
+  </div>
+</div>
+
+<!-- ============================== UNIT ============================== -->
+<div id="s-unit" class="screen">
+  <div class="unit-header">
+    <button class="back-btn" onclick="goHome()">←</button>
+    <div class="uh-info">
+      <div class="uh-title" id="uh-title">単元</div>
+      <div class="uh-sub" id="uh-sub">解説を読んで、練習問題を解こう</div>
+    </div>
+  </div>
+  <div class="lesson-wrap" id="lesson-content"></div>
+</div>
+
+<script>
+// ============================================================
+// CURRICULUM
+// ============================================================
+const UNITS = [
+{
+  id:'u1', name:'正の数・負の数', sub:'マイナスの計算を基礎から',
+  icon:'±', iconBg:'#fff2ec', iconColor:'#e84c0d', tag:'hot', tagLabel:'超基礎',
+  content: buildUnit1
+},{
+  id:'u2', name:'文字式・展開・因数分解', sub:'xやyを使った計算の全て',
+  icon:'x²', iconBg:'#eaf1fc', iconColor:'#1754a8', tag:'hot', tagLabel:'頻出',
+  content: buildUnit2
+},{
+  id:'u3', name:'方程式を解く', sub:'一次・二次方程式と解の公式',
+  icon:'=', iconBg:'#e9f6ef', iconColor:'#167a42', tag:'imp', tagLabel:'重要',
+  content: buildUnit3
+},{
+  id:'u4', name:'関数とグラフ', sub:'一次・二次関数・頂点・平方完成',
+  icon:'f(x)', iconBg:'#fdf5e0', iconColor:'#b87800', tag:'imp', tagLabel:'重要',
+  content: buildUnit4
+},{
+  id:'u5', name:'図形・確率・データ', sub:'三平方・余弦定理・確率・統計',
+  icon:'△', iconBg:'#f0edfb', iconColor:'#5e35b1', tag:'hot', tagLabel:'頻出',
+  content: buildUnit5
+}];
+
+// ============================================================
+// UNIT CONTENT BUILDERS
+// ============================================================
+
+function buildUnit1(){
+  return {
+    sections:[
+      {
+        title:'正の数・負の数とは？',
+        html:`
+<p class="prose">数には「プラス（正）」と「マイナス（負）」があります。<br>気温で考えると分かりやすいです。</p>
+<div class="fig">
+<svg viewBox="0 0 300 72" width="100%" style="max-width:300px;display:block;margin:0 auto;">
+  <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,0 6,3 0,6" fill="#9a9690"/></marker></defs>
+  <line x1="16" y1="36" x2="282" y2="36" stroke="#9a9690" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="150" y1="26" x2="150" y2="50" stroke="#18160f" stroke-width="2"/>
+  <text x="150" y="64" text-anchor="middle" font-size="11" fill="#18160f" font-family="sans-serif" font-weight="bold">0</text>
+  <text x="55" y="22" text-anchor="middle" font-size="11" fill="#1754a8" font-family="sans-serif" font-weight="bold">−10℃</text>
+  <text x="240" y="22" text-anchor="middle" font-size="11" fill="#e84c0d" font-family="sans-serif" font-weight="bold">+25℃</text>
+  <text x="65" y="64" text-anchor="middle" font-size="10" fill="#9a9690" font-family="sans-serif">← 負（マイナス）</text>
+  <text x="225" y="64" text-anchor="middle" font-size="10" fill="#9a9690" font-family="sans-serif">正（プラス）→</text>
+  <line x1="70" y1="28" x2="70" y2="46" stroke="#1754a8" stroke-width="1.5"/>
+  <line x1="230" y1="28" x2="230" y2="46" stroke="#e84c0d" stroke-width="1.5"/>
+</svg>
+</div>
+<div class="callout co-orange"><div class="co-lbl">🔑 基本の考え方</div>0より大きい → <strong>正の数（プラス）</strong><br>0より小さい → <strong>負の数（マイナス）</strong></div>`
+      },
+      {
+        title:'足し算・引き算のルール',
+        html:`
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 2つのルールだけ！</div>
+  <strong>①同じ符号どうしは足す</strong><br>
+  　(+3)+(+5) → 3+5 = <strong>+8</strong><br>
+  　(−3)+(−5) → 3+5 = <strong>−8</strong><br><br>
+  <strong>②違う符号は大きい方から引く</strong><br>
+  　(+7)+(−3) → 7−3 = <strong>+4</strong>（大きいのは+7）<br>
+  　(+3)+(−7) → 7−3 = <strong>−4</strong>（大きいのは−7）
+</div>`
+      },
+      {
+        title:'かけ算・割り算の符号',
+        html:`
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 符号のルール（超重要！）</div>
+  ＋ × ＋ ＝ <strong>＋</strong><br>
+  ＋ × − ＝ <strong>−</strong><br>
+  − × ＋ ＝ <strong>−</strong><br>
+  − × − ＝ <strong>＋ ← マイナス×マイナス＝プラス！</strong>
+</div>
+<div class="callout co-blue"><div class="co-lbl">💡 もっと簡単な覚え方</div><strong>マイナスの個数が偶数→プラス、奇数→マイナス</strong><br>例：(−2)×(−3)×(−1) → マイナスが3個（奇数）→ <strong>マイナス</strong></div>`
+      }
+    ],
+    quizzes:[
+      {q:'次の計算をしなさい。',expr:'(−6)＋(−4)',opts:['−10','+10','−2','+2'],ans:0,
+       exp:'同じ符号（マイナス）どうしなので足します。6＋4＝10。符号はマイナスなので答えは −10 です。',
+       steps:['同じ符号（−）→ そのまま足す','6 ＋ 4 ＝ 10','答え：−10 ✓']},
+      {q:'次の計算をしなさい。',expr:'(+8)＋(−3)',opts:['+5','−5','+11','−11'],ans:0,
+       exp:'違う符号なので、大きい方（8）から小さい方（3）を引きます。8−3＝5。大きいのは+8の方なので＋5。',
+       steps:['違う符号 → 大きい方から小さい方を引く','8 − 3 ＝ 5','大きいのは＋8 → 答え：+5 ✓']},
+      {q:'次の計算をしなさい。',expr:'(−4) × (−7)',opts:['+28','−28','+11','−11'],ans:0,
+       exp:'マイナス×マイナス＝プラス！ これは絶対に覚えてください。4×7＝28、符号はプラスなので +28 です。',
+       steps:['− × − → ＋（プラス）','4 × 7 ＝ 28','答え：+28 ✓']},
+      {q:'次の計算をしなさい。',expr:'(−18) ÷ (+3)',opts:['−6','+6','−54','+54'],ans:0,
+       exp:'マイナス÷プラス＝マイナスです。18÷3＝6、符号はマイナスなので −6 です。',
+       steps:['− ÷ + → −（マイナス）','18 ÷ 3 ＝ 6','答え：−6 ✓']},
+      {q:'次の計算をしなさい。',expr:'(−2) × (+3) × (−4)',opts:['+24','−24','+9','−9'],ans:0,
+       exp:'マイナスの個数を数える：−2と−4の2個（偶数個）→プラス。2×3×4＝24。答えは+24です。',
+       steps:['マイナスの個数：2個（偶数）→ プラス','数字の計算：2×3×4 ＝ 24','答え：+24 ✓']}
+    ]
+  };
+}
+
+function buildUnit2(){
+  return {
+    sections:[
+      {
+        title:'文字式の基本ルール',
+        html:`
+<p class="prose">「x」や「y」は<em>まだ決まっていない数</em>の代わりです。</p>
+<div class="callout co-blue">
+  <div class="co-lbl">💡 書き方のルール</div>
+  ・数字×文字 → 数字を先に：2×x ＝ <strong>2x</strong><br>
+  ・1×x → 1は省略：1x ＝ <strong>x</strong><br>
+  ・x×x → <strong>x²</strong>（「xの2乗」）と書く<br>
+  ・x÷2 → <strong>x/2</strong>（分数で書く）
+</div>`
+      },
+      {
+        title:'展開（カッコを外す）',
+        html:`
+<p class="prose">展開とは「カッコを外して1つの式にする」作業です。<br>前のカッコの全員を、後ろのカッコの全員にかけて全部足すだけ！</p>
+<div class="formula">
+  <div class="formula-lbl">展開のやり方</div>
+  <div class="formula-txt">(x＋a)(x＋b) ＝ x² ＋ (a＋b)x ＋ ab</div>
+</div>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 例：(x＋3)(x−5) を展開</div>
+  ① x×x ＝ x²<br>
+  ② x×(−5)＋3×x ＝ −5x＋3x ＝ −2x<br>
+  ③ 3×(−5) ＝ −15<br>
+  → <strong>x² − 2x − 15</strong>
+</div>
+<div class="callout co-blue">
+  <div class="co-lbl">💡 よく出る公式3つ</div>
+  (x＋a)² ＝ x²＋2ax＋a²<br>
+  (x−a)² ＝ x²−2ax＋a²<br>
+  (x＋a)(x−a) ＝ x²−a²
+</div>`
+      },
+      {
+        title:'因数分解（展開の逆）',
+        html:`
+<p class="prose">因数分解は展開の<em>逆</em>です。式をカッコの形に戻します。</p>
+<div class="formula">
+  <div class="formula-lbl">x²＋bx＋c の因数分解</div>
+  <div class="formula-txt">足してb、かけてc になる 2数 m,n を探す<br>→ (x＋m)(x＋n)</div>
+</div>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 例：x²＋5x＋6 を因数分解</div>
+  「かけて6、足して5」になる2数を探す<br>
+  → <strong>2と3</strong>（2×3＝6、2＋3＝5）<br>
+  → <strong>(x＋2)(x＋3)</strong>
+</div>
+<div class="callout co-gold">
+  <div class="co-lbl">⭐ 特殊な形は公式を使う</div>
+  x²−a² ＝ <strong>(x＋a)(x−a)</strong>　← 差の平方<br>
+  x²＋2ax＋a² ＝ <strong>(x＋a)²</strong>　← 完全平方式
+</div>`
+      }
+    ],
+    quizzes:[
+      {q:'次の式を展開しなさい。',expr:'(x＋4)(x－2)',opts:['x²＋2x−8','x²−2x−8','x²＋2x＋8','x²＋6x−8'],ans:0,
+       exp:'x×x＝x²、x×(−2)＋4×x＝−2x＋4x＝2x、4×(−2)＝−8。全部足して x²＋2x−8 です。',
+       steps:['x²の部分：x×x ＝ x²','xの部分：x×(−2)＋4×x ＝ 2x','数の部分：4×(−2) ＝ −8','答え：x²＋2x−8 ✓']},
+      {q:'次の式を展開しなさい。',expr:'(x－3)²',opts:['x²−6x＋9','x²＋6x＋9','x²−9','x²−3x＋9'],ans:0,
+       exp:'(x−a)² ＝ x²−2ax＋a² の公式で a＝3 を代入。x²−6x＋9 です。',
+       steps:['公式 (x−a)² ＝ x²−2ax＋a²　a＝3 を代入','x² − 2×3×x ＋ 3²','＝ x² − 6x ＋ 9 ✓']},
+      {q:'次の式を因数分解しなさい。',expr:'x²＋7x＋10',opts:['(x＋2)(x＋5)','(x＋1)(x＋10)','(x＋3)(x＋4)','(x−2)(x−5)'],ans:0,
+       exp:'かけて10、足して7になる2数を探す。2×5＝10、2＋5＝7 なので 2と5 です！',
+       steps:['かけて10、足して7 → 2と5','2×5＝10 ✓、2＋5＝7 ✓','答え：(x＋2)(x＋5) ✓']},
+      {q:'次の式を因数分解しなさい。',expr:'x²－25',opts:['(x＋5)(x－5)','(x－5)²','(x＋5)²','(x＋25)(x－1)'],ans:0,
+       exp:'x²−25 は x²−5² の形。差の平方の公式 a²−b²＝(a＋b)(a−b) を使う。25＝5² と気づくのがポイント！',
+       steps:['25 ＝ 5² と気づく → x²−5²','公式 a²−b² ＝ (a＋b)(a−b) を使う','答え：(x＋5)(x−5) ✓']},
+      {q:'次の式を展開しなさい。',expr:'(x＋6)(x－6)',opts:['x²−36','x²＋36','x²−12x＋36','x²＋12x−36'],ans:0,
+       exp:'(x＋a)(x−a) ＝ x²−a² の公式。a＝6 を代入すると x²−36 です。xの項が消えます！',
+       steps:['公式 (x＋a)(x−a) ＝ x²−a²　a＝6 を代入','x² − 6²','＝ x² − 36 ✓']}
+    ]
+  };
+}
+
+function buildUnit3(){
+  return {
+    sections:[
+      {
+        title:'一次方程式の解き方',
+        html:`
+<p class="prose">方程式は「xを1人ぼっちにする」ゲームです。<br>両辺に同じことをして、左辺にxだけ残します。</p>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 移項のルール</div>
+  「右辺にある数を左辺に移すとき、<strong>符号を逆にする</strong>」<br>
+  例：2x＋5＝13 → 2x＝13−5 → 2x＝8 → x＝4
+</div>
+<div class="steps">
+  <div class="s-step"><div class="s-num">1</div><div class="s-txt">数字（xのない項）を右辺に移す（符号を逆に）</div></div>
+  <div class="s-step"><div class="s-num">2</div><div class="s-txt">xの係数で両辺を割る</div></div>
+  <div class="s-step"><div class="s-num">3</div><div class="s-txt">確認：答えを元の式に代入して成り立つか確かめる</div></div>
+</div>`
+      },
+      {
+        title:'二次方程式①：因数分解',
+        html:`
+<p class="prose">x²が入った方程式が「二次方程式」です。<br>左辺を因数分解して <strong>(x−a)(x−b)＝0</strong> の形にすれば解けます。</p>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 (x−a)(x−b)＝0 の解き方</div>
+  カッコの中がゼロになればOKなので<br>
+  x−a＝0 → <strong>x＝a</strong><br>
+  x−b＝0 → <strong>x＝b</strong><br>
+  答えは2つになる！
+</div>`
+      },
+      {
+        title:'二次方程式②：解の公式',
+        html:`
+<p class="prose">因数分解できない場合は<em>解の公式</em>を使います。これは覚えておく必須公式です！</p>
+<div class="formula">
+  <div class="formula-lbl">解の公式（ax²＋bx＋c ＝ 0 のとき）</div>
+  <div class="formula-txt">x ＝ （−b ± √(b²−4ac)） ÷ 2a</div>
+</div>
+<div class="callout co-blue">
+  <div class="co-lbl">💡 使い方の手順</div>
+  ① a, b, c の値を確認する<br>
+  ② b²−4ac を計算する（√の中の数）<br>
+  ③ 公式に代入して計算する
+</div>
+<div class="callout co-gold">
+  <div class="co-lbl">⭐ 重解の条件</div>
+  √の中（b²−4ac）が<strong>ゼロのとき→答えが1つ（重解）</strong><br>
+  試験でよく問われます！
+</div>`
+      }
+    ],
+    quizzes:[
+      {q:'次の一次方程式を解きなさい。',expr:'5x − 3 ＝ 17',opts:['x＝4','x＝−4','x＝14/5','x＝2'],ans:0,
+       exp:'−3を右辺に移す（符号逆に）：5x＝17＋3＝20。両辺を5で割る：x＝4。確認：5×4−3＝17 ✓',
+       steps:['−3を右辺に移す（符号を逆に）：5x ＝ 17＋3 ＝ 20','両辺を5で割る：x ＝ 20÷5','答え：x ＝ 4 ✓']},
+      {q:'次の二次方程式を因数分解で解きなさい。',expr:'x²－x－6 ＝ 0',opts:['x＝3, x＝−2','x＝−3, x＝2','x＝6, x＝−1','x＝3, x＝2'],ans:0,
+       exp:'かけて−6、足して−1になる2数を探す。3×(−2)＝−6、3＋(−2)＝1 ←違う。(−3)×2＝−6、(−3)＋2＝−1 ✓。なので−3と2。',
+       steps:['かけて−6・足して−1 → 2 と −3','(x＋2)(x−3) ＝ 0','x＝−2 または x＝3 ✓']},
+      {q:'次の二次方程式を因数分解で解きなさい。',expr:'x²＋6x＋9 ＝ 0',opts:['x＝−3（重解）','x＝3（重解）','x＝3, x＝−3','x＝9, x＝1'],ans:0,
+       exp:'x²＋6x＋9＝(x＋3)²。完全平方式です。(x＋3)²＝0 → x＋3＝0 → x＝−3。答えが1つ（重解）になります！',
+       steps:['x²＋6x＋9 ＝ (x＋3)²（完全平方式）','(x＋3)² ＝ 0 → x＋3 ＝ 0','答え：x ＝ −3（重解）✓']},
+      {q:'解の公式を使って解きなさい。',expr:'x²－4x＋1 ＝ 0',opts:['x＝2±√3','x＝4±√3','x＝2±√15','x＝−2±√3'],ans:0,
+       exp:'a＝1,b＝−4,c＝1。b²−4ac＝16−4＝12＝4×3。x＝(4±√12)÷2＝(4±2√3)÷2＝2±√3。',
+       steps:['a＝1, b＝−4, c＝1','b²−4ac ＝ 16−4 ＝ 12 ＝ 4×3','x ＝ (4±√12)÷2 ＝ (4±2√3)÷2','答え：x ＝ 2±√3 ✓']},
+      {q:'二次方程式が重解を持つとき k の値を求めなさい。',expr:'x²＋4x＋k ＝ 0',opts:['k＝4','k＝2','k＝8','k＝16'],ans:0,
+       exp:'重解の条件はb²−4ac＝0。a＝1,b＝4,c＝kを代入。16−4k＝0 → 4k＝16 → k＝4。',
+       steps:['重解の条件：b²−4ac ＝ 0','16 − 4k ＝ 0','4k ＝ 16 → k ＝ 4 ✓']}
+    ]
+  };
+}
+
+function buildUnit4(){
+  return {
+    sections:[
+      {
+        title:'一次関数とグラフ',
+        html:`
+<p class="prose">関数は「xに数を入れるとyが決まる計算ルール」です。<br>一次関数 y＝ax＋b のグラフは<em>直線</em>になります。</p>
+<div class="formula">
+  <div class="formula-lbl">一次関数</div>
+  <div class="formula-txt">y ＝ ax ＋ b<br>a＝傾き（斜め具合）　b＝切片（y軸との交点）</div>
+</div>
+<div class="fig">
+<svg viewBox="0 0 260 180" width="100%" style="max-width:260px;display:block;margin:0 auto;">
+  <line x1="20" y1="10" x2="20" y2="165" stroke="#ccc" stroke-width="1.5"/>
+  <line x1="10" y1="130" x2="250" y2="130" stroke="#ccc" stroke-width="1.5"/>
+  <text x="14" y="8" font-size="10" fill="#9a9690" font-family="sans-serif">y</text>
+  <text x="248" y="142" font-size="10" fill="#9a9690" font-family="sans-serif">x</text>
+  <line x1="10" y1="168" x2="245" y2="30" stroke="#e84c0d" stroke-width="2.5"/>
+  <circle cx="20" cy="155" r="4" fill="#1754a8"/>
+  <text x="26" y="159" font-size="11" fill="#1754a8" font-family="sans-serif">切片 b</text>
+  <line x1="70" y1="142" x2="70" y2="110" stroke="#167a42" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="70" y1="110" x2="130" y2="110" stroke="#167a42" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="130" y1="142" x2="130" y2="110" stroke="#167a42" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="92" y="156" font-size="9" fill="#167a42" font-family="sans-serif">x増加</text>
+  <text x="133" y="128" font-size="9" fill="#167a42" font-family="sans-serif">傾き a</text>
+  <text x="160" y="58" font-size="12" fill="#e84c0d" font-family="sans-serif" font-weight="bold">y＝ax＋b</text>
+</svg>
+</div>`
+      },
+      {
+        title:'二次関数と放物線',
+        html:`
+<p class="prose">x²が入った関数が二次関数。グラフは<em>放物線（U字型）</em>になります。</p>
+<div class="formula">
+  <div class="formula-lbl">二次関数（標準形）</div>
+  <div class="formula-txt">y ＝ a(x−p)² ＋ q<br>頂点は (p, q)　←　最も大事！</div>
+</div>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 a の符号でグラフの形が決まる</div>
+  a が<strong>プラス → U字（下に開く）</strong>、最小値＝頂点<br>
+  a が<strong>マイナス → ∩字（上に開く）</strong>、最大値＝頂点
+</div>
+<div class="callout co-blue">
+  <div class="co-lbl">💡 頂点の座標の読み取り方</div>
+  y＝2(x−3)²＋5 → 頂点は (3, 5)<br>
+  y＝(x＋1)²−4 → (x−(−1)) なので 頂点は (−1, −4)<br>
+  カッコの中の符号に注意！
+</div>`
+      },
+      {
+        title:'平方完成（重要！）',
+        html:`
+<p class="prose"><em>平方完成</em>とは、y＝x²＋bx＋c を y＝(x−p)²＋q の形に変える作業です。頂点を求めるために使います。</p>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 平方完成の手順（例：y＝x²−6x＋11）</div>
+  ① xの係数（−6）の半分 → −3<br>
+  ② (x−3)² を展開すると x²−6x＋9<br>
+  ③ だから x²−6x ＝ (x−3)²−9<br>
+  ④ y＝(x−3)²−9＋11 ＝ <strong>(x−3)²＋2</strong><br>
+  → 頂点は (3, 2)
+</div>`
+      }
+    ],
+    quizzes:[
+      {q:'y＝−3x＋7 の傾きと切片を答えなさい。',expr:'y ＝ −3x ＋ 7',opts:['傾き−3、切片7','傾き7、切片−3','傾き3、切片7','傾き−3、切片−7'],ans:0,
+       exp:'y＝ax＋b の形で a＝−3（傾き）、b＝7（切片）。マイナスがついても同じルールです。',
+       steps:['y＝ax＋b と比べる','a ＝ −3（傾き）、b ＝ 7（切片）','答え：傾き＝−3、切片＝7 ✓']},
+      {q:'放物線の頂点の座標を答えなさい。',expr:'y ＝ 3(x－2)² ＋ 5',opts:['(2, 5)','(−2, 5)','(2, −5)','(3, 5)'],ans:0,
+       exp:'y＝a(x−p)²＋q の形。p＝2（カッコの中が x−2 なので）、q＝5。頂点は (p,q)＝(2,5)。',
+       steps:['y＝a(x−p)²＋q と比べる','(x−2) → p＝2、q＝5','頂点：(2, 5) ✓']},
+      {q:'平方完成して頂点の形にしなさい。',expr:'y ＝ x² ＋ 4x ＋ 7',opts:['y＝(x＋2)²＋3','y＝(x＋2)²＋7','y＝(x−2)²＋3','y＝(x＋4)²＋7'],ans:0,
+       exp:'xの係数4の半分＝2。(x＋2)²＝x²＋4x＋4 なので x²＋4x＝(x＋2)²−4。y＝(x＋2)²−4＋7＝(x＋2)²＋3。',
+       steps:['x係数 4 の半分 ＝ 2','(x＋2)² ＝ x²＋4x＋4 なので x²＋4x＝(x＋2)²−4','y ＝ (x＋2)²−4＋7 ＝ (x＋2)²＋3 ✓']},
+      {q:'次の関数の最大値を求めなさい。',expr:'y ＝ −x² ＋ 6x − 5',opts:['4','5','6','9'],ans:0,
+       exp:'先頭が−なので山型、頂点が最大値。平方完成：y＝−(x²−6x)−5＝−(x−3)²＋9−5＝−(x−3)²＋4。最大値＝4。',
+       steps:['y ＝ −(x²−6x)−5（−でくくる）','x²−6x ＝ (x−3)²−9','y ＝ −{(x−3)²−9}−5 ＝ −(x−3)²＋4','最大値 ＝ 4（x＝3のとき）✓']},
+      {q:'2点 (0,1) と (2,5) を通る直線の式を求めなさい。',expr:'点(0,1), 点(2,5)',opts:['y＝2x＋1','y＝x＋1','y＝3x＋1','y＝2x−1'],ans:0,
+       exp:'傾き＝(5−1)÷(2−0)＝4÷2＝2。切片：x＝0のときy＝1なので切片＝1。y＝2x＋1。',
+       steps:['傾き ＝ (y増加)÷(x増加) ＝ (5−1)÷(2−0) ＝ 2','切片：x＝0のときy＝1','答え：y ＝ 2x＋1 ✓']}
+    ]
+  };
+}
+
+function buildUnit5(){
+  return {
+    sections:[
+      {
+        title:'三平方の定理',
+        html:`
+<p class="prose">直角三角形の3辺には特別な関係があります。</p>
+<div class="formula">
+  <div class="formula-lbl">三平方の定理（ピタゴラスの定理）</div>
+  <div class="formula-txt">（斜辺）² ＝ （横）² ＋ （縦）²<br>c² ＝ a² ＋ b²</div>
+</div>
+<div class="fig">
+<svg viewBox="0 0 200 140" width="100%" style="max-width:200px;display:block;margin:0 auto;">
+  <polygon points="24,112 160,112 160,30" fill="#fff5f0" stroke="#e84c0d" stroke-width="2"/>
+  <rect x="150" y="102" width="10" height="10" fill="none" stroke="#e84c0d" stroke-width="1.5"/>
+  <text x="88" y="128" text-anchor="middle" font-size="13" fill="#18160f" font-family="sans-serif" font-weight="bold">a</text>
+  <text x="170" y="76" font-size="13" fill="#18160f" font-family="sans-serif" font-weight="bold">b</text>
+  <text x="76" y="70" font-size="14" fill="#e84c0d" font-family="sans-serif" font-weight="bold">c（斜辺）</text>
+</svg>
+</div>
+<div class="callout co-blue">
+  <div class="co-lbl">💡 丸暗記しておくと便利な組み合わせ</div>
+  <strong>3−4−5</strong>　（3²＋4²＝5²）<br>
+  <strong>5−12−13</strong>　（5²＋12²＝13²）<br>
+  <strong>8−15−17</strong>　（8²＋15²＝17²）
+</div>`
+      },
+      {
+        title:'余弦定理（斜め三角形）',
+        html:`
+<p class="prose">直角でない三角形の辺や角を求めるときは「余弦定理」を使います。</p>
+<div class="formula">
+  <div class="formula-lbl">余弦定理</div>
+  <div class="formula-txt">c² ＝ a²＋b² − 2ab・cosC</div>
+</div>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 覚えておく cos の値</div>
+  cos 30° ＝ √3/2　≈ 0.866<br>
+  cos 45° ＝ √2/2　≈ 0.707<br>
+  <strong>cos 60° ＝ 1/2　← 試験でよく出る！</strong>
+</div>`
+      },
+      {
+        title:'確率の基本',
+        html:`
+<div class="formula">
+  <div class="formula-lbl">確率の公式</div>
+  <div class="formula-txt">確率 ＝ 求めたい場合の数 ÷ 全部の場合の数</div>
+</div>
+<div class="callout co-orange">
+  <div class="co-lbl">🔑 組み合わせ C(n, r)</div>
+  n個からr個を選ぶ方法の数（順番は関係なし）<br>
+  C(5,2) ＝ 5×4÷2 ＝ 10<br>
+  C(6,2) ＝ 6×5÷2 ＝ 15<br>
+  C(4,2) ＝ 4×3÷2 ＝ 6
+</div>`
+      },
+      {
+        title:'データの整理（平均・中央値・最頻値）',
+        html:`
+<div class="steps">
+  <div class="s-step"><div class="s-num">1</div><div class="s-txt"><strong>平均値</strong>：全部を足して個数で割る</div></div>
+  <div class="s-step"><div class="s-num">2</div><div class="s-txt"><strong>中央値</strong>：小さい順に並べたとき真ん中の値（偶数個なら中2つの平均）</div></div>
+  <div class="s-step"><div class="s-num">3</div><div class="s-txt"><strong>最頻値</strong>：一番多く出てくる値</div></div>
+</div>
+<div class="callout co-gold">
+  <div class="co-lbl">⭐ 混同しやすい！例で確認</div>
+  データ：1, 2, 2, 3, 100<br>
+  平均値 ＝ 108÷5 ＝ 21.6<br>
+  中央値 ＝ 2（3番目）<br>
+  最頻値 ＝ 2（2回出てくる）
+</div>`
+      }
+    ],
+    quizzes:[
+      {q:'直角三角形の2辺が 6 と 8 のとき、斜辺を求めなさい。',expr:'a＝6, b＝8',opts:['10','14','√100','√28'],ans:0,
+       exp:'c²＝6²＋8²＝36＋64＝100。c＝√100＝10。6−8−10 は3−4−5の2倍です！',
+       steps:['c² ＝ 6²＋8² ＝ 36＋64 ＝ 100','c ＝ √100 ＝ 10','答え：10 ✓']},
+      {q:'AB＝5、AC＝6、∠A＝60°のとき BCを余弦定理で求めなさい。',expr:'AB＝5, AC＝6, ∠A＝60°',opts:['√31','√61','√11','√91'],ans:0,
+       exp:'余弦定理：BC²＝AB²＋AC²−2×AB×AC×cos60°＝25＋36−2×5×6×(1/2)＝61−30＝31。BC＝√31。',
+       steps:['BC² ＝ 5²＋6²−2×5×6×cos60°','cos60°＝1/2','BC² ＝ 25＋36−30 ＝ 31','BC ＝ √31 ✓']},
+      {q:'1個のさいころで偶数の目が出る確率は？',expr:'さいころ1個を投げる',opts:['1/2','1/3','2/3','1/6'],ans:0,
+       exp:'偶数の目は 2,4,6 の3通り。全体は6通り。確率＝3÷6＝1/2。',
+       steps:['偶数の目：2, 4, 6 → 3通り','全体：6通り','確率 ＝ 3÷6 ＝ 1/2 ✓']},
+      {q:'赤玉4個・白玉2個の袋から2個取り出す。2個とも赤の確率は？',expr:'赤4個, 白2個 → 2個取り出す',opts:['2/5','1/3','4/9','1/2'],ans:0,
+       exp:'全体：C(6,2)＝15通り。2個とも赤：C(4,2)＝6通り。確率＝6÷15＝2/5。',
+       steps:['全体：C(6,2) ＝ 6×5÷2 ＝ 15通り','2個とも赤：C(4,2) ＝ 4×3÷2 ＝ 6通り','確率 ＝ 6÷15 ＝ 2/5 ✓']},
+      {q:'次のデータの中央値を求めなさい。',expr:'3, 8, 1, 6, 4, 9, 2',opts:['4','5','6','3'],ans:0,
+       exp:'小さい順に並べる：1,2,3,4,6,8,9。7個なので4番目が中央値。4番目は 4 です。',
+       steps:['小さい順に並べる：1, 2, 3, 4, 6, 8, 9','7個 → 4番目が中央値','4番目は 4 ✓']}
+    ]
+  };
+}
+
+// ============================================================
+// STATE & PROGRESS
+// ============================================================
+const STORE_KEY = 'mathAppV2';
+let store = JSON.parse(localStorage.getItem(STORE_KEY)||'{}');
+function save(){ localStorage.setItem(STORE_KEY, JSON.stringify(store)); }
+
+let currentUnit = null;
+let qIdx = 0, qScore = 0, qAnswered = false;
+
+// ============================================================
+// HOME
+// ============================================================
+function renderHome(){
+  const list = document.getElementById('unit-list');
+  list.innerHTML = '';
+  let completed = 0;
+  UNITS.forEach(u=>{
+    const st = store[u.id]||{};
+    const done = st.done;
+    if(done) completed++;
+    const pct = done?100:(st.viewed?33:0);
+    const card = document.createElement('div');
+    card.className='unit-card fadein';
+    card.innerHTML=`
+      <div class="unit-card-body">
+        <div class="unit-icon" style="background:${u.iconBg};color:${u.iconColor};font-size:${u.icon.length>2?'11px':'20px'};font-weight:900;">${u.icon}</div>
+        <div class="unit-text">
+          <div class="unit-name">${u.name}</div>
+          <div class="unit-sub">${u.sub}</div>
+          <div class="unit-tags">
+            <span class="tag ${done?'tag-done':u.tag==='hot'?'tag-hot':'tag-imp'}">${done?'✓ 完了':u.tagLabel}</span>
+            ${st.score!==undefined?`<span style="font-size:11px;color:var(--ink3);">前回 ${st.score}問正解</span>`:''}
+          </div>
+        </div>
+        <div class="unit-arrow">›</div>
+      </div>
+      <div class="unit-prog"><div class="unit-prog-fill" style="width:${pct}%"></div></div>
+    `;
+    card.onclick=()=>openUnit(u);
+    list.appendChild(card);
+  });
+  const pct = Math.round(completed/UNITS.length*100);
+  document.getElementById('hp-pct').textContent=pct+'%';
+  document.getElementById('hp-fill').style.width=pct+'%';
+  document.getElementById('hp-sub').textContent=
+    pct===0?'まだ始まっていません。一番上の単元からどうぞ！':
+    pct<100?`${completed}/${UNITS.length}単元クリア。あと${UNITS.length-completed}単元！`:
+    '全単元クリア！試験準備万端🎉';
+}
+
+// ============================================================
+// OPEN UNIT
+// ============================================================
+function openUnit(u){
+  currentUnit=u;
+  qIdx=0; qScore=0; qAnswered=false;
+  document.getElementById('uh-title').textContent=u.name;
+  document.getElementById('uh-sub').textContent=u.sub;
+  const data = u.content();
+  const container = document.getElementById('lesson-content');
+  container.innerHTML='';
+
+  // Build sections
+  data.sections.forEach((sec,i)=>{
+    const ch=document.createElement('div');
+    ch.innerHTML=`
+      <div class="ch">
+        <div class="ch-num">${i+1}</div>
+        <div class="ch-title">${sec.title}</div>
+      </div>
+      ${sec.html}
+      <div class="div-block"></div>
+    `;
+    container.appendChild(ch);
+  });
+
+  // Quiz header
+  const qh=document.createElement('div');
+  qh.className='quiz-header';
+  qh.innerHTML=`
+    <div class="quiz-header-icon">✏️</div>
+    <div class="quiz-header-text">
+      <h3>練習問題 （全${data.quizzes.length}問）</h3>
+      <p>解説を読んだら、さっそく問題を解いてみよう！</p>
+    </div>
+  `;
+  container.appendChild(qh);
+
+  // Quiz wrapper
+  const qwrap=document.createElement('div');
+  qwrap.id='quiz-wrap';
+  container.appendChild(qwrap);
+
+  renderQuiz(data.quizzes);
+
+  // mark viewed
+  if(!store[u.id]) store[u.id]={};
+  store[u.id].viewed=true;
+  save();
+
+  show('s-unit');
+  window.scrollTo(0,0);
+}
+
+function goHome(){
+  show('s-home');
+  renderHome();
+  window.scrollTo(0,0);
+}
+
+// ============================================================
+// QUIZ
+// ============================================================
+function renderQuiz(qs){
+  const wrap=document.getElementById('quiz-wrap');
+  if(!wrap) return;
+  if(qIdx>=qs.length){ renderComplete(qs); return; }
+  const q=qs[qIdx];
+  wrap.innerHTML=`
+    <div class="q-block">
+      <div class="q-num">問題 ${qIdx+1} / ${qs.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="q-expr">${q.expr}</div>
+    </div>
+    <div class="opts" id="opts">
+      ${q.opts.map((o,i)=>`
+        <button class="opt" id="o${i}" onclick="pick(${i})">
+          <span class="opt-lbl">${['A','B','C','D'][i]}</span>
+          <span>${o}</span>
+        </button>`).join('')}
+    </div>
+    <div class="exp-box" id="expbox">
+      <div class="exp-title">💡 解説</div>
+      <div class="exp-body">${q.exp}</div>
+      ${q.steps.map(s=>`<div class="exp-step">${s}</div>`).join('')}
+    </div>
+    <div class="q-nav">
+      <button class="q-skip" id="qskip" onclick="skip()">解答を見る</button>
+      <button class="q-next" id="qnext" onclick="nextQ()" disabled>${qIdx===qs.length-1?'結果を見る ✓':'次の問題 →'}</button>
+    </div>
+  `;
+  qAnswered=false;
+}
+
+function pick(i){
+  if(qAnswered) return;
+  qAnswered=true;
+  const u=currentUnit; if(!u) return;
+  const q=u.content().quizzes[qIdx];
+  document.querySelectorAll('.opt').forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===q.ans) b.classList.add(i===q.ans?'correct':'reveal');
+    if(idx===i && i!==q.ans) b.classList.add('wrong');
+  });
+  if(i===q.ans) qScore++;
+  document.getElementById('expbox').classList.add('show');
+  document.getElementById('qskip').style.display='none';
+  document.getElementById('qnext').disabled=false;
+}
+
+function skip(){
+  if(qAnswered) return;
+  qAnswered=true;
+  const u=currentUnit; if(!u) return;
+  const q=u.content().quizzes[qIdx];
+  document.querySelectorAll('.opt').forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===q.ans) b.classList.add('reveal');
+  });
+  document.getElementById('expbox').classList.add('show');
+  document.getElementById('qskip').style.display='none';
+  document.getElementById('qnext').disabled=false;
+}
+
+function nextQ(){
+  qIdx++;
+  const u=currentUnit; if(!u) return;
+  renderQuiz(u.content().quizzes);
+}
+
+function renderComplete(qs){
+  const wrap=document.getElementById('quiz-wrap');
+  const pct=Math.round(qScore/qs.length*100);
+  const emoji=pct>=80?'🎉':pct>=60?'📚':'💪';
+  const msg=pct>=80?'完璧です！次の単元へ進みましょう。':
+            pct>=60?'もう一度解くと確実に身につきます。':
+            '解説をもう一度読んでから再挑戦してみよう！';
+  const scoreColor=pct>=80?'var(--green)':pct>=60?'var(--gold)':'var(--orange)';
+
+  // save progress
+  if(currentUnit){
+    if(!store[currentUnit.id]) store[currentUnit.id]={};
+    store[currentUnit.id].score=qScore;
+    if(pct>=60) store[currentUnit.id].done=true;
+    save();
+  }
+
+  wrap.innerHTML=`
+    <div class="unit-complete fadein">
+      <div class="uc-icon">${emoji}</div>
+      <div class="uc-score" style="color:${scoreColor}">${pct}%</div>
+      <div class="uc-label">${qs.length}問中 ${qScore}問正解</div>
+      <div class="uc-msg">${msg}</div>
+      <button class="uc-btn" onclick="retryQuiz()">🔁 もう一度練習する</button>
+      <button class="uc-btn-ghost" onclick="goHome()">← 単元一覧に戻る</button>
+    </div>
+  `;
+}
+
+function retryQuiz(){
+  qIdx=0; qScore=0; qAnswered=false;
+  const u=currentUnit; if(!u) return;
+  renderQuiz(u.content().quizzes);
+  // scroll to quiz
+  const qh=document.querySelector('.quiz-header');
+  if(qh) setTimeout(()=>qh.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+// ============================================================
+// SCREEN HELPER
+// ============================================================
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('visible'));
+  document.getElementById(id).classList.add('visible');
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderHome();
+</script>
+</body>
+</html>
