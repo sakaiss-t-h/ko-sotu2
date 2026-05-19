@@ -3,1053 +3,1439 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>高卒認定 数学 集中対策</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<title>高卒認定 数学 らくらく学習</title>
 <style>
-:root {
-  --bg: #f7f5f0;
-  --white: #ffffff;
-  --ink: #18160f;
-  --ink2: #4a4740;
-  --ink3: #9a9690;
-  --border: rgba(24,22,15,0.09);
-  --border2: rgba(24,22,15,0.16);
-  --orange: #e84c0d;
-  --orange-lt: #fff2ec;
-  --blue: #1754a8;
-  --blue-lt: #eaf1fc;
-  --green: #167a42;
-  --green-lt: #e9f6ef;
-  --red-lt: #fdf0f0;
-  --red: #c93030;
-  --gold: #b87800;
-  --gold-lt: #fdf5e0;
-  --purple: #5e35b1;
-  --purple-lt: #f0edfb;
-  --shadow-sm: 0 1px 4px rgba(24,22,15,0.07);
-  --shadow: 0 2px 10px rgba(24,22,15,0.09);
-  --r: 14px;
-  --r-sm: 8px;
-  --sans: 'Noto Sans JP', sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;min-height:100vh;}
+  :root {
+    --bg: #FFF9F0;
+    --surface: #FFFFFF;
+    --primary: #FF7043;
+    --primary-light: #FFCCBC;
+    --accent: #42A5F5;
+    --accent-light: #BBDEFB;
+    --success: #66BB6A;
+    --success-light: #C8E6C9;
+    --text: #3E2723;
+    --text-sub: #795548;
+    --text-hint: #A1887F;
+    --border: #EFEBE9;
+    --shadow: rgba(62,39,35,0.08);
+    --radius: 18px;
+    --radius-sm: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; background: var(--bg); font-family: 'Hiragino Rounded Gothic Pro', 'Rounded Mplus 1c', 'Yu Gothic', sans-serif; color: var(--text); overscroll-behavior: none; }
 
-/* =========== SCREEN SYSTEM =========== */
-.screen{display:none;min-height:100vh;}
-.screen.visible{display:block;}
 
-/* =========== HOME =========== */
-#s-home{}
-.home-top{
-  background:var(--ink);
-  padding:36px 20px 28px;
-  position:relative;
-  overflow:hidden;
-}
-.home-top::before{
-  content:'';position:absolute;
-  right:-40px;top:-40px;
-  width:200px;height:200px;
-  border-radius:50%;
-  border:40px solid rgba(255,255,255,0.04);
-}
-.home-top::after{
-  content:'';position:absolute;
-  right:30px;bottom:-30px;
-  width:120px;height:120px;
-  border-radius:50%;
-  border:30px solid rgba(255,255,255,0.03);
-}
-.home-eyebrow{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--orange);color:white;
-  font-size:11px;font-weight:700;letter-spacing:0.1em;
-  padding:4px 12px;border-radius:4px;margin-bottom:14px;
-}
-.home-title{
-  font-size:26px;font-weight:900;color:white;
-  line-height:1.25;margin-bottom:10px;
-}
-.home-title em{color:#ffc96e;font-style:normal;}
-.home-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;}
-.home-pills{
-  display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;
-}
-.home-pill{
-  background:rgba(255,255,255,0.09);
-  border:1px solid rgba(255,255,255,0.12);
-  color:rgba(255,255,255,0.7);
-  font-size:11px;padding:4px 10px;border-radius:100px;
-}
+  .intro-hero {
+    background: linear-gradient(135deg, #42A5F5, #1565C0);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .intro-hero-title {
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .intro-section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px var(--shadow);
+    border: 1.5px solid var(--border);
+  }
+  .intro-section-heading {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+  .intro-section-body {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--text-sub);
+    white-space: pre-wrap;
+  }
+  .start-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--success);
+    border: none;
+    border-radius: var(--radius);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(102,187,106,0.35);
+    letter-spacing: 0.04em;
+  }
+  .start-btn:active { transform: scale(0.97); }
+  .intro-btn {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #42A5F5, #1E88E5);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 10px rgba(66,165,245,0.3);
+  }
+  .intro-btn:active { transform: scale(0.98); }
 
-/* progress bar */
-.home-progress{
-  margin:16px 20px 0;
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r);padding:14px 16px;
-  box-shadow:var(--shadow-sm);
-}
-.hp-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-.hp-label{font-size:13px;font-weight:700;}
-.hp-pct{font-size:13px;font-weight:700;color:var(--orange);}
-.hp-bar{height:6px;background:#ede9df;border-radius:3px;overflow:hidden;}
-.hp-fill{height:100%;background:linear-gradient(90deg,var(--orange),#f87c3d);border-radius:3px;transition:width .8s ease;}
-.hp-sub{font-size:11px;color:var(--ink3);margin-top:6px;}
+  /* ─── SCREENS ─── */
+  .screen { display: none; height: 100vh; flex-direction: column; overflow: hidden; }
+  .screen.active { display: flex; }
 
-/* unit cards */
-.section-label{
-  font-size:11px;font-weight:700;letter-spacing:0.12em;
-  color:var(--ink3);text-transform:uppercase;
-  padding:22px 20px 10px;
-}
-.units{padding:0 20px 32px;display:flex;flex-direction:column;gap:10px;}
-.unit-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r);overflow:hidden;
-  box-shadow:var(--shadow-sm);cursor:pointer;
-  transition:transform .12s,box-shadow .12s;
-}
-.unit-card:active{transform:scale(0.985);}
-.unit-card-body{display:flex;align-items:center;gap:14px;padding:15px 16px;}
-.unit-icon{
-  width:46px;height:46px;min-width:46px;
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:900;
-}
-.unit-text{flex:1;min-width:0;}
-.unit-name{font-size:15px;font-weight:700;margin-bottom:2px;}
-.unit-sub{font-size:12px;color:var(--ink3);}
-.unit-tags{display:flex;gap:6px;margin-top:5px;align-items:center;}
-.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;letter-spacing:0.04em;}
-.tag-hot{background:var(--orange-lt);color:var(--orange);}
-.tag-imp{background:var(--gold-lt);color:var(--gold);}
-.tag-done{background:var(--green-lt);color:var(--green);}
-.unit-arrow{font-size:18px;color:#ccc;flex-shrink:0;}
-.unit-prog{height:3px;background:#ede9df;}
-.unit-prog-fill{height:100%;background:var(--orange);transition:width .6s;}
+  /* ─── HEADER ─── */
+  .header {
+    background: var(--primary);
+    padding: 16px 20px 14px;
+    display: flex; align-items: center; gap: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(255,112,67,0.3);
+  }
+  .header .back-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.25); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: #fff; flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .header .back-btn:active { background: rgba(255,255,255,0.4); }
+  .header h1 { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: 0.02em; flex: 1; }
+  .header .subtitle { color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 1px; }
 
-/* exam tip card */
-.tip-card{
-  margin:0 20px 24px;
-  background:var(--blue-lt);border:1px solid rgba(23,84,168,0.18);
-  border-radius:var(--r);padding:16px;
-}
-.tip-title{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:0.07em;margin-bottom:6px;}
-.tip-body{font-size:13px;color:#2a3d60;line-height:1.7;}
-.tip-body strong{color:var(--blue);}
+  /* ─── HOME ─── */
+  #home .scroll-area { flex: 1; overflow-y: auto; padding: 20px 16px 32px; -webkit-overflow-scrolling: touch; }
+  .hero-card {
+    background: linear-gradient(135deg, #FF8A65, #FF5722);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    margin-bottom: 24px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::after {
+    content: '📖';
+    position: absolute; right: 16px; bottom: 10px;
+    font-size: 64px; opacity: 0.2;
+  }
+  .hero-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
+  .hero-card p { font-size: 14px; opacity: 0.9; line-height: 1.6; }
+  .section-label { font-size: 13px; font-weight: 700; color: var(--text-hint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; padding-left: 4px; }
+  .unit-grid { display: flex; flex-direction: column; gap: 12px; }
+  .unit-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex; align-items: center; gap: 14px;
+    box-shadow: 0 2px 12px var(--shadow);
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.12s;
+    text-decoration: none; color: inherit;
+  }
+  .unit-card:active { transform: scale(0.98); box-shadow: 0 1px 4px var(--shadow); }
+  .unit-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .unit-info { flex: 1; min-width: 0; }
+  .unit-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+  .unit-info p { font-size: 12px; color: var(--text-sub); line-height: 1.4; }
+  .unit-meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+  .badge-hot { background: #FFECB3; color: #F57F17; }
+  .badge-count { background: var(--accent-light); color: #1565C0; }
+  .unit-arrow { color: var(--text-hint); font-size: 18px; flex-shrink: 0; }
 
-/* =========== UNIT SCREEN =========== */
-#s-unit{}
-.unit-header{
-  position:sticky;top:0;z-index:20;
-  background:rgba(247,245,240,0.94);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:12px;
-  padding:10px 16px;
-}
-.back-btn{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--white);border:1px solid var(--border2);
-  cursor:pointer;font-size:16px;display:flex;
-  align-items:center;justify-content:center;
-  flex-shrink:0;transition:background .12s;
-  color:var(--ink);
-}
-.back-btn:hover{background:#ede9df;}
-.uh-info{flex:1;min-width:0;}
-.uh-title{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.uh-sub{font-size:11px;color:var(--ink3);}
+  /* ─── UNIT (problem list) ─── */
+  #unit .header-info { flex: 1; }
+  #unit .scroll-area { flex: 1; overflow-y: auto; padding: 16px 16px 32px; -webkit-overflow-scrolling: touch; }
+  .unit-desc-card {
+    background: var(--accent-light);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: #1565C0;
+    line-height: 1.6;
+  }
+  .problem-list { display: flex; flex-direction: column; gap: 10px; }
+  .problem-item {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    box-shadow: 0 1px 6px var(--shadow);
+    transition: transform 0.12s;
+  }
+  .problem-item:active { transform: scale(0.98); }
+  .problem-item .pnum {
+    display: inline-block;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--primary); color: #fff;
+    font-size: 12px; font-weight: 700;
+    text-align: center; line-height: 26px;
+    margin-right: 8px; flex-shrink: 0;
+  }
+  .problem-header { display: flex; align-items: flex-start; gap: 0; }
+  .problem-q { font-size: 14px; font-weight: 600; line-height: 1.5; flex: 1; }
+  .problem-type-tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; margin-top: 8px; font-weight: 700; display: inline-block; }
+  .tag-calc { background: #F3E5F5; color: #7B1FA2; }
+  .tag-word { background: #E8F5E9; color: #2E7D32; }
+  .tag-shape { background: #E3F2FD; color: #1565C0; }
+  .tag-func  { background: #FFF3E0; color: #E65100; }
+  .tag-other { background: #EFEBE9; color: #4E342E; }
 
-/* =========== LESSON BLOCKS =========== */
-.lesson-wrap{padding:16px 16px 100px;}
+  /* ─── PROBLEM DETAIL ─── */
+  #detail .scroll-area { flex: 1; overflow-y: auto; padding: 16px 16px 40px; -webkit-overflow-scrolling: touch; }
+  .problem-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px var(--shadow);
+    border: 1.5px solid var(--border);
+  }
+  .problem-card .qlabel { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.06em; margin-bottom: 10px; }
+  .problem-card .qtext { font-size: 17px; font-weight: 700; line-height: 1.7; color: var(--text); }
+  .choices-area { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .choice-btn {
+    background: #FFF3E0;
+    border: 1.5px solid #FFE0B2;
+    border-radius: var(--radius-sm);
+    padding: 13px 16px;
+    font-size: 15px; font-weight: 600; color: #E65100;
+    text-align: left; cursor: pointer;
+    transition: background 0.12s, border-color 0.12s;
+    -webkit-appearance: none;
+  }
+  .choice-btn:active { background: #FFE0B2; }
+  .choice-btn.selected-correct { background: var(--success-light); border-color: var(--success); color: #1B5E20; }
+  .choice-btn.selected-wrong  { background: #FFEBEE; border-color: #EF9A9A; color: #B71C1C; }
+  .reveal-btn {
+    width: 100%; padding: 16px;
+    background: var(--primary); border: none; border-radius: var(--radius);
+    color: #fff; font-size: 16px; font-weight: 800; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255,112,67,0.35);
+    transition: transform 0.12s, box-shadow 0.12s;
+    letter-spacing: 0.04em;
+  }
+  .reveal-btn:active { transform: scale(0.97); box-shadow: 0 2px 6px rgba(255,112,67,0.25); }
+  .answer-area {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 2px solid var(--success);
+    padding: 18px;
+    margin-top: 12px;
+    display: none;
+    box-shadow: 0 2px 12px rgba(102,187,106,0.15);
+    animation: slideDown 0.25s ease;
+  }
+  .answer-area.open { display: block; }
+  @keyframes slideDown { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
+  .answer-label { font-size: 12px; font-weight: 700; color: var(--success); letter-spacing: 0.06em; margin-bottom: 8px; }
+  .answer-text { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 14px; }
+  .explain-label { font-size: 12px; font-weight: 700; color: var(--text-hint); letter-spacing: 0.06em; margin-bottom: 8px; }
+  .explain-text { font-size: 14px; line-height: 1.8; color: var(--text-sub); }
+  .exp-step { background: #F3F8FF; border-left: 3px solid #42A5F5; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 5px 0; font-weight: 600; color: #1565C0; font-size: 14px; }
+  .exp-tip  { background: #FFF8E1; border-left: 3px solid #FFC107; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 8px 0 0; font-size: 13px; color: #5D4037; font-weight: 700; }
+  .exp-warn { background: #FFF3E0; border-left: 3px solid #FF9800; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 5px 0; font-size: 13px; color: #E65100; }
+  .exp-line { padding: 2px 0; }
 
-/* Chapter heading */
-.ch{
-  display:flex;align-items:center;gap:10px;
-  margin:0 0 14px;
-}
-.ch-num{
-  width:28px;height:28px;min-width:28px;
-  background:var(--orange);color:white;
-  border-radius:50%;font-size:13px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-}
-.ch-title{font-size:17px;font-weight:700;color:var(--ink);}
-
-/* Text blocks */
-.prose{font-size:14px;color:var(--ink2);line-height:1.85;margin-bottom:12px;}
-.prose strong{color:var(--ink);font-weight:700;}
-.prose em{font-style:normal;background:linear-gradient(transparent 60%,#ffd77a88 60%);padding:0 2px;}
-
-/* Formula */
-.formula{
-  background:var(--ink);border-radius:var(--r-sm);
-  padding:14px 18px;margin:12px 0;text-align:center;
-}
-.formula-lbl{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);margin-bottom:6px;text-transform:uppercase;}
-.formula-txt{font-size:17px;font-weight:700;color:#ffc96e;letter-spacing:0.04em;line-height:1.5;}
-
-/* Callout */
-.callout{border-radius:var(--r-sm);padding:12px 14px;margin:10px 0;font-size:13px;line-height:1.75;}
-.co-orange{background:var(--orange-lt);border-left:3px solid var(--orange);}
-.co-blue{background:var(--blue-lt);border-left:3px solid var(--blue);}
-.co-gold{background:var(--gold-lt);border-left:3px solid var(--gold);}
-.co-green{background:var(--green-lt);border-left:3px solid var(--green);}
-.co-lbl{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;}
-.co-orange .co-lbl{color:var(--orange);}
-.co-blue .co-lbl{color:var(--blue);}
-.co-gold .co-lbl{color:var(--gold);}
-.co-green .co-lbl{color:var(--green);}
-
-/* Steps */
-.steps{margin:10px 0;}
-.s-step{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
-.s-num{
-  width:24px;height:24px;min-width:24px;border-radius:50%;
-  background:var(--orange);color:white;
-  font-size:11px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-  margin-top:3px;
-}
-.s-txt{font-size:13px;color:var(--ink2);line-height:1.7;flex:1;}
-.s-txt strong{color:var(--ink);}
-
-/* SVG wrap */
-.fig{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r-sm);padding:14px;margin:10px 0;
-  overflow-x:auto;
-}
-
-/* Divider */
-.div-block{height:1px;background:var(--border);margin:20px 0;}
-
-/* =========== QUIZ INSIDE LESSON =========== */
-.quiz-header{
-  background:var(--ink);border-radius:var(--r);
-  padding:16px 18px;margin:20px 0 16px;
-  display:flex;align-items:center;gap:12px;
-}
-.quiz-header-icon{font-size:24px;}
-.quiz-header-text h3{font-size:15px;font-weight:700;color:white;margin-bottom:2px;}
-.quiz-header-text p{font-size:12px;color:rgba(255,255,255,0.5);}
-
-.q-block{margin-bottom:4px;}
-.q-num{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:0.09em;text-transform:uppercase;margin-bottom:6px;}
-.q-text{font-size:14px;font-weight:500;color:var(--ink);line-height:1.6;margin-bottom:8px;}
-.q-expr{
-  background:var(--ink);color:#ffc96e;
-  border-radius:var(--r-sm);padding:10px 16px;
-  font-size:16px;font-weight:700;text-align:center;
-  letter-spacing:0.04em;margin-bottom:14px;
-}
-
-.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
-.opt{
-  background:var(--white);border:1.5px solid var(--border2);
-  border-radius:var(--r-sm);padding:12px 14px;
-  display:flex;align-items:center;gap:10px;
-  cursor:pointer;font-size:14px;font-family:var(--sans);
-  color:var(--ink);text-align:left;transition:all .13s;
-}
-.opt:hover:not(:disabled){background:#f5f2ec;border-color:#b0ada5;}
-.opt:disabled{cursor:default;}
-.opt.correct{background:var(--green-lt);border-color:#4aab73;color:var(--green);}
-.opt.wrong{background:var(--red-lt);border-color:#e88888;color:var(--red);}
-.opt.reveal{background:var(--blue-lt);border-color:#7ca8e0;color:var(--blue);}
-.opt-lbl{
-  width:26px;height:26px;min-width:26px;border-radius:50%;
-  border:1.5px solid var(--border2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;transition:all .13s;
-  flex-shrink:0;
-}
-.opt.correct .opt-lbl{background:var(--green);border-color:var(--green);color:white;}
-.opt.wrong .opt-lbl{background:var(--red);border-color:var(--red);color:white;}
-.opt.reveal .opt-lbl{background:var(--blue);border-color:var(--blue);color:white;}
-
-.exp-box{
-  background:#f5f2ec;border-left:3px solid var(--orange);
-  border-radius:0 var(--r-sm) var(--r-sm) 0;
-  padding:13px 15px;margin-bottom:12px;
-  display:none;animation:slideIn .22s ease;
-}
-.exp-box.show{display:block;}
-.exp-title{font-size:11px;font-weight:700;color:var(--orange);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px;}
-.exp-body{font-size:13px;color:var(--ink2);line-height:1.8;margin-bottom:7px;}
-.exp-step{
-  background:white;border-radius:6px;
-  padding:7px 11px;font-size:13px;color:var(--ink);
-  margin-top:5px;border-left:2px solid #ddd;
-}
-
-/* sticky nav */
-.q-nav{
-  position:sticky;bottom:0;
-  background:rgba(247,245,240,0.95);
-  backdrop-filter:blur(8px);
-  border-top:1px solid var(--border);
-  padding:10px 16px 14px;
-  margin:0 -16px;
-  display:flex;gap:8px;
-}
-.q-skip{
-  flex:1;background:var(--white);border:1.5px solid var(--border2);
-  border-radius:var(--r-sm);padding:11px 10px;
-  font-size:13px;font-family:var(--sans);color:var(--ink2);cursor:pointer;
-  transition:background .12s;
-}
-.q-skip:hover{background:#ede9df;}
-.q-next{
-  flex:2;background:var(--orange);border:none;
-  border-radius:var(--r-sm);padding:11px 10px;
-  font-size:14px;font-weight:700;font-family:var(--sans);
-  color:white;cursor:pointer;transition:background .15s;letter-spacing:0.03em;
-}
-.q-next:hover{background:#c73a09;}
-.q-next:disabled{opacity:.35;cursor:default;}
-
-/* =========== UNIT COMPLETE =========== */
-.unit-complete{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r);padding:28px 20px;
-  text-align:center;margin-top:20px;
-}
-.uc-icon{font-size:44px;margin-bottom:12px;}
-.uc-score{font-size:38px;font-weight:900;margin-bottom:4px;}
-.uc-label{font-size:14px;color:var(--ink2);margin-bottom:16px;}
-.uc-msg{
-  background:var(--bg);border-radius:var(--r-sm);
-  padding:12px 16px;font-size:13px;color:var(--ink2);
-  line-height:1.7;margin-bottom:18px;text-align:left;
-}
-.uc-btn{
-  width:100%;background:var(--ink);border:none;
-  border-radius:var(--r-sm);padding:14px;
-  font-size:15px;font-weight:700;font-family:var(--sans);
-  color:white;cursor:pointer;margin-bottom:8px;transition:opacity .15s;
-}
-.uc-btn:hover{opacity:.85;}
-.uc-btn-ghost{
-  width:100%;background:transparent;
-  border:1.5px solid var(--border2);border-radius:var(--r-sm);
-  padding:12px;font-size:14px;font-family:var(--sans);
-  color:var(--ink2);cursor:pointer;transition:background .12s;
-}
-.uc-btn-ghost:hover{background:#ede9df;}
-
-/* =========== Animations =========== */
-@keyframes slideIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-.fadein{animation:fadeUp .35s ease both;}
+  .nav-btns { display: flex; gap: 10px; margin-top: 14px; }
+  .nav-btn {
+    flex: 1; padding: 14px;
+    background: var(--surface); border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm); font-size: 14px; font-weight: 700;
+    color: var(--text-sub); cursor: pointer;
+    transition: background 0.12s;
+  }
+  .nav-btn:active { background: var(--border); }
+  .nav-btn.next { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .progress-bar-wrap { height: 4px; background: var(--border); flex-shrink: 0; }
+  .progress-bar-fill { height: 4px; background: var(--primary); transition: width 0.3s ease; }
 </style>
 </head>
 <body>
 
-<!-- ============================== HOME ============================== -->
-<div id="s-home" class="screen visible">
-  <div class="home-top">
-    <div class="home-eyebrow">🎯 高卒認定 数学 集中対策</div>
-    <h1 class="home-title">数学<em>ゼロ</em>から<br>合格点を取る</h1>
-    <p class="home-desc">解説を読んで→すぐ練習の繰り返しで<br>頻出分野だけに絞って効率よく対策</p>
-    <div class="home-pills">
-      <span class="home-pill">📖 解説つき</span>
-      <span class="home-pill">✏️ 即練習</span>
-      <span class="home-pill">📊 進捗記録</span>
-      <span class="home-pill">🔁 何度でも</span>
+<!-- ═══ SCREEN: HOME ═══ -->
+<div id="home" class="screen active">
+  <div class="header">
+    <div>
+      <h1>🌟 らくらく数学</h1>
+      <div class="subtitle">高卒認定 対策アプリ</div>
     </div>
   </div>
-
-  <div class="home-progress">
-    <div class="hp-row">
-      <span class="hp-label">学習の進み具合</span>
-      <span class="hp-pct" id="hp-pct">0%</span>
+  <div class="scroll-area">
+    <div class="hero-card">
+      <h2>むずかしくない！<br>いっしょにやってみよう</h2>
+      <p>高卒認定の数学、よく出るところだけ集めました。<br>単元をタップして始めよう！</p>
     </div>
-    <div class="hp-bar"><div class="hp-fill" id="hp-fill" style="width:0%"></div></div>
-    <div class="hp-sub" id="hp-sub">まだ始まっていません。一番上の単元からどうぞ！</div>
-  </div>
-
-  <div class="section-label">📚 頻出5分野（上から順番に学ぶのがおすすめ）</div>
-  <div class="units" id="unit-list"></div>
-
-  <div class="tip-card">
-    <div class="tip-title">📌 試験のポイント</div>
-    <div class="tip-body">高卒認定の数学は<strong>100点満点・40〜45点前後で合格</strong>が目安。全部完璧にしなくてOK。この5分野を押さえるだけで合格圏が見えてきます。</div>
+    <div class="section-label">📚 単元を選ぼう</div>
+    <div class="unit-grid" id="unit-list"></div>
   </div>
 </div>
 
-<!-- ============================== UNIT ============================== -->
-<div id="s-unit" class="screen">
-  <div class="unit-header">
+<!-- ═══ SCREEN: UNIT (problem list) ═══ -->
+<div id="unit" class="screen">
+  <div class="header">
     <button class="back-btn" onclick="goHome()">←</button>
-    <div class="uh-info">
-      <div class="uh-title" id="uh-title">単元</div>
-      <div class="uh-sub" id="uh-sub">解説を読んで、練習問題を解こう</div>
+    <div class="header-info">
+      <h1 id="unit-title">単元名</h1>
+      <div class="subtitle" id="unit-subtitle"></div>
     </div>
   </div>
-  <div class="lesson-wrap" id="lesson-content"></div>
+  <div class="scroll-area">
+    <div class="unit-desc-card" id="unit-desc">説明</div>
+    <button class="intro-btn" id="intro-btn" onclick="openIntro()">
+      📖 まずここから読もう！基礎から解説
+    </button>
+    <div class="problem-list" id="problem-list"></div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN: PROBLEM DETAIL ═══ -->
+<div id="detail" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="goUnit()">←</button>
+    <div class="header-info">
+      <h1 id="detail-unit-name">単元名</h1>
+      <div class="subtitle" id="detail-progress">問題 1 / 10</div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-fill"></div></div>
+  <div class="scroll-area">
+    <div class="problem-card">
+      <div class="qlabel" id="detail-pnum">問題 1</div>
+      <div class="qtext" id="detail-q">問題文</div>
+      <div class="choices-area" id="choices-area"></div>
+    </div>
+    <button class="reveal-btn" id="reveal-btn" onclick="toggleAnswer()">✨ こたえを見る</button>
+    <div class="answer-area" id="answer-area">
+      <div class="answer-label">✅ こたえ</div>
+      <div class="answer-text" id="detail-answer"></div>
+      <div class="explain-label">💡 やさしい解説</div>
+      <div class="explain-text" id="detail-explain"></div>
+    </div>
+    <div class="nav-btns" id="nav-btns" style="display:none">
+      <button class="nav-btn" id="prev-btn" onclick="prevProblem()">← 前の問題</button>
+      <button class="nav-btn next" id="next-btn" onclick="nextProblem()">次の問題 →</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ SCREEN: INTRO ═══ -->
+<div id="intro" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="goUnit()">←</button>
+    <div class="header-info">
+      <h1 id="intro-unit-name">単元名</h1>
+      <div class="subtitle">まず読もう</div>
+    </div>
+  </div>
+  <div class="scroll-area" id="intro-scroll">
+    <div class="intro-hero" id="intro-hero">
+      <div class="intro-hero-title" id="intro-title"></div>
+    </div>
+    <div id="intro-sections"></div>
+    <button class="start-btn" onclick="goUnit()">✏️ 問題を解いてみる！</button>
+  </div>
 </div>
 
 <script>
-// ============================================================
-// CURRICULUM
-// ============================================================
-const UNITS = [
-{
-  id:'u1', name:'正の数・負の数', sub:'マイナスの計算を基礎から',
-  icon:'±', iconBg:'#fff2ec', iconColor:'#e84c0d', tag:'hot', tagLabel:'超基礎',
-  content: buildUnit1
-},{
-  id:'u2', name:'文字式・展開・因数分解', sub:'xやyを使った計算の全て',
-  icon:'x²', iconBg:'#eaf1fc', iconColor:'#1754a8', tag:'hot', tagLabel:'頻出',
-  content: buildUnit2
-},{
-  id:'u3', name:'方程式を解く', sub:'一次・二次方程式と解の公式',
-  icon:'=', iconBg:'#e9f6ef', iconColor:'#167a42', tag:'imp', tagLabel:'重要',
-  content: buildUnit3
-},{
-  id:'u4', name:'関数とグラフ', sub:'一次・二次関数・頂点・平方完成',
-  icon:'f(x)', iconBg:'#fdf5e0', iconColor:'#b87800', tag:'imp', tagLabel:'重要',
-  content: buildUnit4
-},{
-  id:'u5', name:'図形・確率・データ', sub:'三平方・余弦定理・確率・統計',
-  icon:'△', iconBg:'#f0edfb', iconColor:'#5e35b1', tag:'hot', tagLabel:'頻出',
-  content: buildUnit5
-}];
+const DATA = {
+  units: [
+    {
+      unitName: "数と式の計算",
+      icon: "🔢",
+      color: "#FFF3E0",
+      iconBg: "#FF8A65",
+      hot: true,
+      desc: "足し算・引き算・掛け算・割り算のルールを使って式を整理する問題です。「数を文字（x や y）で表す」のが数学の基本！",
+      intro: {"title":"「文字」って何のためにあるの？","sections":[{"heading":"🤔 そもそも「x」って何？","body":"数学に出てくる「x」や「a」などの文字は、「まだわからない数」や「どんな数でも入る箱」のことです。\n\nたとえば「リンゴが何個かあって、3個食べたら残りは？」という問題。個数がわからないとき、とりあえず「x個」と呼ぶことにします。すると「残り＝x－3個」と書けます。\n\nxに10を入れれば10－3＝7個、xに20を入れれば20－3＝17個。1つの式でいろんな場合に対応できる、それが文字式の便利さです！"},{"heading":"📝 基本のルール3つ","body":"①【同じ文字は足せる】\n3x＋2x＝5x（リンゴ3個＋リンゴ2個＝5個と同じ）\n3x＋2y はそのまま（リンゴとミカンは別）\n\n②【カッコの外の数は中全員にかける】\n2(x＋3)＝2x＋6\n「2倍の袋に入れる」イメージ。袋ごと2倍するから中身も全部2倍。\n\n③【マイナスのかけ算】\n(－)×(－)＝(＋)　マイナスが2回→プラス\n(＋)×(－)＝(－)　マイナスが1回→マイナス"},{"heading":"⚡ よくある間違い","body":"❌ 3x＋2y＝5xy　→　文字が違うので足せません！\n❌ 2(x＋3)＝2x＋3　→　3にも2をかけます！2x＋6が正解\n❌ (－2)²＝－4　→　(－2)×(－2)＝＋4が正解！"}]},
+      problems: [
+        {
+          question: "3x + 2x を計算しなさい。",
+          type: "calc",
+          choices: ["5x²", "6x", "x", "5x"],
+          answer: "5x",
+          explanation: "① 「x（エックス）」は「何かの数」を表す箱です。\n② 3x は「xが3個」、2x は「xが2個」という意味。\n③ リンゴ3個＋リンゴ2個＝5個と同じ。3x＋2x＝5x\n⚠️ 3x＋2y は足せない！x箱とy箱は別物です。\n💡 同じ文字のものだけ足せる。違う文字はそのまま！"
+        },
+        {
+          question: "2(x + 3) を展開しなさい。",
+          type: "calc",
+          choices: ["2x + 5", "x + 6", "2x + 3", "2x + 6"],
+          answer: "2x + 6",
+          explanation: "① 2（カッコの外）を中の「x」と「3」全員にかけます。\n② 2×x＝2x、2×3＝6\n③ だから 2(x＋3)＝2x＋6\n⚠️ カッコの中の全員に配ること。1人でも忘れずに！\n💡 「分配法則」＝袋の外の数を中全員に配る！"
+        },
+        {
+          question: "x² + 5x + 6 を因数分解しなさい。",
+          type: "calc",
+          choices: ["(x+1)(x+6)", "(x-2)(x-3)", "(x+2)(x+4)", "(x+2)(x+3)"],
+          answer: "(x+2)(x+3)",
+          explanation: "① かけて6、足して5になる2数を探す。\n② 2×3＝6、2＋3＝5 → 見つけた！\n③ x²＋5x＋6＝(x＋2)(x＋3)\n⚠️ 符号（＋－）を慎重に。マイナスがある場合は注意！\n💡 因数分解＝「かけると○、足すと○」の2数探しゲーム！"
+        },
+        {
+          question: "(x+3)² を展開しなさい。",
+          type: "calc",
+          choices: ["x² + 6x + 9", "x² + 3x + 9", "x² + 9", "x² + 6x + 6"],
+          answer: "x² + 6x + 9",
+          explanation: "① (x＋3)²＝(x＋3)×(x＋3)と展開。\n② 公式 (a＋b)²＝a²＋2ab＋b²を使う。\n③ x²＋2×x×3＋3²＝x²＋6x＋9\n⚠️ 真ん中の2ab（今回は6x）を忘れがち！\n💡 正方形の面積図で考えると公式の意味がわかる！"
+        },
+        {
+          question: "√12 を簡単にしなさい。",
+          type: "calc",
+          choices: ["3√2", "4√3", "2√6", "2√3"],
+          answer: "2√3",
+          explanation: "① 12＝4×3に分ける。\n② √4＝2なので外に出せる。\n③ √12＝2√3\n⚠️「外に出せる」のは2乗の数だけ（4,9,16,25...）。\n💡 ルートの中を「2乗できる数×残り」に分けよう！"
+        },
+        {
+          question: "りんごが x 個あります。5個食べたら残りは何個ですか？",
+          type: "word",
+          choices: ["x - 5", "5 - x", "5x", "x + 5"],
+          answer: "x - 5",
+          explanation: "① x個持っていて5個減る。\n② x－5個が残る。\n③ 例：x＝10なら 10－5＝5個残り。\n⚠️「食べた」「使った」「減った」は引き算のサイン。\n💡 文章を「最初」「変化」「残り」の3つに分けよう！"
+        },
+        {
+          question: "a = 3、b = -2 のとき、a² + b の値を求めなさい。",
+          type: "calc",
+          choices: ["5", "11", "7", "13"],
+          answer: "7",
+          explanation: "① a＝3を代入：3²＝3×3＝9\n② b＝－2なので 9＋(－2)＝9－2＝7\n③ マイナスを足す＝引き算と同じ！\n⚠️ 代入はカッコをつけると安全。(3)²のように。\n💡 代入＝文字の枠に数を「はめ込む」作業！"
+        },
+        {
+          question: "1/2 + 1/3 を計算しなさい。",
+          type: "calc",
+          choices: ["5/6", "2/6", "2/5", "1/5"],
+          answer: "5/6",
+          explanation: "① 2と3の最小公倍数は6。分母を6にそろえる。\n② 1/2＝3/6、1/3＝2/6\n③ 3/6＋2/6＝5/6\n⚠️ 分母が違うまま足すのはNG！\n💡 通分＝ピザのスライスサイズをそろえてから足す！"
+        },
+        {
+          question: "(-2)³ の値を求めなさい。",
+          type: "calc",
+          choices: ["-8", "-6", "8", "6"],
+          answer: "-8",
+          explanation: "① (－2)³＝(－2)×(－2)×(－2)\n② まず前2つ：(－2)×(－2)＝＋4\n③ 4×(－2)＝－8\n⚠️ マイナスを奇数回かけ→マイナス。偶数回→プラス。\n💡 「マイナスは1回かけるたびに＋と－が入れ替わる」！"
+        },
+        {
+          question: "2x - 4 = 0 を x について解きなさい。",
+          type: "calc",
+          choices: ["x = 4", "x = -2", "x = 1", "x = 2"],
+          answer: "x = 2",
+          explanation: "① 天秤のバランスを保ちながら変形。\n② 両辺に4を足す：2x＝4\n③ 両辺を2で割る：x＝2\n⚠️ 片方に操作したら、必ず反対側にも同じ操作！\n💡 方程式は天秤。どちらも同じ操作でバランスを守る！"
+        }
+      ]
+    },
+    {
+      unitName: "方程式・不等式",
+      icon: "⚖️",
+      color: "#E8F5E9",
+      iconBg: "#66BB6A",
+      hot: true,
+      desc: "「x は何か？」を求める計算です。天秤のようにバランスを保ちながら x を一方に集めます。",
+      intro: {"title":"「x＝？」を求めるってどういうこと？","sections":[{"heading":"🤔 方程式って何？","body":"「3x＋6＝0」のような式を「方程式」といいます。「xにどんな数を入れると左右が等しくなるか？」を求めるのが方程式を解くということです。\n\n天秤（てんびん）をイメージしてください。左の皿と右の皿がつり合っている状態が「＝」です。両側に同じ操作をすれば天秤はつり合ったまま。これが方程式の基本ルールです。"},{"heading":"📝 解き方の手順","body":"【ゴール】xだけを左側に残す！\n\n①「xの邪魔な数」を両辺に足したり引いたりして右に移す\n　例：2x－4＝0 → 両辺に4を足す → 2x＝4\n\n②xの係数（xにかかっている数）で両辺を割る\n　例：2x＝4 → 両辺を2で割る → x＝2\n\n③答えを元の式に代入して確認する\n　例：2×2－4＝0 ✓"},{"heading":"⚡ 不等式は方程式とほぼ同じ、でも1つだけ注意","body":"「2x＞4」のような式を「不等式」といいます。解き方は方程式とほぼ同じですが、1つだけ大事なルールがあります。\n\n⚠️ マイナスの数で割るとき、不等号の向きが逆になる！\n例：－x＞2 → 両辺を(－1)で割る → x＜－2（向きが逆！）\n\nこれ以外は方程式と同じように解けます。"}]},
+      problems: [
+        {
+          question: "3x + 6 = 0 を解きなさい。",
+          type: "calc",
+          choices: ["x = -6", "x = 2", "x = 6", "x = -2"],
+          answer: "x = -2",
+          explanation: "① 両辺から6を引く：3x＝－6\n② 両辺を3で割る：x＝－2\n③ 確認：3×(－2)＋6＝－6＋6＝0 ✓\n⚠️ マイナスの答えもOK。確認計算で間違いを防ごう！\n💡 xを左・数字を右に集めていくのが方程式の基本！"
+        },
+        {
+          question: "x² - 4 = 0 を解きなさい。",
+          type: "calc",
+          choices: ["x = 4", "x = ±4", "x = 2", "x = ±2"],
+          answer: "x = ±2",
+          explanation: "① x²＝4 の形に変形。\n② 2乗して4になる数はプラスとマイナスの2つ。\n③ x＝±2\n⚠️ 2乗の方程式では±（プラスマイナス）を忘れずに！\n💡 ±（プラスマイナス）は「両方ある」という記号！"
+        },
+        {
+          question: "x² - 5x + 6 = 0 を解きなさい。",
+          type: "calc",
+          choices: ["x = 2, -3", "x = -2, -3", "x = 2, 3", "x = 1, 6"],
+          answer: "x = 2, 3",
+          explanation: "① 因数分解：(x－2)(x－3)＝0\n② かけて0なら少なくとも一方が0。\n③ x＝2 または x＝3\n⚠️ 二次方程式の解は2つあることが多い！両方書く。\n💡 AとBをかけて0 → AかBがゼロ。これが解の根拠！"
+        },
+        {
+          question: "解の公式を使って x² - 2x - 3 = 0 を解きなさい。",
+          type: "calc",
+          choices: ["x = -3, 1", "x = -3, -1", "x = 3, 1", "x = 3, -1"],
+          answer: "x = 3, -1",
+          explanation: "① a＝1, b＝－2, c＝－3を代入。\n② b²－4ac＝4＋12＝16。√16＝4。\n③ x＝(2±4)/2 → x＝3 または x＝－1\n⚠️ bがマイナスなら「－b」はプラスになる！\n💡 解の公式は丸暗記！これ1つでどんな2次方程式も解ける。"
+        },
+        {
+          question: "2x + 3 > 7 を解きなさい（xの範囲を求めなさい）。",
+          type: "calc",
+          choices: ["x > 2", "x > 5", "x > 4", "x < 2"],
+          answer: "x > 2",
+          explanation: "① 両辺から3を引く：2x＞4\n② 両辺を2で割る：x＞2\n③ x＞2は「2より大きい数すべて」\n⚠️ マイナスで割るときだけ不等号が逆向きになる！\n💡 数直線で「○（含まない）」「●（含む）」を使うと視覚的にわかりやすい！"
+        },
+        {
+          question: "連立方程式：x + y = 5、x - y = 1 を解きなさい。",
+          type: "calc",
+          choices: ["x=1, y=4", "x=3, y=2", "x=4, y=1", "x=2, y=3"],
+          answer: "x=3, y=2",
+          explanation: "① 2式を足してyを消す：2x＝6 → x＝3\n② x＝3を代入：y＝2\n③ 解：x＝3, y＝2\n⚠️ 足してもyが消えないときは引き算を試そう！\n💡 連立方程式の解はグラフの「交点」の座標！"
+        },
+        {
+          question: "1個100円のリンゴと1個80円のミカンを合わせて10個買い、900円払いました。リンゴは何個買いましたか？",
+          type: "word",
+          choices: ["4個", "3個", "6個", "5個"],
+          answer: "5個",
+          explanation: "① リンゴをx個とするとミカンは(10－x)個。\n② 100x＋80(10－x)＝900\n③ 20x＝100 → x＝5個\n⚠️「何をxにするか」を最初に決めることが大切！\n💡 文章問題は「2つの条件→2つの式」を立てるのが基本！"
+        },
+        {
+          question: "判別式 D = b² - 4ac で、x² + 2x + 3 = 0 の判別式の値は？",
+          type: "calc",
+          choices: ["8", "-16", "-8", "16"],
+          answer: "-8",
+          explanation: "① a=1, b=2, c=3 で D＝4－12＝－8\n② D＜0 なので実数解なし。\n③ グラフはU字でx軸より上に浮いている。\n⚠️ D>0→2解、D=0→1解（重解）、D<0→実数解なし。\n💡 判別式はグラフがx軸に「何回触るか」を表す道具！"
+        },
+        {
+          question: "-3 < x ≤ 2 の整数解をすべて求めなさい。",
+          type: "calc",
+          choices: ["-3, -2, -1, 0, 1", "-2, -1, 0, 1", "-3, -2, -1, 0, 1, 2", "-2, -1, 0, 1, 2"],
+          answer: "-2, -1, 0, 1, 2",
+          explanation: "① ＜は端を含まない（－3は×）。\n② ≦は端を含む（2はOK）。\n③ 整数：－2, －1, 0, 1, 2 の5つ。\n⚠️ ＜と≦の違いに注意！数直線を書くと確実。\n💡 ○（含まない）と●（含む）で数直線に印をつけよう！"
+        },
+        {
+          question: "ある数の3倍から5を引くと10になります。この数を求めなさい。",
+          type: "word",
+          choices: ["5", "4", "6", "3"],
+          answer: "5",
+          explanation: "① 3x－5＝10\n② 3x＝15\n③ x＝5\n⚠️ 「○倍」→×、「引く」→－、「なる」→＝で翻訳！\n💡 文章→数式の翻訳パターンを覚えると文章問題が解きやすくなる！"
+        }
+      ]
+    },
+    {
+      unitName: "関数とグラフ",
+      icon: "📈",
+      color: "#E3F2FD",
+      iconBg: "#42A5F5",
+      hot: true,
+      desc: "x が変わると y がどう変わるかを表すのが「関数」です。グラフを読む問題が多く出ます。",
+      intro: {"title":"グラフって何を表しているの？","sections":[{"heading":"🤔 「関数」って何？","body":"「xが決まるとyが決まる」関係を「関数」といいます。\n\n自動販売機に例えると：\n・お金（x）を入れると\n・ジュース（y）が出てくる\nxを入れると自動的にyが決まる、それが関数です。\n\n「y＝2x＋1」なら、x＝1を入れるとy＝3、x＝2を入れるとy＝5が出てくる機械です。"},{"heading":"📝 グラフの読み方","body":"グラフは「xとyの関係を絵にしたもの」です。\n\n【直線グラフ y＝ax＋b】\n・a（傾き）＝直線の急さ。xが1増えるとyがa増える\n・b（切片）＝y軸との交わる高さ（x＝0のときのy）\n・aがプラスなら右上がり、マイナスなら右下がり\n\n【曲線グラフ y＝ax²】\n・放物線（ほうぶつせん）というU字型の曲線\n・a＞0なら上向きU字、a＜0なら下向き山型"},{"heading":"⚡ グラフ問題の解き方","body":"「x＝○のときyは？」→ xの数字を式に代入するだけ！\n\n「2点を通る直線は？」→ 傾き＝(yの変化)÷(xの変化) を計算\n\n「2つのグラフの交点は？」→ 2つの式を連立方程式として解く\n\n焦らず「今何を求めているか」を確認してから解き始めましょう！"}]},
+      problems: [
+        {
+          question: "y = 2x + 1 のグラフの傾きと切片を求めなさい。",
+          type: "func",
+          choices: ["傾き2、切片1", "傾き2、切片-1", "傾き-2、切片1", "傾き1、切片2"],
+          answer: "傾き2、切片1",
+          explanation: "① y＝ax＋b の a が傾き、b が切片。\n② 傾き2＝「xが1増えるとyが2増える」急さ。\n③ 切片1＝「x＝0のときy＝1」y軸との交点。\n⚠️ 傾きが大きいほどグラフが急（立ちぎみ）になる。\n💡 傾き＝グラフの「急さ」、切片＝y軸との「交わる高さ」！"
+        },
+        {
+          question: "y = x² のグラフはどんな形ですか？",
+          type: "func",
+          choices: ["U字型（放物線）", "逆U字型", "S字型", "直線"],
+          answer: "U字型（放物線）",
+          explanation: "① x=-2→y=4, x=-1→y=1, x=0→y=0...と点を打つとU字になる。\n② ボールを投げたときの軌道と同じ形！\n③ a>0なら上向きU字、a<0なら下向き山型。\n⚠️ 直線ではなく曲線（放物線）になるのが特徴。\n💡 放物線はy軸を鏡にして左右対称。これが特徴！"
+        },
+        {
+          question: "y = 3x - 2 で x = 2 のときの y の値を求めなさい。",
+          type: "func",
+          choices: ["6", "2", "8", "4"],
+          answer: "4",
+          explanation: "① x＝2を式に入れる（代入）。\n② y＝3×2－2＝6－2＝4\n③ かけ算を先に、足し算・引き算を後に計算。\n⚠️ 計算の順序：×÷を先に、＋－を後に！\n💡 関数は「x（入力）→計算→y（出力）の機械」！"
+        },
+        {
+          question: "2点 (0, 1) と (2, 5) を通る直線の式を求めなさい。",
+          type: "func",
+          choices: ["y = 2x + 3", "y = x + 1", "y = 2x + 1", "y = 3x + 1"],
+          answer: "y = 2x + 1",
+          explanation: "① 傾き＝(yの変化)÷(xの変化)＝4÷2＝2\n② y＝2x＋b に(0,1)を代入→b＝1\n③ y＝2x＋1\n⚠️ 傾き＝縦の変化÷横の変化。逆にしないよう！\n💡 2点から「急さ（傾き）」を計算してから直線の式を作る！"
+        },
+        {
+          question: "y = x² - 4 のグラフの頂点の座標は？",
+          type: "func",
+          choices: ["(4, 0)", "(0, -4)", "(0, 4)", "(-4, 0)"],
+          answer: "(0, -4)",
+          explanation: "① y＝x²の頂点は(0,0)。\n② y＝x²－4は下に4移動したもの。\n③ 頂点は(0,－4)。\n⚠️ y＝(x-p)²+q の頂点は(p,q)。符号に注意！\n💡 グラフの移動は「頂点の座標が動く」と考えよう！"
+        },
+        {
+          question: "y = 1/x（反比例）で x = 2 のとき y の値は？",
+          type: "func",
+          choices: ["2", "1", "1/2", "-2"],
+          answer: "1/2",
+          explanation: "① y＝1/x にx＝2を代入。\n② y＝1÷2＝1/2\n③ x×y＝2×(1/2)＝1（一定）\n⚠️ x＝0のときは値が存在しない（0で割れない）。\n💡 反比例のグラフは「双曲線（そうきょくせん）」。2本の曲線が特徴！"
+        },
+        {
+          question: "y = 2x² の変化の割合を x が 1 から 3 に変化するとき求めなさい。",
+          type: "func",
+          choices: ["16", "6", "4", "8"],
+          answer: "8",
+          explanation: "① x:1→3のとき y:2→18\n② (yの変化量)÷(xの変化量)＝16÷2＝8\n③ 一次関数なら変化の割合は一定、二次関数では変わる。\n⚠️ 「変化の割合」は「平均の傾き」。区間によって変わる。\n💡 変化の割合＝2点間の「平均の急さ（傾き）」！"
+        },
+        {
+          question: "グラフが点 (2, 3) を通る比例式 y = ax の a の値は？",
+          type: "func",
+          choices: ["2/3", "6", "3/2", "3"],
+          answer: "3/2",
+          explanation: "① y＝ax に(2,3)を代入：3＝a×2\n② a＝3/2\n③ 式：y＝(3/2)x\n⚠️ 比例のグラフは必ず原点(0,0)を通る直線！\n💡 1点の座標がわかれば比例定数aが求まる！"
+        },
+        {
+          question: "y = -x + 4 と y = x の交点を求めなさい。",
+          type: "func",
+          choices: ["(2, 4)", "(4, 4)", "(2, 2)", "(1, 1)"],
+          answer: "(2, 2)",
+          explanation: "① y＝x をy＝－x＋4に代入：x＝－x＋4\n② 2x＝4 → x＝2, y＝2\n③ 交点(2,2)\n⚠️ 交点は「両方の式を同時に満たす点」。\n💡 2直線の交点＝連立方程式を解いて求める！"
+        },
+        {
+          question: "y = x² のグラフで x の値が 2 のとき y の値は？",
+          type: "func",
+          choices: ["4", "2", "8", "16"],
+          answer: "4",
+          explanation: "① x＝2を y＝x² に代入。\n② y＝2²＝4\n③ グラフのx＝2の点の高さが4。\n⚠️ x² は x×x。2²＝4（2×2）、3²＝9（3×3）。\n💡 グラフ読み取り：x軸で値を探して→真上のグラフの高さがy！"
+        }
+      ]
+    },
+    {
+      unitName: "図形と面積・体積",
+      icon: "📐",
+      color: "#F3E5F5",
+      iconBg: "#AB47BC",
+      hot: false,
+      desc: "三角形、円、立体などの図形を計算する問題です。公式を覚えれば怖くない！",
+      intro: {"title":"面積・体積の公式、なぜその式になるの？","sections":[{"heading":"🤔 公式を丸暗記する前に","body":"「なぜその公式になるのか」を知ると忘れにくくなります。\n\n【三角形の面積÷2の理由】\n三角形は、同じ底辺・高さの長方形をちょうど半分にした形です。だから「底辺×高さ÷2」。\n\n【円の面積 πr² の理由】\nπ（パイ）は約3.14の特別な数。円周÷直径を計算するとどんな円でも必ず3.14...になる。この数を使って面積を計算します。"},{"heading":"📝 絶対覚えたい公式まとめ","body":"【面積】\n・三角形＝底辺×高さ÷2\n・長方形＝縦×横\n・円＝π×半径²（πは3.14）\n・台形＝(上底＋下底)×高さ÷2\n\n【体積】\n・直方体（箱型）＝縦×横×高さ\n・円柱＝π×半径²×高さ\n・球＝(4/3)×π×半径³\n\n【ピタゴラスの定理】\n直角三角形で「斜辺²＝他の2辺の2乗の和」\n有名な組み合わせ：3-4-5、5-12-13"},{"heading":"⚡ よくある間違い","body":"❌ 半径と直径を混ぜる\n→ 半径＝中心から端まで。直径＝端から端（半径の2倍）\n\n❌ 高さを斜めの辺で測る\n→ 高さは「底辺から垂直（90°）に上がった長さ」\n\n❌ 面積と体積の単位を混ぜる\n→ 面積はcm²（2乗）、体積はcm³（3乗）"}]},
+      problems: [
+        {
+          question: "底辺6cm、高さ4cmの三角形の面積を求めなさい。",
+          type: "shape",
+          choices: ["10cm²", "12cm²", "8cm²", "24cm²"],
+          answer: "12cm²",
+          explanation: "① 長方形の面積＝底辺×高さ＝6×4＝24\n② 三角形はその半分＝24÷2＝12cm²\n③ 公式：底辺×高さ÷2\n⚠️ 高さは底辺から「垂直」に引いた長さ。斜めの辺ではない！\n💡 三角形は「同じ底辺・高さの長方形の半分」。だから÷2！"
+        },
+        {
+          question: "半径5cmの円の面積を求めなさい。（π = 3.14）",
+          type: "shape",
+          choices: ["78.5cm²", "25cm²", "157cm²", "31.4cm²"],
+          answer: "78.5cm²",
+          explanation: "① 公式：S＝π×r²（πは約3.14）\n② 3.14×5²＝3.14×25＝78.5cm²\n③「パイ・アール二乗」と声に出して覚えよう！\n⚠️ 半径（中心から端）であって直径（端から端）ではない！\n💡 πは「どんな円でも円周÷直径が同じ数（3.14...）」になる不思議な値！"
+        },
+        {
+          question: "直方体（縦3cm、横4cm、高さ5cm）の体積は？",
+          type: "shape",
+          choices: ["60cm³", "47cm³", "120cm³", "30cm³"],
+          answer: "60cm³",
+          explanation: "① 底面積＝3×4＝12cm²\n② 体積＝12×5＝60cm³\n③ 縦×横×高さ で直接計算してもOK。\n⚠️ 面積はcm²（2次元）、体積はcm³（3次元）！\n💡 体積＝底面積×高さ。底をどんどん積み上げるイメージ！"
+        },
+        {
+          question: "斜辺が5cm、一辺が3cmの直角三角形の残りの辺の長さは？",
+          type: "shape",
+          choices: ["3cm", "√34 cm", "4cm", "6cm"],
+          answer: "4cm",
+          explanation: "① c²＝a²＋b²：5²＝3²＋b²\n② 25＝9＋b² → b²＝16 → b＝4\n③ 3,4,5 は有名なセット！\n⚠️ cは必ず「斜辺（一番長い辺）」。直角の向かいの辺！\n💡 3：4：5 を覚えると計算なしで答えが出せる！"
+        },
+        {
+          question: "正三角形の1辺が6cmのとき、周の長さは？",
+          type: "shape",
+          choices: ["12cm", "24cm", "18cm", "6cm"],
+          answer: "18cm",
+          explanation: "① 正三角形の3辺はすべて同じ長さ。\n② 周の長さ＝1辺×辺の数＝6×3＝18cm\n③ フェンスを囲む問題と同じ発想。\n⚠️「正○角形」は全辺・全角が等しい。正方形は4辺。\n💡 周の長さ＝1辺×辺の本数。正n角形なら「1辺×n」！"
+        },
+        {
+          question: "円柱（半径2cm、高さ10cm）の体積は？（π = 3.14）",
+          type: "shape",
+          choices: ["62.8cm³", "251.2cm³", "40cm³", "125.6cm³"],
+          answer: "125.6cm³",
+          explanation: "① 底面積＝π×2²＝3.14×4＝12.56cm²\n② 体積＝12.56×10＝125.6cm³\n③ 「円×高さ」で円柱の体積！\n⚠️ 底面は「円」なのでπr²を使う。\n💡 どんな柱も「体積＝底面積×高さ」。底面の形が変わっても構造は同じ！"
+        },
+        {
+          question: "三平方の定理：直角三角形の2辺が a = 5cm、b = 12cm のとき斜辺 c は？",
+          type: "shape",
+          choices: ["17cm", "13cm", "11cm", "14cm"],
+          answer: "13cm",
+          explanation: "① c²＝5²＋12²＝25＋144＝169\n② c＝√169＝13（13²＝169を知っていると速い！）\n③ 5,12,13 も有名なピタゴラス数。\n⚠️ √169＝13。13×13＝169を覚えておこう。\n💡 3-4-5 と 5-12-13 の2つは試験頻出ペア！セットで覚えよう！"
+        },
+        {
+          question: "扇形の面積（半径6cm、中心角60°）を求めなさい。（π = 3.14）",
+          type: "shape",
+          choices: ["18.84cm²", "37.68cm²", "113.04cm²", "6.28cm²"],
+          answer: "18.84cm²",
+          explanation: "① 扇形＝「円を角度で切り取った形」。\n② 面積＝π×6²×(60/360)＝3.14×36×(1/6)＝18.84\n③ 60°は360°の1/6。ケーキ6等分の1切れ！\n⚠️ 弧の長さも「2πr×(θ/360°)」の公式で求まる。\n💡 扇形の面積＝円の面積×(中心角÷360°)！"
+        },
+        {
+          question: "台形（上底3cm、下底7cm、高さ4cm）の面積は？",
+          type: "shape",
+          choices: ["40cm²", "20cm²", "14cm²", "28cm²"],
+          answer: "20cm²",
+          explanation: "① 台形の面積＝(上底＋下底)×高さ÷2\n② (3＋7)×4÷2＝10×4÷2＝20cm²\n③ ÷2は「上下の平均の長さ」を使うため。\n⚠️ 上底と下底の2つがある。どちらか忘れずに！\n💡 台形の面積＝(上底＋下底)の平均×高さ！"
+        },
+        {
+          question: "球の体積（半径3cm）を求めなさい。（π = 3.14）",
+          type: "shape",
+          choices: ["56.52cm³", "150.72cm³", "37.68cm³", "113.04cm³"],
+          answer: "113.04cm³",
+          explanation: "① 公式：V＝(4/3)×π×r³\n② (4/3)×3.14×3³＝(4/3)×3.14×27＝113.04\n③「よんさんぶんのパイアールさんじょう」と覚える！\n⚠️ r³（3乗）を使う。面積のr²と間違えないよう！\n💡 球の体積公式は丸ごと暗記！(4/3)πr³"
+        }
+      ]
+    },
+    {
+      unitName: "確率",
+      icon: "🎲",
+      color: "#FFF8E1",
+      iconBg: "#FFC107",
+      hot: true,
+      desc: "「何かが起こる確率（可能性の割合）」を求める問題です。サイコロやコイン投げが定番！",
+      intro: {"title":"確率って「何回に1回起きるか」のこと","sections":[{"heading":"🤔 確率って何？","body":"確率は「あることが起きやすさ」を0から1の数で表したものです。\n\n・0に近いほど「ほとんど起きない」\n・1に近いほど「ほぼ必ず起きる」\n・0.5（＝1/2）なら「2回に1回くらい起きる」\n\nコインを投げて表が出る確率は1/2。サイコロで1の目が出る確率は1/6。これが確率の基本イメージです。"},{"heading":"📝 計算の基本","body":"確率＝（求めたい場合の数）÷（全体の場合の数）\n\n【例】サイコロで3の目が出る確率\n・全体：1,2,3,4,5,6の6通り\n・求めたい場合：「3」だけの1通り\n・確率＝1÷6＝1/6\n\n【例】赤玉3個・白玉2個の袋から1個引いて赤が出る確率\n・全体：3＋2＝5個\n・求めたい場合：赤の3個\n・確率＝3÷5＝3/5"},{"heading":"⚡ これだけは覚えて！","body":"①「全体の数」を正確に数える（これが一番大事）\n\n②「〜でない確率」は 1－（〜の確率）で求まる\n例：当たらない確率＝1－当たる確率\n\n③確率は必ず0以上1以下。2とか－0.5になったら計算ミス！\n\n④迷ったら全パターンを書き出す。「樹形図（えだわかれ図）」を書くと漏れが防げる"}]},
+      problems: [
+        {
+          question: "サイコロを1回振って「3の目」が出る確率は？",
+          type: "word",
+          choices: ["3/6", "1/3", "1/6", "1/2"],
+          answer: "1/6",
+          explanation: "① 全体6通りのうち「3」は1通り。\n② 確率＝1÷6＝1/6\n③ 6回に1回くらいは3が出る計算（保証はない）。\n⚠️ 確率は0以上1以下。0＝絶対起きない、1＝必ず起きる。\n💡 確率＝（求めたい場合）÷（全体の場合）！"
+        },
+        {
+          question: "コインを投げて表が出る確率は？",
+          type: "word",
+          choices: ["2/3", "1/3", "1/2", "1/4"],
+          answer: "1/2",
+          explanation: "① コインは「表か裏」の2通り。\n② 「表」は1通りなので確率＝1/2\n③ 1/2＝50%。2回投げれば1回くらい表が出る目安。\n⚠️ 裏が10回続いても、次に表が出る確率はやはり1/2！\n💡 コインに「記憶」はない。過去の結果は次の確率に関係しない！"
+        },
+        {
+          question: "赤玉3個、白玉2個の袋から1個取り出すとき、赤玉の確率は？",
+          type: "word",
+          choices: ["2/3", "2/5", "1/3", "3/5"],
+          answer: "3/5",
+          explanation: "① 全部＝赤3＋白2＝5個。\n② 赤を取る確率＝3÷5＝3/5\n③ もし全部赤なら確率は5/5＝1（必ず赤）。\n⚠️ 分母は「赤だけの数」ではなく「全部の数」！\n💡 確率の分母＝「全部の数」。分子＝「求めたい結果の数」！"
+        },
+        {
+          question: "サイコロで偶数の目が出る確率は？",
+          type: "word",
+          choices: ["1/6", "1/2", "2/3", "1/3"],
+          answer: "1/2",
+          explanation: "① 偶数の目：2,4,6の3通り。\n② 確率＝3÷6＝1/2\n③ 1〜6のうち半分（3個）が偶数なのでちょうど1/2。\n⚠️ 0も偶数だがサイコロに0の目はない。\n💡 偶数はちょうど半分なので確率は1/2！"
+        },
+        {
+          question: "2枚のコインを投げたとき「2枚とも表」になる確率は？",
+          type: "word",
+          choices: ["1/2", "1/4", "3/4", "1/3"],
+          answer: "1/4",
+          explanation: "① 全体4通り。「2枚とも表」は1通り。\n② 確率＝1÷4＝1/4\n③「表裏」と「裏表」は別のパターン！\n⚠️ コインに区別がなくても「1枚目・2枚目」と区別して考える！\n💡 樹形図（えだわかれ図）を書けば全パターン漏れなく数えられる！"
+        },
+        {
+          question: "1〜10の数字から1つ選ぶとき「3の倍数」が出る確率は？",
+          type: "word",
+          choices: ["1/10", "3/10", "2/5", "1/3"],
+          answer: "3/10",
+          explanation: "① 3の倍数：3×1＝3、3×2＝6、3×3＝9（3×4＝12は10超え）\n② 全体10通り、3の倍数3通り。\n③ 確率＝3÷10＝3/10\n⚠️「10以内」などの範囲をしっかり確認してから数えよう！\n💡 倍数を数えるには「×1,×2,×3...」と順番に書き出すのが確実！"
+        },
+        {
+          question: "ある試験で当たりくじが5本、はずれが15本あります。1本引くとき当たりの確率は？",
+          type: "word",
+          choices: ["5/15", "1/3", "1/5", "1/4"],
+          answer: "1/4",
+          explanation: "① 全体＝5＋15＝20本。\n② 当たりは5本なので確率＝5÷20＝1/4\n③ 1/4＝25%。4人に1人が当たる確率。\n⚠️ 分母は「当たり÷はずれ」ではなく「当たり÷全部」！\n💡 くじ引き確率＝当たりの本数÷全部の本数！"
+        },
+        {
+          question: "A, B, C 3人の中から1人を選ぶとき「Aが選ばれない」確率は？",
+          type: "word",
+          choices: ["1/3", "1/2", "2/3", "3/4"],
+          answer: "2/3",
+          explanation: "① 3人のうちA1人が選ばれる確率＝1/3\n② 選ばれない確率＝1－1/3＝2/3\n③ これを「余事象（よじしょう）」という。\n⚠️ 「〜でない確率」は 1－「〜の確率」で楽に求まる！\n💡 余事象のコツ：直接求めにくい場合に「1から引く」！"
+        },
+        {
+          question: "サイコロを振って5以上の目が出る確率は？",
+          type: "word",
+          choices: ["2/3", "1/3", "1/6", "1/2"],
+          answer: "1/3",
+          explanation: "① 5以上の目：5と6の2通り（5を含む！）\n② 確率＝2÷6＝1/3\n③「以上」＝その数も含む（5も入る）\n⚠️「5より大きい」なら6だけで確率1/6。「以上」と「より大きい」は違う！\n💡「以上・以下」は境界を含む。「より大・より小」は含まない！"
+        },
+        {
+          question: "ジョーカー無し52枚のトランプから1枚引くとき「ハートが出る」確率は？",
+          type: "word",
+          choices: ["1/13", "13/52", "1/52", "1/4"],
+          answer: "1/4",
+          explanation: "① 52枚のうちハートは13枚。\n② 確率＝13÷52＝1/4\n③ どのマークも確率はみんな1/4（25%）。\n⚠️ ジョーカーが入ると全体が54枚になる。問題文で確認！\n💡 トランプは4種類×各13枚の対称構造。どのマークも1/4！"
+        }
+      ]
+    },
+    {
+      unitName: "数列",
+      icon: "🔗",
+      color: "#E8EAF6",
+      iconBg: "#5C6BC0",
+      hot: true,
+      desc: "規則正しく並んだ数の列のパターンを見つける問題です。等差数列・等比数列がよく出ます！",
+      intro: {"title":"数の並び方にはルールがある","sections":[{"heading":"🤔 数列って何？","body":"「1, 3, 5, 7, 9, ...」のように、ルールに従って並んだ数の列を「数列（すうれつ）」といいます。\n\n数列の各数を「項（こう）」と呼びます。最初の数を「初項（しょこう）」、最後の数を「末項（まっこう）」といいます。\n\n高卒認定でよく出るのは2種類だけ：\n①等差数列（とうさすうれつ）＝同じ数ずつ増える\n②等比数列（とうひすうれつ）＝同じ倍率で増える"},{"heading":"📝 2種類の数列","body":"【等差数列】\n例：2, 5, 8, 11, 14, ...\n・毎回3ずつ増える→「公差＝3」\n・第n項＝最初の数＋(n－1)×公差\n・第10項＝2＋9×3＝29\n\n【等比数列】\n例：2, 6, 18, 54, ...\n・毎回3倍になる→「公比＝3」\n・第n項＝最初の数×公比^(n-1)\n・第5項＝2×3⁴＝162"},{"heading":"⚡ 和の公式も覚えよう","body":"等差数列の合計（和）を求める公式があります。\n\n和＝個数×(最初の数＋最後の数)÷2\n\n例：1＋2＋3＋...＋10\n＝10×(1＋10)÷2＝10×11÷2＝55\n\nこれはドイツの数学者ガウスが子どものころ一瞬で解いたと言われている有名な問題！「最初と最後を足すといつも同じ数になる」という仕組みを使っています。"}]},
+      problems: [
+        {
+          question: "等差数列 2, 5, 8, 11, … の第10項を求めなさい。",
+          type: "calc",
+          choices: ["25", "27", "31", "29"],
+          answer: "29",
+          explanation: "① 初項2、公差3の等差数列。\n② 第n項＝2＋(n－1)×3\n③ 第10項＝2＋9×3＝2＋27＝29\n⚠️ (n－1)は「最初から何回増えたか」の回数。第10項は9回増える。\n💡 等差数列の第n項＝最初＋(n－1)×公差。階段の高さを計算するイメージ！"
+        },
+        {
+          question: "等差数列 3, 7, 11, 15, … の公差は？",
+          type: "calc",
+          choices: ["3", "2", "7", "4"],
+          answer: "4",
+          explanation: "① 隣同士の差を計算：7－3＝4、11－7＝4\n② 全部同じ差＝公差！\n③ 公差＝4\n⚠️ 公差が一定でないなら等差数列ではない。\n💡 公差＝「隣との差」。毎回同じなら等差数列！"
+        },
+        {
+          question: "等比数列 2, 6, 18, 54, … の公比は？",
+          type: "calc",
+          choices: ["3", "6", "2", "4"],
+          answer: "3",
+          explanation: "① 隣同士の割り算：6÷2＝3、18÷6＝3\n② 全部同じ比率＝公比！\n③ 公比＝3\n⚠️ 公差は「引き算」、公比は「割り算」。混乱しやすい！\n💡 公比＝「何倍ずつ増えるか」。チェーンメールの仕組みが等比数列！"
+        },
+        {
+          question: "等差数列 1, 4, 7, 10, … の第1項から第5項までの和は？",
+          type: "calc",
+          choices: ["25", "20", "35", "30"],
+          answer: "25",
+          explanation: "① 1,4,7,10,13（第5項＝13）\n② 和の公式：S＝5×(1＋13)÷2＝35\n③ または直接足す：1＋4＋7＋10＋13＝35\n⚠️ まず第5項(13)を求めてから公式を使う！\n💡 和の公式＝個数×(最初＋最後)÷2。ガウスの方法！"
+        },
+        {
+          question: "数列 1, 2, 4, 8, 16, … の第6項は？",
+          type: "calc",
+          choices: ["48", "32", "16", "64"],
+          answer: "32",
+          explanation: "① 公比2の等比数列。初項1。\n② 第n項＝1×2^(n－1)＝2^5＝32\n③ 2^5＝2×2×2×2×2＝32\n⚠️ 第6項なので指数は「6－1＝5」。「n乗」ではなく「(n-1)乗」！\n💡 等比数列は「倍々ゲーム」。第n項は 初項×公比^(n-1)！"
+        },
+        {
+          question: "1から10までの整数の和を求めなさい。",
+          type: "calc",
+          choices: ["55", "60", "50", "45"],
+          answer: "55",
+          explanation: "① 1と10、2と9...を組み合わせると全部11。\n② 5組×11＝55\n③ 公式：S＝10×(1＋10)÷2＝55\n⚠️ この公式は等差数列にしか使えない。公差が一定であることを確認！\n💡 「1＋2＋...＋n＝n(n＋1)/2」はガウスの公式。n＝100なら5050！"
+        },
+        {
+          question: "数列 -3, 0, 3, 6, … の一般項（第n項）を求めなさい。",
+          type: "calc",
+          choices: ["3n - 6", "3n - 3", "3n + 3", "n - 3"],
+          answer: "3n - 6",
+          explanation: "① 初項a₁＝－3、公差d＝3。\n② 第n項＝－3＋(n－1)×3＝3n－6\n③ 確認：n＝1→3×1－6＝－3 ✓\n⚠️ 展開：(n－1)×3＝3n－3。計算ミスに注意！\n💡 一般項はn（何番目か）の式で第n項を表す公式！"
+        },
+        {
+          question: "Σ（シグマ）k＝1から5まで k の和は？",
+          type: "calc",
+          choices: ["10", "20", "25", "15"],
+          answer: "15",
+          explanation: "① Σ（シグマ）はギリシャ文字で「合計」の意味。\n② k＝1から5まで：1＋2＋3＋4＋5\n③ ＝15\n⚠️ Σを見たら「全部足す」と思えばOK。難しくない！\n💡 Σはアルファベットの「S（Sum：合計）」のギリシャ語版。"
+        },
+        {
+          question: "等差数列で初項3、公差4のとき、第20項の値は？",
+          type: "calc",
+          choices: ["83", "71", "75", "79"],
+          answer: "79",
+          explanation: "① 第n項の公式：a₁＋(n－1)×d\n② 3＋(20－1)×4＝3＋76＝79\n③「19回増えた状態」が第20項。\n⚠️ 第20項なのに「×20」ではなく「×19」！最初の3が1番目だから。\n💡 「(n-1)回増えた」＋「最初の数」が第n項。最初の数が1番目！"
+        },
+        {
+          question: "3, □, 12 が等差数列のとき □ に入る数は？",
+          type: "calc",
+          choices: ["9", "7.5", "8", "6"],
+          answer: "7.5",
+          explanation: "① 等差数列の真ん中は両端の平均。\n② (3＋12)÷2＝7.5\n③ 確認：3,7.5,12の差は4.5ずつ ✓\n⚠️ 答えが小数になることもある。整数とは限らない！\n💡 等差数列の間の数＝前後の数の平均！"
+        }
+      ]
+    },
+    {
+      unitName: "三角比",
+      icon: "📏",
+      color: "#E0F7FA",
+      iconBg: "#26C6DA",
+      hot: true,
+      desc: "直角三角形の辺と角度の関係を表す「sin・cos・tan」の計算。角度から辺の長さを求めます。",
+      intro: {"title":"sin・cos・tanって何のためにあるの？","sections":[{"heading":"🤔 三角比って何？","body":"「角度がわかれば辺の長さがわかる」ためのツールが三角比です。\n\n例えば、はしごを壁に立てかけるとき「角度30°で斜辺10mなら、壁の高さは何m？」という計算ができます。\n\nsin（サイン）、cos（コサイン）、tan（タンジェント）の3つが三角比の基本です。直角三角形の「角度」と「辺の長さの比率」の関係を表します。"},{"heading":"📝 3つの定義","body":"直角三角形で、注目する角をθ（シータ）とすると：\n\n・sin θ ＝ 対辺 ÷ 斜辺\n　（θの向かいの辺 ÷ 一番長い辺）\n\n・cos θ ＝ 隣辺 ÷ 斜辺\n　（θのとなりの辺 ÷ 一番長い辺）\n\n・tan θ ＝ 対辺 ÷ 隣辺\n　（θの向かいの辺 ÷ θのとなりの辺）\n\n語呂合わせ：「サインはサイン（sign）」「コサインはコース（cos）」"},{"heading":"⚡ 絶対覚える値（表）","body":"　　　0°　30°　45°　60°　90°\nsin：0　　1/2　√2/2　√3/2　1\ncos：1　　√3/2　√2/2　1/2　0\ntan：0　　1/√3　1　　√3　 ∞\n\n覚え方のコツ：\n・sin30°とcos60°は同じ1/2\n・sin60°とcos30°は同じ√3/2\n・30°と60°でsinとcosが入れ替わる！\n\n超重要公式：sin²θ＋cos²θ＝1（常に！）"}]},
+      problems: [
+        {
+          question: "sin30° の値は？",
+          type: "calc",
+          choices: ["√3/2", "1/√3", "√3", "1/2"],
+          answer: "1/2",
+          explanation: "① sin＝「対辺（向かいの辺）÷斜辺（ナナメの辺）」\n② 30°の三角形の辺比は 1:2:√3（短辺:斜辺:横辺）\n③ sin30°＝1÷2＝1/2\n⚠️ 対辺（斜辺の向かい）と隣辺（斜辺のとなり）を間違えないよう！\n💡 sin30°=1/2、sin60°=√3/2、sin90°=1 を丸暗記！"
+        },
+        {
+          question: "cos60° の値は？",
+          type: "calc",
+          choices: ["1", "√2/2", "1/2", "√3/2"],
+          answer: "1/2",
+          explanation: "① cos＝「隣辺（となりの辺）÷斜辺」\n② 60°の三角形で隣辺＝1、斜辺＝2\n③ cos60°＝1/2（sin30°と同じ値！）\n⚠️ sin30°＝cos60°＝1/2。補角（足して90°）でsinとcosが入れ替わる！\n💡 三角比の表（0°,30°,45°,60°,90°）を一覧で覚えよう！"
+        },
+        {
+          question: "tan45° の値は？",
+          type: "calc",
+          choices: ["√3", "1/2", "1", "1/√3"],
+          answer: "1",
+          explanation: "① tan＝「対辺÷隣辺」\n② 45°の三角形は縦＝横の二等辺三角形（1:1:√2）\n③ tan45°＝1÷1＝1\n⚠️ tan90°は定義不能（÷0になる）。\n💡 tan値はグラフの「傾き」そのもの。y＝axのaと同じ意味！"
+        },
+        {
+          question: "sin² θ + cos² θ の値は？",
+          type: "calc",
+          choices: ["1", "0", "sin²θ", "2"],
+          answer: "1",
+          explanation: "① ピタゴラスの定理 a²＋b²＝c² を c² で割る。\n② cos²θ＋sin²θ＝1（順番が逆でも同じ）\n③ これはどんなθでも必ず成り立つ！\n⚠️ この公式の変形：sin²θ＝1－cos²θも超頻出！\n💡 sin²θ＋cos²θ＝1 は三角関数の「基本公式No.1」。絶対暗記！"
+        },
+        {
+          question: "直角三角形で斜辺 = 10cm、角A = 30° のとき、対辺の長さは？",
+          type: "shape",
+          choices: ["√3cm", "5cm", "10cm", "5√3cm"],
+          answer: "5cm",
+          explanation: "① sin30°＝対辺÷斜辺 なので\n② 対辺＝斜辺×sin30°＝10×(1/2)＝5cm\n③ 角度と斜辺がわかれば他の辺が求まる！\n⚠️ sin＝対辺/斜辺。対辺＝斜辺×sin。式変形をしっかりと！\n💡 三角比の「逆算」：辺を求めるには「斜辺×三角比」！"
+        },
+        {
+          question: "tan θ = 1/√3 のとき θ は？",
+          type: "calc",
+          choices: ["60°", "45°", "30°", "90°"],
+          answer: "30°",
+          explanation: "① tanθ＝1/√3 となる角度を探す。\n② 表から tan30°＝1/√3 なのでθ＝30°\n③ 確認：30°の直角三角形で 対辺1÷隣辺√3 ✓\n⚠️ tan30°=1/√3, tan45°=1, tan60°=√3 の3つを覚える！\n💡 三角比は「値→角度」の逆引きも大事。表を覚えよう！"
+        },
+        {
+          question: "cosθ = √3/2 のとき θ（0°≦θ≦180°）は？",
+          type: "calc",
+          choices: ["60°", "120°", "30°", "150°"],
+          answer: "30°",
+          explanation: "① cos表から cosθ＝√3/2 はθ＝30°\n② 0°〜180°でcosが正（＋）なのは 0°〜90°のみ。\n③ √3/2 > 0 なので鋭角（90°未満）→ θ＝30°\n⚠️ 90°〜180°ではcosがマイナスになる！\n💡 cos値が正→鋭角、cos値が負→鈍角（90°超え）！"
+        },
+        {
+          question: "正弦定理：a/sinA = 2R（Rは外接円の半径）で R=5、sinA=1/2 のとき a は？",
+          type: "calc",
+          choices: ["20", "10", "2.5", "5"],
+          answer: "5",
+          explanation: "① 正弦定理：a/sinA ＝ 2R\n② a＝2R×sinA＝2×5×(1/2)＝5\n③ 外接円の半径Rと辺・角の関係を表す公式。\n⚠️ aは「角Aの向かいの辺」。向かい合う辺と角を使う！\n💡 正弦定理：辺/sinA＝2R。外接円があるときに使う！"
+        },
+        {
+          question: "余弦定理：a² = b² + c² - 2bc cosA で b=3、c=4、A=60°のとき a は？",
+          type: "calc",
+          choices: ["√13", "7", "5", "√7"],
+          answer: "√13",
+          explanation: "① a²＝b²＋c²－2bc cosA\n② ＝9＋16－2×3×4×(1/2)＝25－12＝13\n③ a＝√13\n⚠️ A が90°なら cos90°＝0 でピタゴラスの定理になる！\n💡 余弦定理＝2辺とその挟む角から残りの辺を求める公式！"
+        },
+        {
+          question: "三角形 ABC で A=30°、b=4、c=6 のとき面積は？",
+          type: "shape",
+          choices: ["12", "6", "4√3", "8"],
+          answer: "6",
+          explanation: "① 面積＝(1/2)×4×6×sin30°\n② ＝(1/2)×24×(1/2)＝6cm²\n③ 高さを求めなくても面積が出せる便利な公式！\n⚠️ Aは「bとcに挟まれた角」。向かいの角ではない！\n💡 三角形の面積＝(1/2)bc sinA。2辺と挟む角がある時の必殺技！"
+        }
+      ]
+    },
+    {
+      unitName: "整数と集合",
+      icon: "🔵",
+      color: "#F1F8E9",
+      iconBg: "#8BC34A",
+      hot: false,
+      desc: "素数・約数・倍数・集合（グループ分け）など、数の性質についての問題です。",
+      intro: {"title":"数の仲間分けと「グループ」の話","sections":[{"heading":"🤔 約数・倍数って何だっけ？","body":"【約数】割り切れる数（余りが0になる数）\n例：12の約数→1,2,3,4,6,12\n（12を割り切れる数を全部書き出す）\n\n【倍数】その数を何倍かした数\n例：3の倍数→3,6,9,12,15,...\n\n【最大公約数（GCD）】2つの数の共通の約数のうち最大のもの\n例：12と18の最大公約数→6\n\n【最小公倍数（LCM）】2つの数の共通の倍数のうち最小のもの\n例：4と6の最小公倍数→12"},{"heading":"📝 集合って何？","body":"「集合」は「ものをグループにまとめたもの」です。\n\n例：A＝{1,2,3,4,5}、B＝{3,4,5,6,7}\n\n・A∪B（和集合）＝どちらかに入っている全部\n　→{1,2,3,4,5,6,7}\n\n・A∩B（積集合）＝両方に入っているものだけ\n　→{3,4,5}\n\nベン図（2つの円が重なった絵）を描くと整理しやすいです。重なった部分が∩、全体が∪です。"},{"heading":"⚡ 素数とは？","body":"「1とその数自身でしか割り切れない2以上の整数」が素数です。\n\n素数：2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37...\n※1は素数ではありません！\n\n【素因数分解】数を素数のかけ算で表すこと\n例：12＝2×2×3＝2²×3\n\nやり方：小さい素数（2,3,5,7...）から順に割っていく。割り切れなくなったら次の素数を試す。"}]},
+      problems: [
+        {
+          question: "18 の約数をすべて求めなさい。",
+          type: "calc",
+          choices: ["2,3,6,9", "1,3,6,9,18", "1,2,3,9,18", "1,2,3,6,9,18"],
+          answer: "1,2,3,6,9,18",
+          explanation: "① 18を割り切れる数（余り0）を探す。\n② ペアで探す：1と18、2と9、3と6\n③ 約数：1,2,3,6,9,18 の6個\n⚠️ ペアは「小さいほう×大きいほう＝18」のもの！\n💡 約数はペアで見つかる。√18≒4.2を超えたら小さい方に対応する大きい方も追加！"
+        },
+        {
+          question: "12 と 18 の最大公約数（GCD）は？",
+          type: "calc",
+          choices: ["3", "12", "6", "9"],
+          answer: "6",
+          explanation: "① 12の約数：1,2,3,4,6,12\n② 18の約数：1,2,3,6,9,18\n③ 共通の最大＝6（最大公約数）\n⚠️ 最大公約数は「2つの数で最も大きい共通の割り数」。\n💡 最大公約数＝2つの数を割れる数のうち最大のもの！"
+        },
+        {
+          question: "4 と 6 の最小公倍数（LCM）は？",
+          type: "calc",
+          choices: ["8", "6", "12", "24"],
+          answer: "12",
+          explanation: "① 4の倍数と6の倍数を書き出す。\n② 最初に共通する数＝最小公倍数＝12\n③ 公式：LCM(4,6)＝4×6÷GCD(4,6)＝24÷2＝12\n⚠️ 最小公倍数は「2つの数が共通して持つ倍数の最小」。\n💡 通分（分数の計算）で使うのが最小公倍数！"
+        },
+        {
+          question: "100 以下の素数のうち最大のものは？",
+          type: "calc",
+          choices: ["89", "97", "93", "99"],
+          answer: "97",
+          explanation: "① 97を小さい素数（2,3,5,7...）で割ってみる。\n② どれでも割り切れない → 97は素数。\n③ √97≒9.8 以下の素数だけ調べればOK。\n⚠️ 1は素数ではない！素数は「2以上の整数」が対象。\n💡 素数の調べ方：√n 以下の素数で割って全部余るなら素数！"
+        },
+        {
+          question: "集合 A = {1,2,3,4,5}、B = {3,4,5,6,7} の和集合 A∪B は？",
+          type: "calc",
+          choices: ["{1,2,3,4,5,6,7,8}", "{1,2,3,4,5,6,7}", "{3,4,5}", "{1,2,6,7}"],
+          answer: "{1,2,3,4,5,6,7}",
+          explanation: "① A∪Bは「どちらかに入っている数全部」。\n② 3,4,5はAにもBにもあるが1回だけ書く。\n③ {1,2,3,4,5,6,7}\n⚠️ 重複は1つだけ！{1,2,3,4,5,3,4,5,6,7}は間違い。\n💡 ∪（和集合）はベン図の「全体（両方の輪）」のイメージ！"
+        },
+        {
+          question: "集合 A = {1,2,3,4,5}、B = {3,4,5,6,7} の積集合 A∩B は？",
+          type: "calc",
+          choices: ["{1,2,3,4,5,6,7}", "{5}", "{1,2,6,7}", "{3,4,5}"],
+          answer: "{3,4,5}",
+          explanation: "① A∩Bは「両方に入っている数だけ」。\n② 3,4,5はAにもBにもある！\n③ {3,4,5}\n⚠️ 1,2はAにしかない。6,7はBにしかない。共通のみ！\n💡 ∩（積集合）はベン図の「重なった部分」のイメージ！"
+        },
+        {
+          question: "96 を素因数分解しなさい。",
+          type: "calc",
+          choices: ["2⁴ × 6", "2 × 48", "2³ × 12", "2⁵ × 3"],
+          answer: "2⁵ × 3",
+          explanation: "① 2で割り続ける：96→48→24→12→6→3\n② 2が5回、最後に3が1回。\n③ 96＝2⁵×3\n⚠️ 2で割り切れなくなったら3、次に5,7...と試す！\n💡 素因数分解＝「素数のかけ算で表す」。割り算の木で整理しよう！"
+        },
+        {
+          question: "A={1,2,3,4,5} の補集合（全体集合U={1〜10}）は？",
+          type: "calc",
+          choices: ["{1,2,3,4,5}", "{1,6,7,8,9,10}", "{5,6,7,8,9,10}", "{6,7,8,9,10}"],
+          answer: "{6,7,8,9,10}",
+          explanation: "① 全体U＝{1〜10}からA＝{1〜5}を取り除く。\n② 残り＝{6,7,8,9,10}が補集合。\n③ |補集合|＝10－5＝5個。\n⚠️ 補集合は「全体」によって変わる。Uが変われば補集合も変わる。\n💡 補集合をAᶜと書く。ベン図のAの外側（全体の輪の内側）が補集合！"
+        },
+        {
+          question: "整数 n に対して n(n+1) は必ず何の倍数になりますか？",
+          type: "word",
+          choices: ["2の倍数", "4の倍数", "3の倍数", "5の倍数"],
+          answer: "2の倍数",
+          explanation: "① n と n+1 は「連続する2整数」。\n② どちらかが必ず偶数（2で割れる）。\n③ だからn(n+1)は必ず2の倍数！\n⚠️ 具体例（n＝3: 3×4＝12 ✓）で確認すると理解しやすい。\n💡 連続2整数のかけ算は必ず偶数。「どちらかが必ず偶数」が証明の核心！"
+        },
+        {
+          question: "クラス40人のうち数学が好き25人、理科が好き20人、両方が好き10人。どちらも好きでない人は何人？",
+          type: "word",
+          choices: ["15人", "5人", "20人", "10人"],
+          answer: "5人",
+          explanation: "① 数学or理科＝25＋20－10＝35人（重複を引く）\n② どちらでもない＝40－35＝5人\n③ 「両方」を1回分引くのがポイント！\n⚠️ 「25＋20＝45人」と計算すると、両方好きな10人を2回数えてしまう！\n💡 A∪B＝|A|＋|B|－|A∩B|。重複している「両方」を1回分引く！"
+        }
+      ]
+    },
+    {
+      unitName: "指数・対数",
+      icon: "⚡",
+      color: "#FBE9E7",
+      iconBg: "#FF7043",
+      hot: true,
+      desc: "「2の何乗か？」という指数と、それを逆に求める対数の問題。log（ログ）が登場します！",
+      intro: {"title":"「何乗か」を扱う計算","sections":[{"heading":"🤔 指数って何？","body":"「2³」のように、数の右肩に書いた小さな数を「指数（しすう）」といいます。\n\n2³＝2×2×2＝8（2を3回かける）\n2⁴＝2×2×2×2＝16\n\n身近な例：細菌は1時間に2倍に増えるとすると、3時間後は2³＝8倍。10時間後は2¹⁰＝1024倍！このような「倍々に増える」現象を表すのが指数です。"},{"heading":"📝 指数のルール3つ","body":"①かけ算は指数を足す\n2³×2⁴＝2⁷（3＋4＝7）\n\n②割り算は指数を引く\n2⁵÷2²＝2³（5－2＝3）\n\n③累乗の累乗は指数をかける\n(2³)²＝2⁶（3×2＝6）\n\n特別なルール：\n・a⁰＝1（どんな数の0乗も1）\n・a⁻ⁿ＝1/aⁿ（マイナスは逆数）\n・a^(1/2)＝√a（1/2乗はルート）"},{"heading":"⚡ 対数（log）って何？","body":"log（ログ）は指数の「逆算」です。\n\n「2の何乗が8か？」→ log₂8＝3（答えは3）\n\n式で表すと：\n2³＝8　←→　log₂8＝3\n（この2つは同じ意味！）\n\nlogの計算ルール：\n・logₐM＋logₐN＝logₐ(MN)（足し算→中身の掛け算）\n・logₐM－logₐN＝logₐ(M÷N)（引き算→中身の割り算）\n・n×logₐM＝logₐ(Mⁿ)（かけ算→中身のn乗）"}]},
+      problems: [
+        {
+          question: "2³ × 2⁴ = ？",
+          type: "calc",
+          choices: ["4⁷", "2⁷", "2⁶", "2¹²"],
+          answer: "2⁷",
+          explanation: "① 同じ底（2）の掛け算は指数を足す。\n② 2³×2⁴＝2^(3+4)＝2⁷\n③ 2⁷＝128（実際に計算して確認OK）\n⚠️ 底が違う（2³×3²など）ときはこの法則は使えない！\n💡 同じ底の掛け算→指数を足す。aⁿ×aᵐ＝a^(n+m)！"
+        },
+        {
+          question: "(2³)² = ？",
+          type: "calc",
+          choices: ["2⁶", "4⁶", "2⁵", "2⁹"],
+          answer: "2⁶",
+          explanation: "① カッコ内の指数×カッコ外の指数\n② (2³)²＝2^(3×2)＝2⁶\n③ 2⁶＝64（確認：2³＝8、8²＝64 ✓）\n⚠️ (2³)²＝2^6 ≠ 2^(3²)＝2^9。カッコが大事！\n💡 累乗の累乗は指数をかける。(aⁿ)ᵐ＝a^(nm)！"
+        },
+        {
+          question: "2⁻³ の値は？",
+          type: "calc",
+          choices: ["1/8", "-6", "-8", "1/6"],
+          answer: "1/8",
+          explanation: "① 2⁻³＝1÷2³＝1÷8＝1/8\n② 指数が1つ減るたびに÷2していく。\n③ マイナス指数＝「逆数（ひっくり返す）」。\n⚠️ 2⁻³＝－8ではない！マイナスは指数についている。\n💡 a⁻ⁿ＝1/aⁿ。マイナス指数＝分数で表す！"
+        },
+        {
+          question: "log₂8 の値は？",
+          type: "calc",
+          choices: ["2", "8", "3", "4"],
+          answer: "3",
+          explanation: "① log₂8は「2を何乗すると8か？」\n② 2¹=2, 2²=4, 2³=8 → 3乗でOK！\n③ log₂8＝3\n⚠️ logₐb の「a（底）」と「b（真数）」を混乱しないよう！\n💡 指数が「aのn乗＝b」なら logₐb＝n。log＝指数の逆算！"
+        },
+        {
+          question: "log₁₀100 の値は？",
+          type: "calc",
+          choices: ["1", "100", "2", "10"],
+          answer: "2",
+          explanation: "① log₁₀100は「10を何乗すると100か？」\n② 10²＝100 なので log₁₀100＝2\n③ 底が10のlogを「常用対数」という。\n⚠️ 底が10のlogは省略して「log 100」と書くこともある。\n💡 常用対数のlog値≒その数の桁数－1。電卓のlogボタンも底10！"
+        },
+        {
+          question: "log₂4 + log₂8 = ？",
+          type: "calc",
+          choices: ["32", "6", "5", "2"],
+          answer: "5",
+          explanation: "① log₂4＝2（2²=4）、log₂8＝3（2³=8）\n② 2＋3＝5（または log₂32＝5）\n③ 公式：logₐM＋logₐN＝logₐ(MN)\n⚠️ 底（2）が同じときだけこの公式が使える！\n💡 logの足し算→中身の掛け算。logは掛け算を足し算に変える魔法！"
+        },
+        {
+          question: "√8 を指数の形で表すと？",
+          type: "calc",
+          choices: ["8²", "8^(1/2)", "8^(1/4)", "4^(1/2)"],
+          answer: "8^(1/2)",
+          explanation: "① √a＝a^(1/2)（2乗するとa）\n② √8＝8^(1/2)\n③ 同様に ∛a＝a^(1/3)（3乗するとa）\n⚠️ √は「1/2乗」、∛（立方根）は「1/3乗」。\n💡 ルートは分数の指数。√a＝a^0.5 とも書ける！"
+        },
+        {
+          question: "3⁴ ÷ 3² = ？",
+          type: "calc",
+          choices: ["3⁶", "3⁸", "9²", "3²"],
+          answer: "3²",
+          explanation: "① 同じ底の割り算は指数を引く。\n② 3⁴÷3²＝3^(4-2)＝3²＝9\n③ 実際：81÷9＝9＝3² ✓\n⚠️ 掛け算は指数を足す、割り算は引く。逆にしないよう！\n💡 指数法則：掛け算→足す、割り算→引く、累乗→かける。3つだけ！"
+        },
+        {
+          question: "log₂4 × 2 = ？（意味は 2×log₂4）",
+          type: "calc",
+          choices: ["16", "8", "4", "2"],
+          answer: "4",
+          explanation: "① log₂4の値を求める：2²=4 → log₂4=2\n② 2×log₂4＝2×2＝4\n③ 別解：log₂(4²)＝log₂16＝4（2⁴=16）でも同じ！\n⚠️ nlogₐM＝logₐ(Mⁿ)という公式もある（発展）。\n💡 logの計算はまず「log○○の値は何か？」を先に求めよう！"
+        },
+        {
+          question: "y = 2ˣ で x = 0 のとき y の値は？",
+          type: "func",
+          choices: ["2", "1", "-1", "0"],
+          answer: "1",
+          explanation: "① y＝2ˣにx＝0を代入。\n② y＝2⁰＝1（どんな数の0乗も1！）\n③ グラフはx＝0でy軸と「高さ1」で交わる。\n⚠️ 2⁰は「2をかけない状態」。何もかけていないから1！\n💡 a⁰＝1（aが0以外）。0乗は「かけ算ゼロ回＝何もしない＝1」！"
+        }
+      ]
+    },
+    {
+      unitName: "統計・データ分析",
+      icon: "📊",
+      color: "#E8EAF6",
+      iconBg: "#7E57C2",
+      hot: false,
+      desc: "データの平均・中央値・最頻値・分散などを求める問題。身近なデータを分析します！",
+      intro: {"title":"データを「数字でまとめる」方法","sections":[{"heading":"🤔 統計って何のためにあるの？","body":"「クラス40人のテストの点数」があるとき、40個の数字を全部見ても全体像がわかりません。そこで「平均は何点か」「点数はどのくらいバラバラか」を一言で表す方法が統計です。\n\n統計で使う主な数値：\n・平均（へいきん）：全員が同じ点数だったら何点か\n・中央値（ちゅうおうち）：並べたときの真ん中の値\n・最頻値（さいひんち）：一番多く出てくる値"},{"heading":"📝 3つの「代表値」の違い","body":"例：1, 2, 3, 4, 100 という5つのデータ\n\n・平均＝(1+2+3+4+100)÷5＝22\n・中央値＝3（並べた真ん中）\n・最頻値＝なし（全部1回ずつ）\n\n平均は「100」という外れた値の影響を大きく受けています。「実態に近い値」を知りたいときは中央値の方が参考になることも。\n\nどれが「正しい」のではなく、目的によって使い分けます！"},{"heading":"⚡ バラツキを表す「分散」と「標準偏差」","body":"平均だけでは「みんなが近い点数か、バラバラか」がわかりません。そこで「バラツキ」を数値で表すのが分散と標準偏差です。\n\n分散の計算手順：\n①各データと平均の差を計算\n②その差を2乗する（マイナスを消すため）\n③全部足して個数で割る\n\n標準偏差＝√分散\n（分散の単位を元のデータと合わせるためルートを取る）\n\n標準偏差が小さい＝みんなが平均に近い\n標準偏差が大きい＝データがバラバラ"}]},
+      problems: [
+        {
+          question: "5人のテスト点数：60, 70, 80, 90, 100 の平均は？",
+          type: "calc",
+          choices: ["70点", "80点", "85点", "75点"],
+          answer: "80点",
+          explanation: "① 全部足す：60+70+80+90+100=400\n② 人数で割る：400÷5=80点\n③ 平均は「全員が同じ点数だったら何点か」のイメージ。\n⚠️ 極端な値があると平均は「実感と違う」ことも。\n💡 平均＝合計÷個数。シンプルだが「外れ値に弱い」！"
+        },
+        {
+          question: "データ：3, 5, 7, 9, 11 の中央値（メジアン）は？",
+          type: "calc",
+          choices: ["11", "9", "5", "7"],
+          answer: "7",
+          explanation: "① 小さい順に並べる：3,5,7,9,11\n② 5個なので真ん中は3番目→7\n③ 偶数個なら真ん中2つの平均。\n⚠️ 並べ替えをしてから数えること！順不同では誤答になる。\n💡 中央値は「ちょうど真ん中の人の値」。外れ値に強い！"
+        },
+        {
+          question: "データ：2, 3, 3, 5, 3, 6, 7 の最頻値（モード）は？",
+          type: "calc",
+          choices: ["6", "5", "3", "2"],
+          answer: "3",
+          explanation: "① 各値の出現回数を数える。\n② 3が3回で最多。\n③ 最頻値（モード）＝3\n⚠️ 同数1位が複数ある場合は両方が最頻値。\n💡 最頻値はヒストグラムで「一番背の高い棒」が示す値！"
+        },
+        {
+          question: "データ：4, 6, 8, 10, 12 の分散を求めなさい。（平均=8）",
+          type: "calc",
+          choices: ["8", "16", "6", "4"],
+          answer: "8",
+          explanation: "① 各値と平均(8)の差の2乗：16+4+0+4+16=40\n② 分散＝40÷5＝8\n③ 2乗するのはマイナスを消すため。\n⚠️ 「差」をそのまま足すと正負が打ち消されて0になる！だから2乗する。\n💡 分散＝「平均からの距離の2乗の平均」。大きいほど散らばっている！"
+        },
+        {
+          question: "データ：1, 3, 5, 7, 9 の範囲（レンジ）は？",
+          type: "calc",
+          choices: ["8", "4", "9", "5"],
+          answer: "8",
+          explanation: "① 範囲＝最大値－最小値\n② 9－1＝8\n③ 「データの広がり」をざっくり表す指標。\n⚠️ 範囲だけではデータの詳細はわからない。他の指標も見ること！\n💡 範囲（レンジ）は最もシンプルな「ばらつきの目安」！"
+        },
+        {
+          question: "標準偏差は分散の何に等しい？",
+          type: "calc",
+          choices: ["2倍", "平方根（√）", "2乗", "1/2"],
+          answer: "平方根（√）",
+          explanation: "① 標準偏差＝√分散\n② 分散が「cm²」ならルートで「cm」に戻る。\n③ 標準偏差が小さい＝みんなが平均に近い。\n⚠️ 分散と標準偏差は混乱しやすい。どちらも「ばらつき」だが単位が違う！\n💡 偏差値は「平均50・標準偏差10」に換算したスコア。受験でよく使う！"
+        },
+        {
+          question: "10人の身長（cm）：150,155,160,162,165,168,170,172,175,180。第1四分位数（Q1）に最も近いのは？",
+          type: "calc",
+          choices: ["165cm", "162cm", "155cm", "160cm"],
+          answer: "160cm",
+          explanation: "① 10個を下半分（5個）と上半分（5個）に分ける。\n② 下半分：150,155,160,162,165 の中央値＝160（3番目）\n③ Q1（第1四分位数）＝160cm\n⚠️ Q1は「下半分の中央値」。データ全体の中央値（Q2）と違う！\n💡 箱ひげ図はQ1〜Q3を「箱」で表す統計グラフ。外れ値も見やすい！"
+        },
+        {
+          question: "正規分布（ベルカーブ）の特徴として正しいのは？",
+          type: "word",
+          choices: ["右に偏っている", "山が2つある", "左に偏っている", "平均を中心に左右対称"],
+          answer: "平均を中心に左右対称",
+          explanation: "① 正規分布は「平均を中心に左右対称の釣り鐘型」。\n② 身長・体重・テスト点数などに多い。\n③ 平均±標準偏差の範囲に約68%のデータが入る。\n⚠️ 全てのデータが正規分布になるわけではない。\n💡 ベルカーブの形が見えたら「正規分布」！平均を中心に左右対称！"
+        },
+        {
+          question: "相関係数が -0.9 のとき、2つのデータの関係は？",
+          type: "word",
+          choices: ["弱い負の相関", "強い正の相関", "強い負の相関", "ほぼ無相関"],
+          answer: "強い負の相関",
+          explanation: "① 相関係数は-1〜1の値。\n② -0.9は-1（完全な負の相関）に近い。\n③ 負の相関＝一方が増えると他方が減る関係。\n⚠️ 相関≠因果！「相関がある」だけでは「原因」とは言えない。\n💡 散布図を描くと相関の向きと強さが一目でわかる！"
+        },
+        {
+          question: "ヒストグラムで一番背が高い棒が表すものは？",
+          type: "word",
+          choices: ["中央値", "平均値", "最大値", "最頻値（最も多いデータ）"],
+          answer: "最頻値（最も多いデータ）",
+          explanation: "① 棒の高さ＝そのグループのデータの個数（度数）。\n② 一番高い棒＝一番多くのデータがあるグループ。\n③ これが「最頻値（モード）のグループ」に対応。\n⚠️ ヒストグラムは「範囲（階級）ごと」の棒グラフ。棒の間に隙間がない！\n💡 ヒストグラムで背が高い棒＝データが集まっている場所＝最頻値のある場所！"
+        }
+      ]
+    },
+    {
+      unitName: "複素数と虚数",
+      icon: "🌀",
+      color: "#FCE4EC",
+      iconBg: "#EC407A",
+      hot: false,
+      desc: "「2乗してマイナスになる数」i（虚数単位）を使った計算。難しそうだけどルール通りやれば大丈夫！",
+      intro: {"title":"「存在しない数」が数学を完成させた","sections":[{"heading":"🤔 なぜ虚数が必要なの？","body":"「2乗してマイナスになる数は存在するか？」\n\n普通の数（実数）ではありません。2²＝4、(－2)²＝4、どんな実数を2乗してもマイナスにはなりません。\n\nでも数学者たちは「もし存在したら？」と考えて、「2乗すると－1になる数」をiと定義しました。これが「虚数単位（きょすうたんい）」です。\n\ni²＝－1（これがルール）\n\nこの「想像上の数」が、電気工学・量子力学・コンピュータグラフィックスなど現実の技術に使われています。"},{"heading":"📝 複素数の基本","body":"「実数＋虚数」の形 a＋bi を「複素数（ふくそすう）」といいます。\n\n例：3＋2i、－1＋i、5（＝5＋0i）、3i（＝0＋3i）\n\n【足し算・引き算】実部同士・虚部同士を計算\n(2＋3i)＋(1－i)＝(2＋1)＋(3－1)i＝3＋2i\n\n【掛け算】展開してi²＝－1に置き換え\n(1＋i)(1－i)＝1－i＋i－i²＝1－(－1)＝2"},{"heading":"⚡ i の累乗パターン","body":"i¹＝i\ni²＝－1\ni³＝－i\ni⁴＝1\ni⁵＝i　←また繰り返す！\n\n4つで一周します（カレンダーの曜日と同じ仕組み）。\n\n指数を4で割った余りで答えがわかります：\n・余り1→i　・余り2→－1　・余り3→－i　・余り0→1\n\n例：i¹⁰＝？→10÷4＝余り2→i²と同じ→－1"}]},
+      problems: [
+        {
+          question: "i² の値は？（i は虚数単位）",
+          type: "calc",
+          choices: ["-i", "1", "-1", "i"],
+          answer: "-1",
+          explanation: "① iは「2乗すると－1になる数」として定義。\n② i²＝－1（これがルール）\n③ 実数の範囲では存在しないが、複素数の世界で活躍！\n⚠️ i²＝－1 は定義。「なぜ」よりも「そうなっている」と覚える。\n💡 i（imaginary：想像上）は電気工学・物理学でも使う実用的な概念！"
+        },
+        {
+          question: "(2 + 3i) + (1 - i) を計算しなさい。",
+          type: "calc",
+          choices: ["3 - 2i", "3 + 2i", "1 + 2i", "3 + 4i"],
+          answer: "3 + 2i",
+          explanation: "① 実数部分（iのない部分）を足す：2＋1＝3\n② 虚数部分（iのある部分）を足す：3i－i＝2i\n③ 合わせると 3＋2i\n⚠️ 実部同士・虚部同士だけを計算！混ぜるのはNG。\n💡 複素数の足し算＝実部と虚部を別々に計算するだけ！"
+        },
+        {
+          question: "(3 + 2i)(1 - i) を展開しなさい。",
+          type: "calc",
+          choices: ["5 + i", "5 - i", "3 - 2i", "1 - i"],
+          answer: "5 - i",
+          explanation: "① 分配法則で展開する。\n② i²を－1に置き換える。\n③ 実部・虚部ごとに整理。\n⚠️ i²＝－1の置き換えを絶対に忘れない！\n💡 複素数の掛け算＝「普通の展開＋i²を－1に交換」！"
+        },
+        {
+          question: "√(-9) を複素数で表しなさい。",
+          type: "calc",
+          choices: ["9i", "3i", "3", "-3i"],
+          answer: "3i",
+          explanation: "① √(−9)を「√9×√(−1)」に分ける。\n② √9＝3、√(−1)＝i\n③ 3i\n⚠️ 実数の世界では√(−9)は存在しない。複素数で初めて表せる。\n💡 マイナスのルート＝「プラス部分のルート × i」！"
+        },
+        {
+          question: "3 + 4i の絶対値（複素数の大きさ）は？",
+          type: "calc",
+          choices: ["7", "12", "25", "5"],
+          answer: "5",
+          explanation: "① |3＋4i|＝√(3²＋4²)\n② ＝√(9＋16)＝√25＝5\n③ ピタゴラスの定理そのもの！\n⚠️ 複素数の絶対値は「プラスの実数」になる。符号注意。\n💡 複素数の絶対値＝複素平面での原点からの距離。3-4-5が登場！"
+        },
+        {
+          question: "1/(1 + i) を有理化（分母を実数にする）しなさい。",
+          type: "calc",
+          choices: ["1/2", "(1-i)/2", "(1+i)/2", "1-i"],
+          answer: "(1-i)/2",
+          explanation: "① 分母(1＋i)に対し共役(1－i)を上下にかける。\n② (1＋i)(1－i)＝1²－i²＝1－(－1)＝2\n③ 結果：(1－i)/2\n⚠️ (1＋i)(1－i)＝1＋1＝2（i²＝－1なので）。\n💡 有理化＝共役複素数をかけて分母のiを消す！"
+        },
+        {
+          question: "i³ の値は？",
+          type: "calc",
+          choices: ["1", "i", "-i", "-1"],
+          answer: "-i",
+          explanation: "① i³＝i²×i＝(－1)×i＝－i\n② iの累乗は i,－1,－i,1 の4つが繰り返す。\n③ 指数÷4の余りで決まる：3÷4余り3→i³の値＝－i\n⚠️ i¹0は10÷4余り2→i²の値と同じ→－1\n💡 iの累乗は4周期！i¹=i, i²=−1, i³=−i, i⁴=1 だけ覚えればOK！"
+        },
+        {
+          question: "2 + 3i の共役複素数（きょうやくふくそすう）は？",
+          type: "calc",
+          choices: ["-2 - 3i", "2 - 3i", "-2 + 3i", "3 + 2i"],
+          answer: "2 - 3i",
+          explanation: "① 共役複素数＝虚部の符号だけ変える。\n② 2＋3i → 2－3i\n③ (2＋3i)(2－3i)＝4＋9＝13（実数）\n⚠️ 実部は変えない！2＋3i の共役は 2－3i（－2＋3iではない）。\n💡 共役複素数をかけると必ず実数になる。これが有理化の仕組み！"
+        },
+        {
+          question: "x² + 4 = 0 の解を求めなさい。",
+          type: "calc",
+          choices: ["解なし", "x = ±4i", "x = ±2", "x = ±2i"],
+          answer: "x = ±2i",
+          explanation: "① x²＝－4（マイナスになった）\n② x＝±√(−4)＝±√4×i＝±2i\n③ 実数解はないが複素数解は x＝±2i\n⚠️ グラフがx軸に触れないとき、解は複素数になる。\n💡 D<0の2次方程式の解は複素数になる！実数の解はない。"
+        },
+        {
+          question: "(1 + i)² の値は？",
+          type: "calc",
+          choices: ["2", "2 + 2i", "2i", "1 + 2i"],
+          answer: "2i",
+          explanation: "① (1＋i)²＝1²＋2×1×i＋i²\n② ＝1＋2i＋i²＝1＋2i＋(－1)\n③ ＝2i（実部が消えて純虚数になった）\n⚠️ i²＝－1 の置き換えを忘れると間違える！\n💡 複素数の2乗も「(a＋b)²＝a²＋2ab＋b²」を使ってi²=−1で置き換え！"
+        }
+      ]
+    }
+  ]
+};
 
-// ============================================================
-// UNIT CONTENT BUILDERS
-// ============================================================
+const tagMap = { calc:"計算", word:"文章問題", shape:"図形", func:"関数", other:"その他" };
+const tagClassMap = { calc:"tag-calc", word:"tag-word", shape:"tag-shape", func:"tag-func", other:"tag-other" };
 
-function buildUnit1(){
-  return {
-    sections:[
-      {
-        title:'正の数・負の数とは？',
-        html:`
-<p class="prose">数には「プラス（正）」と「マイナス（負）」があります。<br>気温で考えると分かりやすいです。</p>
-<div class="fig">
-<svg viewBox="0 0 300 72" width="100%" style="max-width:300px;display:block;margin:0 auto;">
-  <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0,0 6,3 0,6" fill="#9a9690"/></marker></defs>
-  <line x1="16" y1="36" x2="282" y2="36" stroke="#9a9690" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="150" y1="26" x2="150" y2="50" stroke="#18160f" stroke-width="2"/>
-  <text x="150" y="64" text-anchor="middle" font-size="11" fill="#18160f" font-family="sans-serif" font-weight="bold">0</text>
-  <text x="55" y="22" text-anchor="middle" font-size="11" fill="#1754a8" font-family="sans-serif" font-weight="bold">−10℃</text>
-  <text x="240" y="22" text-anchor="middle" font-size="11" fill="#e84c0d" font-family="sans-serif" font-weight="bold">+25℃</text>
-  <text x="65" y="64" text-anchor="middle" font-size="10" fill="#9a9690" font-family="sans-serif">← 負（マイナス）</text>
-  <text x="225" y="64" text-anchor="middle" font-size="10" fill="#9a9690" font-family="sans-serif">正（プラス）→</text>
-  <line x1="70" y1="28" x2="70" y2="46" stroke="#1754a8" stroke-width="1.5"/>
-  <line x1="230" y1="28" x2="230" y2="46" stroke="#e84c0d" stroke-width="1.5"/>
-</svg>
-</div>
-<div class="callout co-orange"><div class="co-lbl">🔑 基本の考え方</div>0より大きい → <strong>正の数（プラス）</strong><br>0より小さい → <strong>負の数（マイナス）</strong></div>`
-      },
-      {
-        title:'足し算・引き算のルール',
-        html:`
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 2つのルールだけ！</div>
-  <strong>①同じ符号どうしは足す</strong><br>
-  　(+3)+(+5) → 3+5 = <strong>+8</strong><br>
-  　(−3)+(−5) → 3+5 = <strong>−8</strong><br><br>
-  <strong>②違う符号は大きい方から引く</strong><br>
-  　(+7)+(−3) → 7−3 = <strong>+4</strong>（大きいのは+7）<br>
-  　(+3)+(−7) → 7−3 = <strong>−4</strong>（大きいのは−7）
-</div>`
-      },
-      {
-        title:'かけ算・割り算の符号',
-        html:`
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 符号のルール（超重要！）</div>
-  ＋ × ＋ ＝ <strong>＋</strong><br>
-  ＋ × − ＝ <strong>−</strong><br>
-  − × ＋ ＝ <strong>−</strong><br>
-  − × − ＝ <strong>＋ ← マイナス×マイナス＝プラス！</strong>
-</div>
-<div class="callout co-blue"><div class="co-lbl">💡 もっと簡単な覚え方</div><strong>マイナスの個数が偶数→プラス、奇数→マイナス</strong><br>例：(−2)×(−3)×(−1) → マイナスが3個（奇数）→ <strong>マイナス</strong></div>`
-      }
-    ],
-    quizzes:[
-      {q:'次の計算をしなさい。',expr:'(−6)＋(−4)',opts:['−10','+10','−2','+2'],ans:0,
-       exp:'同じ符号（マイナス）どうしなので足します。6＋4＝10。符号はマイナスなので答えは −10 です。',
-       steps:['同じ符号（−）→ そのまま足す','6 ＋ 4 ＝ 10','答え：−10 ✓']},
-      {q:'次の計算をしなさい。',expr:'(+8)＋(−3)',opts:['+5','−5','+11','−11'],ans:0,
-       exp:'違う符号なので、大きい方（8）から小さい方（3）を引きます。8−3＝5。大きいのは+8の方なので＋5。',
-       steps:['違う符号 → 大きい方から小さい方を引く','8 − 3 ＝ 5','大きいのは＋8 → 答え：+5 ✓']},
-      {q:'次の計算をしなさい。',expr:'(−4) × (−7)',opts:['+28','−28','+11','−11'],ans:0,
-       exp:'マイナス×マイナス＝プラス！ これは絶対に覚えてください。4×7＝28、符号はプラスなので +28 です。',
-       steps:['− × − → ＋（プラス）','4 × 7 ＝ 28','答え：+28 ✓']},
-      {q:'次の計算をしなさい。',expr:'(−18) ÷ (+3)',opts:['−6','+6','−54','+54'],ans:0,
-       exp:'マイナス÷プラス＝マイナスです。18÷3＝6、符号はマイナスなので −6 です。',
-       steps:['− ÷ + → −（マイナス）','18 ÷ 3 ＝ 6','答え：−6 ✓']},
-      {q:'次の計算をしなさい。',expr:'(−2) × (+3) × (−4)',opts:['+24','−24','+9','−9'],ans:0,
-       exp:'マイナスの個数を数える：−2と−4の2個（偶数個）→プラス。2×3×4＝24。答えは+24です。',
-       steps:['マイナスの個数：2個（偶数）→ プラス','数字の計算：2×3×4 ＝ 24','答え：+24 ✓']}
-    ]
-  };
+let currentUnitIndex = 0;
+let currentProblemIndex = 0;
+let answerOpen = false;
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
 }
 
-function buildUnit2(){
-  return {
-    sections:[
-      {
-        title:'文字式の基本ルール',
-        html:`
-<p class="prose">「x」や「y」は<em>まだ決まっていない数</em>の代わりです。</p>
-<div class="callout co-blue">
-  <div class="co-lbl">💡 書き方のルール</div>
-  ・数字×文字 → 数字を先に：2×x ＝ <strong>2x</strong><br>
-  ・1×x → 1は省略：1x ＝ <strong>x</strong><br>
-  ・x×x → <strong>x²</strong>（「xの2乗」）と書く<br>
-  ・x÷2 → <strong>x/2</strong>（分数で書く）
-</div>`
-      },
-      {
-        title:'展開（カッコを外す）',
-        html:`
-<p class="prose">展開とは「カッコを外して1つの式にする」作業です。<br>前のカッコの全員を、後ろのカッコの全員にかけて全部足すだけ！</p>
-<div class="formula">
-  <div class="formula-lbl">展開のやり方</div>
-  <div class="formula-txt">(x＋a)(x＋b) ＝ x² ＋ (a＋b)x ＋ ab</div>
-</div>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 例：(x＋3)(x−5) を展開</div>
-  ① x×x ＝ x²<br>
-  ② x×(−5)＋3×x ＝ −5x＋3x ＝ −2x<br>
-  ③ 3×(−5) ＝ −15<br>
-  → <strong>x² − 2x − 15</strong>
-</div>
-<div class="callout co-blue">
-  <div class="co-lbl">💡 よく出る公式3つ</div>
-  (x＋a)² ＝ x²＋2ax＋a²<br>
-  (x−a)² ＝ x²−2ax＋a²<br>
-  (x＋a)(x−a) ＝ x²−a²
-</div>`
-      },
-      {
-        title:'因数分解（展開の逆）',
-        html:`
-<p class="prose">因数分解は展開の<em>逆</em>です。式をカッコの形に戻します。</p>
-<div class="formula">
-  <div class="formula-lbl">x²＋bx＋c の因数分解</div>
-  <div class="formula-txt">足してb、かけてc になる 2数 m,n を探す<br>→ (x＋m)(x＋n)</div>
-</div>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 例：x²＋5x＋6 を因数分解</div>
-  「かけて6、足して5」になる2数を探す<br>
-  → <strong>2と3</strong>（2×3＝6、2＋3＝5）<br>
-  → <strong>(x＋2)(x＋3)</strong>
-</div>
-<div class="callout co-gold">
-  <div class="co-lbl">⭐ 特殊な形は公式を使う</div>
-  x²−a² ＝ <strong>(x＋a)(x−a)</strong>　← 差の平方<br>
-  x²＋2ax＋a² ＝ <strong>(x＋a)²</strong>　← 完全平方式
-</div>`
-      }
-    ],
-    quizzes:[
-      {q:'次の式を展開しなさい。',expr:'(x＋4)(x－2)',opts:['x²＋2x−8','x²−2x−8','x²＋2x＋8','x²＋6x−8'],ans:0,
-       exp:'x×x＝x²、x×(−2)＋4×x＝−2x＋4x＝2x、4×(−2)＝−8。全部足して x²＋2x−8 です。',
-       steps:['x²の部分：x×x ＝ x²','xの部分：x×(−2)＋4×x ＝ 2x','数の部分：4×(−2) ＝ −8','答え：x²＋2x−8 ✓']},
-      {q:'次の式を展開しなさい。',expr:'(x－3)²',opts:['x²−6x＋9','x²＋6x＋9','x²−9','x²−3x＋9'],ans:0,
-       exp:'(x−a)² ＝ x²−2ax＋a² の公式で a＝3 を代入。x²−6x＋9 です。',
-       steps:['公式 (x−a)² ＝ x²−2ax＋a²　a＝3 を代入','x² − 2×3×x ＋ 3²','＝ x² − 6x ＋ 9 ✓']},
-      {q:'次の式を因数分解しなさい。',expr:'x²＋7x＋10',opts:['(x＋2)(x＋5)','(x＋1)(x＋10)','(x＋3)(x＋4)','(x−2)(x−5)'],ans:0,
-       exp:'かけて10、足して7になる2数を探す。2×5＝10、2＋5＝7 なので 2と5 です！',
-       steps:['かけて10、足して7 → 2と5','2×5＝10 ✓、2＋5＝7 ✓','答え：(x＋2)(x＋5) ✓']},
-      {q:'次の式を因数分解しなさい。',expr:'x²－25',opts:['(x＋5)(x－5)','(x－5)²','(x＋5)²','(x＋25)(x－1)'],ans:0,
-       exp:'x²−25 は x²−5² の形。差の平方の公式 a²−b²＝(a＋b)(a−b) を使う。25＝5² と気づくのがポイント！',
-       steps:['25 ＝ 5² と気づく → x²−5²','公式 a²−b² ＝ (a＋b)(a−b) を使う','答え：(x＋5)(x−5) ✓']},
-      {q:'次の式を展開しなさい。',expr:'(x＋6)(x－6)',opts:['x²−36','x²＋36','x²−12x＋36','x²＋12x−36'],ans:0,
-       exp:'(x＋a)(x−a) ＝ x²−a² の公式。a＝6 を代入すると x²−36 です。xの項が消えます！',
-       steps:['公式 (x＋a)(x−a) ＝ x²−a²　a＝6 を代入','x² − 6²','＝ x² − 36 ✓']}
-    ]
-  };
-}
-
-function buildUnit3(){
-  return {
-    sections:[
-      {
-        title:'一次方程式の解き方',
-        html:`
-<p class="prose">方程式は「xを1人ぼっちにする」ゲームです。<br>両辺に同じことをして、左辺にxだけ残します。</p>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 移項のルール</div>
-  「右辺にある数を左辺に移すとき、<strong>符号を逆にする</strong>」<br>
-  例：2x＋5＝13 → 2x＝13−5 → 2x＝8 → x＝4
-</div>
-<div class="steps">
-  <div class="s-step"><div class="s-num">1</div><div class="s-txt">数字（xのない項）を右辺に移す（符号を逆に）</div></div>
-  <div class="s-step"><div class="s-num">2</div><div class="s-txt">xの係数で両辺を割る</div></div>
-  <div class="s-step"><div class="s-num">3</div><div class="s-txt">確認：答えを元の式に代入して成り立つか確かめる</div></div>
-</div>`
-      },
-      {
-        title:'二次方程式①：因数分解',
-        html:`
-<p class="prose">x²が入った方程式が「二次方程式」です。<br>左辺を因数分解して <strong>(x−a)(x−b)＝0</strong> の形にすれば解けます。</p>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 (x−a)(x−b)＝0 の解き方</div>
-  カッコの中がゼロになればOKなので<br>
-  x−a＝0 → <strong>x＝a</strong><br>
-  x−b＝0 → <strong>x＝b</strong><br>
-  答えは2つになる！
-</div>`
-      },
-      {
-        title:'二次方程式②：解の公式',
-        html:`
-<p class="prose">因数分解できない場合は<em>解の公式</em>を使います。これは覚えておく必須公式です！</p>
-<div class="formula">
-  <div class="formula-lbl">解の公式（ax²＋bx＋c ＝ 0 のとき）</div>
-  <div class="formula-txt">x ＝ （−b ± √(b²−4ac)） ÷ 2a</div>
-</div>
-<div class="callout co-blue">
-  <div class="co-lbl">💡 使い方の手順</div>
-  ① a, b, c の値を確認する<br>
-  ② b²−4ac を計算する（√の中の数）<br>
-  ③ 公式に代入して計算する
-</div>
-<div class="callout co-gold">
-  <div class="co-lbl">⭐ 重解の条件</div>
-  √の中（b²−4ac）が<strong>ゼロのとき→答えが1つ（重解）</strong><br>
-  試験でよく問われます！
-</div>`
-      }
-    ],
-    quizzes:[
-      {q:'次の一次方程式を解きなさい。',expr:'5x − 3 ＝ 17',opts:['x＝4','x＝−4','x＝14/5','x＝2'],ans:0,
-       exp:'−3を右辺に移す（符号逆に）：5x＝17＋3＝20。両辺を5で割る：x＝4。確認：5×4−3＝17 ✓',
-       steps:['−3を右辺に移す（符号を逆に）：5x ＝ 17＋3 ＝ 20','両辺を5で割る：x ＝ 20÷5','答え：x ＝ 4 ✓']},
-      {q:'次の二次方程式を因数分解で解きなさい。',expr:'x²－x－6 ＝ 0',opts:['x＝3, x＝−2','x＝−3, x＝2','x＝6, x＝−1','x＝3, x＝2'],ans:0,
-       exp:'かけて−6、足して−1になる2数を探す。3×(−2)＝−6、3＋(−2)＝1 ←違う。(−3)×2＝−6、(−3)＋2＝−1 ✓。なので−3と2。',
-       steps:['かけて−6・足して−1 → 2 と −3','(x＋2)(x−3) ＝ 0','x＝−2 または x＝3 ✓']},
-      {q:'次の二次方程式を因数分解で解きなさい。',expr:'x²＋6x＋9 ＝ 0',opts:['x＝−3（重解）','x＝3（重解）','x＝3, x＝−3','x＝9, x＝1'],ans:0,
-       exp:'x²＋6x＋9＝(x＋3)²。完全平方式です。(x＋3)²＝0 → x＋3＝0 → x＝−3。答えが1つ（重解）になります！',
-       steps:['x²＋6x＋9 ＝ (x＋3)²（完全平方式）','(x＋3)² ＝ 0 → x＋3 ＝ 0','答え：x ＝ −3（重解）✓']},
-      {q:'解の公式を使って解きなさい。',expr:'x²－4x＋1 ＝ 0',opts:['x＝2±√3','x＝4±√3','x＝2±√15','x＝−2±√3'],ans:0,
-       exp:'a＝1,b＝−4,c＝1。b²−4ac＝16−4＝12＝4×3。x＝(4±√12)÷2＝(4±2√3)÷2＝2±√3。',
-       steps:['a＝1, b＝−4, c＝1','b²−4ac ＝ 16−4 ＝ 12 ＝ 4×3','x ＝ (4±√12)÷2 ＝ (4±2√3)÷2','答え：x ＝ 2±√3 ✓']},
-      {q:'二次方程式が重解を持つとき k の値を求めなさい。',expr:'x²＋4x＋k ＝ 0',opts:['k＝4','k＝2','k＝8','k＝16'],ans:0,
-       exp:'重解の条件はb²−4ac＝0。a＝1,b＝4,c＝kを代入。16−4k＝0 → 4k＝16 → k＝4。',
-       steps:['重解の条件：b²−4ac ＝ 0','16 − 4k ＝ 0','4k ＝ 16 → k ＝ 4 ✓']}
-    ]
-  };
-}
-
-function buildUnit4(){
-  return {
-    sections:[
-      {
-        title:'一次関数とグラフ',
-        html:`
-<p class="prose">関数は「xに数を入れるとyが決まる計算ルール」です。<br>一次関数 y＝ax＋b のグラフは<em>直線</em>になります。</p>
-<div class="formula">
-  <div class="formula-lbl">一次関数</div>
-  <div class="formula-txt">y ＝ ax ＋ b<br>a＝傾き（斜め具合）　b＝切片（y軸との交点）</div>
-</div>
-<div class="fig">
-<svg viewBox="0 0 260 180" width="100%" style="max-width:260px;display:block;margin:0 auto;">
-  <line x1="20" y1="10" x2="20" y2="165" stroke="#ccc" stroke-width="1.5"/>
-  <line x1="10" y1="130" x2="250" y2="130" stroke="#ccc" stroke-width="1.5"/>
-  <text x="14" y="8" font-size="10" fill="#9a9690" font-family="sans-serif">y</text>
-  <text x="248" y="142" font-size="10" fill="#9a9690" font-family="sans-serif">x</text>
-  <line x1="10" y1="168" x2="245" y2="30" stroke="#e84c0d" stroke-width="2.5"/>
-  <circle cx="20" cy="155" r="4" fill="#1754a8"/>
-  <text x="26" y="159" font-size="11" fill="#1754a8" font-family="sans-serif">切片 b</text>
-  <line x1="70" y1="142" x2="70" y2="110" stroke="#167a42" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <line x1="70" y1="110" x2="130" y2="110" stroke="#167a42" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <line x1="130" y1="142" x2="130" y2="110" stroke="#167a42" stroke-width="1.5" stroke-dasharray="3,2"/>
-  <text x="92" y="156" font-size="9" fill="#167a42" font-family="sans-serif">x増加</text>
-  <text x="133" y="128" font-size="9" fill="#167a42" font-family="sans-serif">傾き a</text>
-  <text x="160" y="58" font-size="12" fill="#e84c0d" font-family="sans-serif" font-weight="bold">y＝ax＋b</text>
-</svg>
-</div>`
-      },
-      {
-        title:'二次関数と放物線',
-        html:`
-<p class="prose">x²が入った関数が二次関数。グラフは<em>放物線（U字型）</em>になります。</p>
-<div class="formula">
-  <div class="formula-lbl">二次関数（標準形）</div>
-  <div class="formula-txt">y ＝ a(x−p)² ＋ q<br>頂点は (p, q)　←　最も大事！</div>
-</div>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 a の符号でグラフの形が決まる</div>
-  a が<strong>プラス → U字（下に開く）</strong>、最小値＝頂点<br>
-  a が<strong>マイナス → ∩字（上に開く）</strong>、最大値＝頂点
-</div>
-<div class="callout co-blue">
-  <div class="co-lbl">💡 頂点の座標の読み取り方</div>
-  y＝2(x−3)²＋5 → 頂点は (3, 5)<br>
-  y＝(x＋1)²−4 → (x−(−1)) なので 頂点は (−1, −4)<br>
-  カッコの中の符号に注意！
-</div>`
-      },
-      {
-        title:'平方完成（重要！）',
-        html:`
-<p class="prose"><em>平方完成</em>とは、y＝x²＋bx＋c を y＝(x−p)²＋q の形に変える作業です。頂点を求めるために使います。</p>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 平方完成の手順（例：y＝x²−6x＋11）</div>
-  ① xの係数（−6）の半分 → −3<br>
-  ② (x−3)² を展開すると x²−6x＋9<br>
-  ③ だから x²−6x ＝ (x−3)²−9<br>
-  ④ y＝(x−3)²−9＋11 ＝ <strong>(x−3)²＋2</strong><br>
-  → 頂点は (3, 2)
-</div>`
-      }
-    ],
-    quizzes:[
-      {q:'y＝−3x＋7 の傾きと切片を答えなさい。',expr:'y ＝ −3x ＋ 7',opts:['傾き−3、切片7','傾き7、切片−3','傾き3、切片7','傾き−3、切片−7'],ans:0,
-       exp:'y＝ax＋b の形で a＝−3（傾き）、b＝7（切片）。マイナスがついても同じルールです。',
-       steps:['y＝ax＋b と比べる','a ＝ −3（傾き）、b ＝ 7（切片）','答え：傾き＝−3、切片＝7 ✓']},
-      {q:'放物線の頂点の座標を答えなさい。',expr:'y ＝ 3(x－2)² ＋ 5',opts:['(2, 5)','(−2, 5)','(2, −5)','(3, 5)'],ans:0,
-       exp:'y＝a(x−p)²＋q の形。p＝2（カッコの中が x−2 なので）、q＝5。頂点は (p,q)＝(2,5)。',
-       steps:['y＝a(x−p)²＋q と比べる','(x−2) → p＝2、q＝5','頂点：(2, 5) ✓']},
-      {q:'平方完成して頂点の形にしなさい。',expr:'y ＝ x² ＋ 4x ＋ 7',opts:['y＝(x＋2)²＋3','y＝(x＋2)²＋7','y＝(x−2)²＋3','y＝(x＋4)²＋7'],ans:0,
-       exp:'xの係数4の半分＝2。(x＋2)²＝x²＋4x＋4 なので x²＋4x＝(x＋2)²−4。y＝(x＋2)²−4＋7＝(x＋2)²＋3。',
-       steps:['x係数 4 の半分 ＝ 2','(x＋2)² ＝ x²＋4x＋4 なので x²＋4x＝(x＋2)²−4','y ＝ (x＋2)²−4＋7 ＝ (x＋2)²＋3 ✓']},
-      {q:'次の関数の最大値を求めなさい。',expr:'y ＝ −x² ＋ 6x − 5',opts:['4','5','6','9'],ans:0,
-       exp:'先頭が−なので山型、頂点が最大値。平方完成：y＝−(x²−6x)−5＝−(x−3)²＋9−5＝−(x−3)²＋4。最大値＝4。',
-       steps:['y ＝ −(x²−6x)−5（−でくくる）','x²−6x ＝ (x−3)²−9','y ＝ −{(x−3)²−9}−5 ＝ −(x−3)²＋4','最大値 ＝ 4（x＝3のとき）✓']},
-      {q:'2点 (0,1) と (2,5) を通る直線の式を求めなさい。',expr:'点(0,1), 点(2,5)',opts:['y＝2x＋1','y＝x＋1','y＝3x＋1','y＝2x−1'],ans:0,
-       exp:'傾き＝(5−1)÷(2−0)＝4÷2＝2。切片：x＝0のときy＝1なので切片＝1。y＝2x＋1。',
-       steps:['傾き ＝ (y増加)÷(x増加) ＝ (5−1)÷(2−0) ＝ 2','切片：x＝0のときy＝1','答え：y ＝ 2x＋1 ✓']}
-    ]
-  };
-}
-
-function buildUnit5(){
-  return {
-    sections:[
-      {
-        title:'三平方の定理',
-        html:`
-<p class="prose">直角三角形の3辺には特別な関係があります。</p>
-<div class="formula">
-  <div class="formula-lbl">三平方の定理（ピタゴラスの定理）</div>
-  <div class="formula-txt">（斜辺）² ＝ （横）² ＋ （縦）²<br>c² ＝ a² ＋ b²</div>
-</div>
-<div class="fig">
-<svg viewBox="0 0 200 140" width="100%" style="max-width:200px;display:block;margin:0 auto;">
-  <polygon points="24,112 160,112 160,30" fill="#fff5f0" stroke="#e84c0d" stroke-width="2"/>
-  <rect x="150" y="102" width="10" height="10" fill="none" stroke="#e84c0d" stroke-width="1.5"/>
-  <text x="88" y="128" text-anchor="middle" font-size="13" fill="#18160f" font-family="sans-serif" font-weight="bold">a</text>
-  <text x="170" y="76" font-size="13" fill="#18160f" font-family="sans-serif" font-weight="bold">b</text>
-  <text x="76" y="70" font-size="14" fill="#e84c0d" font-family="sans-serif" font-weight="bold">c（斜辺）</text>
-</svg>
-</div>
-<div class="callout co-blue">
-  <div class="co-lbl">💡 丸暗記しておくと便利な組み合わせ</div>
-  <strong>3−4−5</strong>　（3²＋4²＝5²）<br>
-  <strong>5−12−13</strong>　（5²＋12²＝13²）<br>
-  <strong>8−15−17</strong>　（8²＋15²＝17²）
-</div>`
-      },
-      {
-        title:'余弦定理（斜め三角形）',
-        html:`
-<p class="prose">直角でない三角形の辺や角を求めるときは「余弦定理」を使います。</p>
-<div class="formula">
-  <div class="formula-lbl">余弦定理</div>
-  <div class="formula-txt">c² ＝ a²＋b² − 2ab・cosC</div>
-</div>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 覚えておく cos の値</div>
-  cos 30° ＝ √3/2　≈ 0.866<br>
-  cos 45° ＝ √2/2　≈ 0.707<br>
-  <strong>cos 60° ＝ 1/2　← 試験でよく出る！</strong>
-</div>`
-      },
-      {
-        title:'確率の基本',
-        html:`
-<div class="formula">
-  <div class="formula-lbl">確率の公式</div>
-  <div class="formula-txt">確率 ＝ 求めたい場合の数 ÷ 全部の場合の数</div>
-</div>
-<div class="callout co-orange">
-  <div class="co-lbl">🔑 組み合わせ C(n, r)</div>
-  n個からr個を選ぶ方法の数（順番は関係なし）<br>
-  C(5,2) ＝ 5×4÷2 ＝ 10<br>
-  C(6,2) ＝ 6×5÷2 ＝ 15<br>
-  C(4,2) ＝ 4×3÷2 ＝ 6
-</div>`
-      },
-      {
-        title:'データの整理（平均・中央値・最頻値）',
-        html:`
-<div class="steps">
-  <div class="s-step"><div class="s-num">1</div><div class="s-txt"><strong>平均値</strong>：全部を足して個数で割る</div></div>
-  <div class="s-step"><div class="s-num">2</div><div class="s-txt"><strong>中央値</strong>：小さい順に並べたとき真ん中の値（偶数個なら中2つの平均）</div></div>
-  <div class="s-step"><div class="s-num">3</div><div class="s-txt"><strong>最頻値</strong>：一番多く出てくる値</div></div>
-</div>
-<div class="callout co-gold">
-  <div class="co-lbl">⭐ 混同しやすい！例で確認</div>
-  データ：1, 2, 2, 3, 100<br>
-  平均値 ＝ 108÷5 ＝ 21.6<br>
-  中央値 ＝ 2（3番目）<br>
-  最頻値 ＝ 2（2回出てくる）
-</div>`
-      }
-    ],
-    quizzes:[
-      {q:'直角三角形の2辺が 6 と 8 のとき、斜辺を求めなさい。',expr:'a＝6, b＝8',opts:['10','14','√100','√28'],ans:0,
-       exp:'c²＝6²＋8²＝36＋64＝100。c＝√100＝10。6−8−10 は3−4−5の2倍です！',
-       steps:['c² ＝ 6²＋8² ＝ 36＋64 ＝ 100','c ＝ √100 ＝ 10','答え：10 ✓']},
-      {q:'AB＝5、AC＝6、∠A＝60°のとき BCを余弦定理で求めなさい。',expr:'AB＝5, AC＝6, ∠A＝60°',opts:['√31','√61','√11','√91'],ans:0,
-       exp:'余弦定理：BC²＝AB²＋AC²−2×AB×AC×cos60°＝25＋36−2×5×6×(1/2)＝61−30＝31。BC＝√31。',
-       steps:['BC² ＝ 5²＋6²−2×5×6×cos60°','cos60°＝1/2','BC² ＝ 25＋36−30 ＝ 31','BC ＝ √31 ✓']},
-      {q:'1個のさいころで偶数の目が出る確率は？',expr:'さいころ1個を投げる',opts:['1/2','1/3','2/3','1/6'],ans:0,
-       exp:'偶数の目は 2,4,6 の3通り。全体は6通り。確率＝3÷6＝1/2。',
-       steps:['偶数の目：2, 4, 6 → 3通り','全体：6通り','確率 ＝ 3÷6 ＝ 1/2 ✓']},
-      {q:'赤玉4個・白玉2個の袋から2個取り出す。2個とも赤の確率は？',expr:'赤4個, 白2個 → 2個取り出す',opts:['2/5','1/3','4/9','1/2'],ans:0,
-       exp:'全体：C(6,2)＝15通り。2個とも赤：C(4,2)＝6通り。確率＝6÷15＝2/5。',
-       steps:['全体：C(6,2) ＝ 6×5÷2 ＝ 15通り','2個とも赤：C(4,2) ＝ 4×3÷2 ＝ 6通り','確率 ＝ 6÷15 ＝ 2/5 ✓']},
-      {q:'次のデータの中央値を求めなさい。',expr:'3, 8, 1, 6, 4, 9, 2',opts:['4','5','6','3'],ans:0,
-       exp:'小さい順に並べる：1,2,3,4,6,8,9。7個なので4番目が中央値。4番目は 4 です。',
-       steps:['小さい順に並べる：1, 2, 3, 4, 6, 8, 9','7個 → 4番目が中央値','4番目は 4 ✓']}
-    ]
-  };
-}
-
-// ============================================================
-// STATE & PROGRESS
-// ============================================================
-const STORE_KEY = 'mathAppV2';
-let store = JSON.parse(localStorage.getItem(STORE_KEY)||'{}');
-function save(){ localStorage.setItem(STORE_KEY, JSON.stringify(store)); }
-
-let currentUnit = null;
-let qIdx = 0, qScore = 0, qAnswered = false;
-
-// ============================================================
-// HOME
-// ============================================================
-function renderHome(){
+function renderHome() {
   const list = document.getElementById('unit-list');
-  list.innerHTML = '';
-  let completed = 0;
-  UNITS.forEach(u=>{
-    const st = store[u.id]||{};
-    const done = st.done;
-    if(done) completed++;
-    const pct = done?100:(st.viewed?33:0);
-    const card = document.createElement('div');
-    card.className='unit-card fadein';
-    card.innerHTML=`
-      <div class="unit-card-body">
-        <div class="unit-icon" style="background:${u.iconBg};color:${u.iconColor};font-size:${u.icon.length>2?'11px':'20px'};font-weight:900;">${u.icon}</div>
-        <div class="unit-text">
-          <div class="unit-name">${u.name}</div>
-          <div class="unit-sub">${u.sub}</div>
-          <div class="unit-tags">
-            <span class="tag ${done?'tag-done':u.tag==='hot'?'tag-hot':'tag-imp'}">${done?'✓ 完了':u.tagLabel}</span>
-            ${st.score!==undefined?`<span style="font-size:11px;color:var(--ink3);">前回 ${st.score}問正解</span>`:''}
-          </div>
+  list.innerHTML = DATA.units.map((u, i) => `
+    <div class="unit-card" onclick="openUnit(${i})">
+      <div class="unit-icon" style="background:${u.color}">
+        <span style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))">${u.icon}</span>
+      </div>
+      <div class="unit-info">
+        <h3>${u.unitName}</h3>
+        <div class="unit-meta">
+          ${u.hot ? '<span class="badge badge-hot">⭐ 頻出</span>' : ''}
+          <span class="badge badge-count">📝 ${u.problems.length}問</span>
         </div>
-        <div class="unit-arrow">›</div>
       </div>
-      <div class="unit-prog"><div class="unit-prog-fill" style="width:${pct}%"></div></div>
-    `;
-    card.onclick=()=>openUnit(u);
-    list.appendChild(card);
-  });
-  const pct = Math.round(completed/UNITS.length*100);
-  document.getElementById('hp-pct').textContent=pct+'%';
-  document.getElementById('hp-fill').style.width=pct+'%';
-  document.getElementById('hp-sub').textContent=
-    pct===0?'まだ始まっていません。一番上の単元からどうぞ！':
-    pct<100?`${completed}/${UNITS.length}単元クリア。あと${UNITS.length-completed}単元！`:
-    '全単元クリア！試験準備万端🎉';
+      <div class="unit-arrow">›</div>
+    </div>
+  `).join('');
 }
 
-// ============================================================
-// OPEN UNIT
-// ============================================================
-function openUnit(u){
-  currentUnit=u;
-  qIdx=0; qScore=0; qAnswered=false;
-  document.getElementById('uh-title').textContent=u.name;
-  document.getElementById('uh-sub').textContent=u.sub;
-  const data = u.content();
-  const container = document.getElementById('lesson-content');
-  container.innerHTML='';
-
-  // Build sections
-  data.sections.forEach((sec,i)=>{
-    const ch=document.createElement('div');
-    ch.innerHTML=`
-      <div class="ch">
-        <div class="ch-num">${i+1}</div>
-        <div class="ch-title">${sec.title}</div>
+function openUnit(index) {
+  currentUnitIndex = index;
+  const u = DATA.units[index];
+  document.getElementById('unit-title').textContent = u.icon + ' ' + u.unitName;
+  document.getElementById('unit-subtitle').textContent = u.problems.length + '問';
+  document.getElementById('unit-desc').textContent = u.desc;
+  const list = document.getElementById('problem-list');
+  list.innerHTML = u.problems.map((p, i) => `
+    <div class="problem-item" onclick="openProblem(${i})">
+      <div class="problem-header">
+        <span class="pnum">${i+1}</span>
+        <span class="problem-q">${p.question}</span>
       </div>
-      ${sec.html}
-      <div class="div-block"></div>
-    `;
-    container.appendChild(ch);
-  });
-
-  // Quiz header
-  const qh=document.createElement('div');
-  qh.className='quiz-header';
-  qh.innerHTML=`
-    <div class="quiz-header-icon">✏️</div>
-    <div class="quiz-header-text">
-      <h3>練習問題 （全${data.quizzes.length}問）</h3>
-      <p>解説を読んだら、さっそく問題を解いてみよう！</p>
+      <span class="problem-type-tag ${tagClassMap[p.type]||'tag-other'}">${tagMap[p.type]||'その他'}</span>
     </div>
-  `;
-  container.appendChild(qh);
-
-  // Quiz wrapper
-  const qwrap=document.createElement('div');
-  qwrap.id='quiz-wrap';
-  container.appendChild(qwrap);
-
-  renderQuiz(data.quizzes);
-
-  // mark viewed
-  if(!store[u.id]) store[u.id]={};
-  store[u.id].viewed=true;
-  save();
-
-  show('s-unit');
-  window.scrollTo(0,0);
+  `).join('');
+  showScreen('unit');
 }
 
-function goHome(){
-  show('s-home');
-  renderHome();
-  window.scrollTo(0,0);
+function openProblem(index) {
+  currentProblemIndex = index;
+  renderDetail();
+  showScreen('detail');
 }
 
-// ============================================================
-// QUIZ
-// ============================================================
-function renderQuiz(qs){
-  const wrap=document.getElementById('quiz-wrap');
-  if(!wrap) return;
-  if(qIdx>=qs.length){ renderComplete(qs); return; }
-  const q=qs[qIdx];
-  wrap.innerHTML=`
-    <div class="q-block">
-      <div class="q-num">問題 ${qIdx+1} / ${qs.length}</div>
-      <div class="q-text">${q.q}</div>
-      <div class="q-expr">${q.expr}</div>
-    </div>
-    <div class="opts" id="opts">
-      ${q.opts.map((o,i)=>`
-        <button class="opt" id="o${i}" onclick="pick(${i})">
-          <span class="opt-lbl">${['A','B','C','D'][i]}</span>
-          <span>${o}</span>
-        </button>`).join('')}
-    </div>
-    <div class="exp-box" id="expbox">
-      <div class="exp-title">💡 解説</div>
-      <div class="exp-body">${q.exp}</div>
-      ${q.steps.map(s=>`<div class="exp-step">${s}</div>`).join('')}
-    </div>
-    <div class="q-nav">
-      <button class="q-skip" id="qskip" onclick="skip()">解答を見る</button>
-      <button class="q-next" id="qnext" onclick="nextQ()" disabled>${qIdx===qs.length-1?'結果を見る ✓':'次の問題 →'}</button>
-    </div>
-  `;
-  qAnswered=false;
-}
+function renderDetail() {
+  const u = DATA.units[currentUnitIndex];
+  const p = u.problems[currentProblemIndex];
+  answerOpen = false;
 
-function pick(i){
-  if(qAnswered) return;
-  qAnswered=true;
-  const u=currentUnit; if(!u) return;
-  const q=u.content().quizzes[qIdx];
-  document.querySelectorAll('.opt').forEach((b,idx)=>{
-    b.disabled=true;
-    if(idx===q.ans) b.classList.add(i===q.ans?'correct':'reveal');
-    if(idx===i && i!==q.ans) b.classList.add('wrong');
-  });
-  if(i===q.ans) qScore++;
-  document.getElementById('expbox').classList.add('show');
-  document.getElementById('qskip').style.display='none';
-  document.getElementById('qnext').disabled=false;
-}
+  document.getElementById('detail-unit-name').textContent = u.icon + ' ' + u.unitName;
+  document.getElementById('detail-progress').textContent = `問題 ${currentProblemIndex+1} / ${u.problems.length}`;
+  document.getElementById('detail-pnum').textContent = `問題 ${currentProblemIndex+1}`;
+  document.getElementById('detail-q').textContent = p.question;
+  document.getElementById('detail-answer').textContent = p.answer;
+  const rawExp = p.explanation;
+  const lines = rawExp.split('\n');
+  const html = lines.map(line => {
+    const t = line.trim();
+    if (!t) return '';
+    if (t.startsWith('①') || t.startsWith('②') || t.startsWith('③')) {
+      return '<div class="exp-step">' + t + '</div>';
+    } else if (t.startsWith('💡')) {
+      return '<div class="exp-tip">' + t + '</div>';
+    } else if (t.startsWith('⚠️')) {
+      return '<div class="exp-warn">' + t + '</div>';
+    }
+    return '<div class="exp-line">' + t + '</div>';
+  }).join('');
+  document.getElementById('detail-explain').innerHTML = html;
+  document.getElementById('answer-area').classList.remove('open');
+  document.getElementById('reveal-btn').textContent = '✨ こたえを見る';
 
-function skip(){
-  if(qAnswered) return;
-  qAnswered=true;
-  const u=currentUnit; if(!u) return;
-  const q=u.content().quizzes[qIdx];
-  document.querySelectorAll('.opt').forEach((b,idx)=>{
-    b.disabled=true;
-    if(idx===q.ans) b.classList.add('reveal');
-  });
-  document.getElementById('expbox').classList.add('show');
-  document.getElementById('qskip').style.display='none';
-  document.getElementById('qnext').disabled=false;
-}
+  const prog = ((currentProblemIndex+1) / u.problems.length) * 100;
+  document.getElementById('prog-fill').style.width = prog + '%';
 
-function nextQ(){
-  qIdx++;
-  const u=currentUnit; if(!u) return;
-  renderQuiz(u.content().quizzes);
-}
-
-function renderComplete(qs){
-  const wrap=document.getElementById('quiz-wrap');
-  const pct=Math.round(qScore/qs.length*100);
-  const emoji=pct>=80?'🎉':pct>=60?'📚':'💪';
-  const msg=pct>=80?'完璧です！次の単元へ進みましょう。':
-            pct>=60?'もう一度解くと確実に身につきます。':
-            '解説をもう一度読んでから再挑戦してみよう！';
-  const scoreColor=pct>=80?'var(--green)':pct>=60?'var(--gold)':'var(--orange)';
-
-  // save progress
-  if(currentUnit){
-    if(!store[currentUnit.id]) store[currentUnit.id]={};
-    store[currentUnit.id].score=qScore;
-    if(pct>=60) store[currentUnit.id].done=true;
-    save();
+  const choicesArea = document.getElementById('choices-area');
+  if (p.choices) {
+    choicesArea.innerHTML = p.choices.map((c,i) => `
+      <button class="choice-btn" onclick="selectChoice(this, '${c.replace(/'/g,"\\'")}')">
+        ${String.fromCharCode(65+i)}. ${c}
+      </button>
+    `).join('');
+  } else {
+    choicesArea.innerHTML = '';
   }
 
-  wrap.innerHTML=`
-    <div class="unit-complete fadein">
-      <div class="uc-icon">${emoji}</div>
-      <div class="uc-score" style="color:${scoreColor}">${pct}%</div>
-      <div class="uc-label">${qs.length}問中 ${qScore}問正解</div>
-      <div class="uc-msg">${msg}</div>
-      <button class="uc-btn" onclick="retryQuiz()">🔁 もう一度練習する</button>
-      <button class="uc-btn-ghost" onclick="goHome()">← 単元一覧に戻る</button>
+  const navBtns = document.getElementById('nav-btns');
+  navBtns.style.display = 'none';
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  prevBtn.disabled = currentProblemIndex === 0;
+  prevBtn.style.opacity = currentProblemIndex === 0 ? '0.4' : '1';
+  if (currentProblemIndex === u.problems.length - 1) {
+    nextBtn.textContent = '単元一覧に戻る';
+    nextBtn.onclick = goUnit;
+  } else {
+    nextBtn.textContent = '次の問題 →';
+    nextBtn.onclick = nextProblem;
+  }
+}
+
+function selectChoice(btn, choice) {
+  const p = DATA.units[currentUnitIndex].problems[currentProblemIndex];
+  document.querySelectorAll('.choice-btn').forEach(b => {
+    b.classList.remove('selected-correct','selected-wrong');
+    b.style.pointerEvents = 'none';
+  });
+  if (choice === p.answer) {
+    btn.classList.add('selected-correct');
+  } else {
+    btn.classList.add('selected-wrong');
+    document.querySelectorAll('.choice-btn').forEach(b => {
+      if (b.textContent.trim().endsWith(p.answer)) b.classList.add('selected-correct');
+    });
+  }
+  openAnswer();
+}
+
+function openAnswer() {
+  answerOpen = true;
+  document.getElementById('answer-area').classList.add('open');
+  document.getElementById('reveal-btn').textContent = '✅ こたえを確認中';
+  document.getElementById('nav-btns').style.display = 'flex';
+  setTimeout(() => {
+    document.getElementById('answer-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+function toggleAnswer() {
+  if (!answerOpen) {
+    openAnswer();
+  }
+}
+
+function prevProblem() {
+  if (currentProblemIndex > 0) {
+    currentProblemIndex--;
+    renderDetail();
+    document.getElementById('detail').querySelector('.scroll-area').scrollTop = 0;
+  }
+}
+
+function nextProblem() {
+  const u = DATA.units[currentUnitIndex];
+  if (currentProblemIndex < u.problems.length - 1) {
+    currentProblemIndex++;
+    renderDetail();
+    document.getElementById('detail').querySelector('.scroll-area').scrollTop = 0;
+  }
+}
+
+function goHome() { showScreen('home'); }
+
+function openIntro() {
+  const u = DATA.units[currentUnitIndex];
+  if (!u.intro) return;
+  document.getElementById('intro-unit-name').textContent = u.icon + ' ' + u.unitName;
+  document.getElementById('intro-title').textContent = u.intro.title;
+  const sectionsEl = document.getElementById('intro-sections');
+  sectionsEl.innerHTML = u.intro.sections.map(s => `
+    <div class="intro-section">
+      <div class="intro-section-heading">${s.heading}</div>
+      <div class="intro-section-body">${s.body}</div>
     </div>
-  `;
+  `).join('');
+  document.getElementById('intro-scroll').scrollTop = 0;
+  showScreen('intro');
 }
+function goUnit() { showScreen('unit'); }
 
-function retryQuiz(){
-  qIdx=0; qScore=0; qAnswered=false;
-  const u=currentUnit; if(!u) return;
-  renderQuiz(u.content().quizzes);
-  // scroll to quiz
-  const qh=document.querySelector('.quiz-header');
-  if(qh) setTimeout(()=>qh.scrollIntoView({behavior:'smooth',block:'start'}),50);
-}
-
-// ============================================================
-// SCREEN HELPER
-// ============================================================
-function show(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('visible'));
-  document.getElementById(id).classList.add('visible');
-}
-
-// ============================================================
-// INIT
-// ============================================================
 renderHome();
 </script>
 </body>
