@@ -23,8 +23,7 @@
     --radius-sm: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body { height: 100%; background: var(--bg); font-family: 'Hiragino Rounded Gothic Pro', 'Rounded Mplus 1c', 'Yu Gothic', sans-serif; color: var(--text); overscroll-behavior: none; }
-  body { height: 100svh; }
+  html, body { height: 100%; margin: 0; padding: 0; background: var(--bg); font-family: 'Hiragino Rounded Gothic Pro', 'Rounded Mplus 1c', 'Yu Gothic', sans-serif; color: var(--text); overscroll-behavior: none; }
 
 
   .intro-hero {
@@ -92,8 +91,7 @@
   .intro-btn:active { transform: scale(0.98); }
 
   /* ─── SCREENS ─── */
-  .scroll-area { min-height: 0; }
-  .screen { display: none; height: 100vh; height: 100svh; flex-direction: column; overflow: hidden; }
+  .screen { display: none; height: 100%; flex-direction: column; overflow: hidden; }
   .screen.active { display: flex; }
 
   /* ─── HEADER ─── */
@@ -116,7 +114,7 @@
   .header .subtitle { color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 1px; }
 
   /* ─── HOME ─── */
-  #home .scroll-area { flex: 1; overflow-y: auto; padding: 20px 16px 32px; -webkit-overflow-scrolling: touch; min-height: 0; }
+  #home .scroll-area { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding: 20px 16px 32px; }
   .hero-card {
     background: linear-gradient(135deg, #FF8A65, #FF5722);
     border-radius: var(--radius);
@@ -163,7 +161,7 @@
 
   /* ─── UNIT (problem list) ─── */
   #unit .header-info { flex: 1; }
-  #unit .scroll-area { flex: 1; overflow-y: auto; padding: 16px 16px 32px; -webkit-overflow-scrolling: touch; min-height: 0; }
+  #unit .scroll-area { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding: 16px 16px 32px; }
   .unit-desc-card {
     background: var(--accent-light);
     border-radius: var(--radius);
@@ -202,7 +200,7 @@
   .tag-other { background: #EFEBE9; color: #4E342E; }
 
   /* ─── PROBLEM DETAIL ─── */
-  #detail .scroll-area { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px 16px 80px; -webkit-overflow-scrolling: touch; min-height: 0; }
+  #detail .scroll-area { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding: 16px 16px 80px; }
   .problem-card {
     background: var(--surface);
     border-radius: var(--radius);
