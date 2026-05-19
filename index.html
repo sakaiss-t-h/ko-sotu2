@@ -2,284 +2,231 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>高卒認定 数学 らくらく学習</title>
 <style>
-  :root {
-    --bg: #FFF9F0;
-    --surface: #FFFFFF;
-    --primary: #FF7043;
-    --primary-light: #FFCCBC;
-    --accent: #42A5F5;
-    --accent-light: #BBDEFB;
-    --success: #66BB6A;
-    --success-light: #C8E6C9;
-    --text: #3E2723;
-    --text-sub: #795548;
-    --text-hint: #A1887F;
-    --border: #EFEBE9;
-    --shadow: rgba(62,39,35,0.08);
-    --radius: 18px;
-    --radius-sm: 12px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body { height: 100%; margin: 0; padding: 0; background: var(--bg); font-family: 'Hiragino Rounded Gothic Pro', 'Rounded Mplus 1c', 'Yu Gothic', sans-serif; color: var(--text); overscroll-behavior: none; }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
+:root {
+  --bg: #FFF9F0;
+  --surface: #FFFFFF;
+  --primary: #FF7043;
+  --primary-light: #FFCCBC;
+  --accent: #42A5F5;
+  --accent-light: #BBDEFB;
+  --success: #66BB6A;
+  --success-light: #C8E6C9;
+  --text: #3E2723;
+  --text-sub: #795548;
+  --text-hint: #A1887F;
+  --border: #EFEBE9;
+  --shadow: rgba(62,39,35,0.08);
+  --radius: 18px;
+  --radius-sm: 12px;
+}
 
-  .intro-hero {
-    background: linear-gradient(135deg, #42A5F5, #1565C0);
-    border-radius: var(--radius);
-    padding: 22px 18px;
-    margin-bottom: 20px;
-    color: #fff;
-  }
-  .intro-hero-title {
-    font-size: 19px;
-    font-weight: 800;
-    line-height: 1.4;
-  }
-  .intro-section {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 10px var(--shadow);
-    border: 1.5px solid var(--border);
-  }
-  .intro-section-heading {
-    font-size: 15px;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 10px;
-  }
-  .intro-section-body {
-    font-size: 14px;
-    line-height: 1.9;
-    color: var(--text-sub);
-    white-space: pre-wrap;
-  }
-  .start-btn {
-    width: 100%;
-    padding: 18px;
-    background: var(--success);
-    border: none;
-    border-radius: var(--radius);
-    color: #fff;
-    font-size: 17px;
-    font-weight: 800;
-    cursor: pointer;
-    margin-top: 8px;
-    box-shadow: 0 4px 12px rgba(102,187,106,0.35);
-    letter-spacing: 0.04em;
-  }
-  .start-btn:active { transform: scale(0.97); }
-  .intro-btn {
-    display: flex; align-items: center; justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, #42A5F5, #1E88E5);
-    border: none;
-    border-radius: var(--radius-sm);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-bottom: 14px;
-    box-shadow: 0 3px 10px rgba(66,165,245,0.3);
-  }
-  .intro-btn:active { transform: scale(0.98); }
+/* ── 全体レイアウト ── */
+body {
+  background: var(--bg);
+  font-family: 'Hiragino Rounded Gothic Pro', 'Yu Gothic', sans-serif;
+  color: var(--text);
+  /* iOSで画面全体を使う */
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* ─── SCREENS ─── */
-  .screen { display: none; height: 100%; flex-direction: column; overflow: hidden; }
-  .screen.active { display: flex; }
+/* ── 画面切り替え ── */
+.screen {
+  display: none;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+.screen.active { display: flex; }
 
-  /* ─── HEADER ─── */
-  .header {
-    background: var(--primary);
-    padding: 16px 20px 14px;
-    display: flex; align-items: center; gap: 12px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(255,112,67,0.3);
-  }
-  .header .back-btn {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: rgba(255,255,255,0.25); border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px; color: #fff; flex-shrink: 0;
-    transition: background 0.15s;
-  }
-  .header .back-btn:active { background: rgba(255,255,255,0.4); }
-  .header h1 { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: 0.02em; flex: 1; }
-  .header .subtitle { color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 1px; }
+/* ── スクロールエリア（iOSで確実にスクロールさせる） ── */
+.scroll-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
 
-  /* ─── HOME ─── */
-  #home .scroll-area { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding: 20px 16px 32px; }
-  .hero-card {
-    background: linear-gradient(135deg, #FF8A65, #FF5722);
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    margin-bottom: 24px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-card::after {
-    content: '📖';
-    position: absolute; right: 16px; bottom: 10px;
-    font-size: 64px; opacity: 0.2;
-  }
-  .hero-card h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
-  .hero-card p { font-size: 14px; opacity: 0.9; line-height: 1.6; }
-  .section-label { font-size: 13px; font-weight: 700; color: var(--text-hint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; padding-left: 4px; }
-  .unit-grid { display: flex; flex-direction: column; gap: 12px; }
-  .unit-card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    display: flex; align-items: center; gap: 14px;
-    box-shadow: 0 2px 12px var(--shadow);
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    transition: transform 0.12s, box-shadow 0.12s;
-    text-decoration: none; color: inherit;
-  }
-  .unit-card:active { transform: scale(0.98); box-shadow: 0 1px 4px var(--shadow); }
-  .unit-icon {
-    width: 52px; height: 52px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; flex-shrink: 0;
-  }
-  .unit-info { flex: 1; min-width: 0; }
-  .unit-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
-  .unit-info p { font-size: 12px; color: var(--text-sub); line-height: 1.4; }
-  .unit-meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; }
-  .badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
-  .badge-hot { background: #FFECB3; color: #F57F17; }
-  .badge-count { background: var(--accent-light); color: #1565C0; }
-  .unit-arrow { color: var(--text-hint); font-size: 18px; flex-shrink: 0; }
+/* ── ヘッダー ── */
+.header {
+  background: var(--primary);
+  padding: 14px 16px 12px;
+  padding-top: max(14px, env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(255,112,67,0.3);
+}
+.back-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.25); border: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: #fff; flex-shrink: 0; cursor: pointer;
+}
+.back-btn:active { background: rgba(255,255,255,0.4); }
+.header-text { flex: 1; }
+.header-text h1 { color: #fff; font-size: 17px; font-weight: 700; }
+.header-text .sub { color: rgba(255,255,255,0.8); font-size: 12px; margin-top: 1px; }
 
-  /* ─── UNIT (problem list) ─── */
-  #unit .header-info { flex: 1; }
-  #unit .scroll-area { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding: 16px 16px 32px; }
-  .unit-desc-card {
-    background: var(--accent-light);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    margin-bottom: 18px;
-    font-size: 13px;
-    color: #1565C0;
-    line-height: 1.6;
-  }
-  .problem-list { display: flex; flex-direction: column; gap: 10px; }
-  .problem-item {
-    background: var(--surface);
-    border-radius: var(--radius-sm);
-    padding: 14px 16px;
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    box-shadow: 0 1px 6px var(--shadow);
-    transition: transform 0.12s;
-  }
-  .problem-item:active { transform: scale(0.98); }
-  .problem-item .pnum {
-    display: inline-block;
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--primary); color: #fff;
-    font-size: 12px; font-weight: 700;
-    text-align: center; line-height: 26px;
-    margin-right: 8px; flex-shrink: 0;
-  }
-  .problem-header { display: flex; align-items: flex-start; gap: 0; }
-  .problem-q { font-size: 14px; font-weight: 600; line-height: 1.5; flex: 1; }
-  .problem-type-tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; margin-top: 8px; font-weight: 700; display: inline-block; }
-  .tag-calc { background: #F3E5F5; color: #7B1FA2; }
-  .tag-word { background: #E8F5E9; color: #2E7D32; }
-  .tag-shape { background: #E3F2FD; color: #1565C0; }
-  .tag-func  { background: #FFF3E0; color: #E65100; }
-  .tag-other { background: #EFEBE9; color: #4E342E; }
+/* ── プログレスバー ── */
+.prog-wrap { height: 4px; background: var(--border); flex-shrink: 0; }
+.prog-fill { height: 4px; background: var(--primary); transition: width 0.3s; }
 
-  /* ─── PROBLEM DETAIL ─── */
-  #detail .scroll-area { flex: 1; overflow-y: scroll; -webkit-overflow-scrolling: touch; padding: 16px 16px 80px; }
-  .problem-card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    padding: 20px 18px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 12px var(--shadow);
-    border: 1.5px solid var(--border);
-  }
-  .problem-card .qlabel { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.06em; margin-bottom: 10px; }
-  .problem-card .qtext { font-size: 17px; font-weight: 700; line-height: 1.7; color: var(--text); }
-  .choices-area { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
-  .choice-btn {
-    background: #FFF3E0;
-    border: 1.5px solid #FFE0B2;
-    border-radius: var(--radius-sm);
-    padding: 13px 16px;
-    font-size: 15px; font-weight: 600; color: #E65100;
-    text-align: left; cursor: pointer;
-    transition: background 0.12s, border-color 0.12s;
-    -webkit-appearance: none;
-  }
-  .choice-btn:active { background: #FFE0B2; }
-  .choice-btn.selected-correct { background: var(--success-light); border-color: var(--success); color: #1B5E20; }
-  .choice-btn.selected-wrong  { background: #FFEBEE; border-color: #EF9A9A; color: #B71C1C; }
-  .reveal-btn {
-    width: 100%; padding: 16px;
-    background: var(--primary); border: none; border-radius: var(--radius);
-    color: #fff; font-size: 16px; font-weight: 800; cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255,112,67,0.35);
-    transition: transform 0.12s, box-shadow 0.12s;
-    letter-spacing: 0.04em;
-  }
-  .reveal-btn:active { transform: scale(0.97); box-shadow: 0 2px 6px rgba(255,112,67,0.25); }
-  .answer-area {
-    background: var(--surface);
-    border-radius: var(--radius);
-    border: 2px solid var(--success);
-    padding: 18px;
-    margin-top: 12px;
-    display: none;
-    box-shadow: 0 2px 12px rgba(102,187,106,0.15);
-    animation: slideDown 0.25s ease;
-  }
-  .answer-area.open { display: block; }
-  @keyframes slideDown { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
-  .answer-label { font-size: 12px; font-weight: 700; color: var(--success); letter-spacing: 0.06em; margin-bottom: 8px; }
-  .answer-text { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 14px; }
-  .explain-label { font-size: 12px; font-weight: 700; color: var(--text-hint); letter-spacing: 0.06em; margin-bottom: 8px; }
-  .explain-text { font-size: 14px; line-height: 1.8; color: var(--text-sub); }
-  .exp-step { background: #F3F8FF; border-left: 3px solid #42A5F5; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 5px 0; font-weight: 600; color: #1565C0; font-size: 14px; }
-  .exp-tip  { background: #FFF8E1; border-left: 3px solid #FFC107; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 8px 0 0; font-size: 13px; color: #5D4037; font-weight: 700; }
-  .exp-warn { background: #FFF3E0; border-left: 3px solid #FF9800; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 5px 0; font-size: 13px; color: #E65100; }
-  .exp-line { padding: 2px 0; }
+/* ── ホーム ── */
+.hero-card {
+  background: linear-gradient(135deg, #FF8A65, #FF5722);
+  border-radius: var(--radius); padding: 22px 18px; margin-bottom: 20px;
+  color: #fff; position: relative; overflow: hidden;
+}
+.hero-card::after { content: '📖'; position: absolute; right: 14px; bottom: 8px; font-size: 60px; opacity: 0.18; }
+.hero-card h2 { font-size: 21px; font-weight: 800; margin-bottom: 6px; line-height: 1.3; }
+.hero-card p  { font-size: 13px; opacity: 0.9; line-height: 1.6; }
+.section-label { font-size: 12px; font-weight: 700; color: var(--text-hint); letter-spacing: 0.08em; margin-bottom: 10px; padding-left: 2px; }
+.unit-grid { display: flex; flex-direction: column; gap: 10px; }
+.unit-card {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 14px 16px; display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 2px 10px var(--shadow); border: 1.5px solid var(--border);
+  cursor: pointer;
+}
+.unit-card:active { opacity: 0.8; }
+.unit-icon { width: 50px; height: 50px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+.unit-info { flex: 1; min-width: 0; }
+.unit-info h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.unit-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; }
+.badge-hot { background: #FFECB3; color: #F57F17; }
+.badge-cnt { background: var(--accent-light); color: #1565C0; }
+.unit-arrow { color: var(--text-hint); font-size: 20px; flex-shrink: 0; }
 
-  .nav-btns { display: flex; gap: 10px; margin-top: 14px; }
-  .nav-btn {
-    flex: 1; padding: 14px;
-    background: var(--surface); border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm); font-size: 14px; font-weight: 700;
-    color: var(--text-sub); cursor: pointer;
-    transition: background 0.12s;
-  }
-  .nav-btn:active { background: var(--border); }
-  .nav-btn.next { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .progress-bar-wrap { height: 4px; background: var(--border); flex-shrink: 0; }
-  .progress-bar-fill { height: 4px; background: var(--primary); transition: width 0.3s ease; }
+/* ── 単元画面 ── */
+.unit-desc { background: var(--accent-light); border-radius: var(--radius); padding: 13px 15px; margin-bottom: 14px; font-size: 13px; color: #1565C0; line-height: 1.6; }
+.intro-btn {
+  width: 100%; padding: 13px; margin-bottom: 14px;
+  background: linear-gradient(135deg, #42A5F5, #1E88E5);
+  border: none; border-radius: var(--radius-sm);
+  color: #fff; font-size: 14px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(66,165,245,0.3);
+}
+.intro-btn:active { opacity: 0.85; }
+.prob-list { display: flex; flex-direction: column; gap: 10px; }
+.prob-item {
+  background: var(--surface); border-radius: var(--radius-sm);
+  padding: 13px 15px; border: 1.5px solid var(--border);
+  cursor: pointer; box-shadow: 0 1px 6px var(--shadow);
+}
+.prob-item:active { opacity: 0.8; }
+.prob-header { display: flex; align-items: flex-start; gap: 8px; }
+.pnum {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.prob-q { font-size: 14px; font-weight: 600; line-height: 1.5; flex: 1; }
+.type-tag { font-size: 11px; padding: 2px 8px; border-radius: 20px; margin-top: 7px; font-weight: 700; display: inline-block; }
+.tag-calc  { background: #F3E5F5; color: #7B1FA2; }
+.tag-word  { background: #E8F5E9; color: #2E7D32; }
+.tag-shape { background: #E3F2FD; color: #1565C0; }
+.tag-func  { background: #FFF3E0; color: #E65100; }
+.tag-other { background: #EFEBE9; color: #4E342E; }
+
+/* ── 問題詳細 ── */
+.q-card {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 18px 16px; margin-bottom: 14px;
+  box-shadow: 0 2px 12px var(--shadow); border: 1.5px solid var(--border);
+}
+.qlabel { font-size: 12px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.qtext  { font-size: 17px; font-weight: 700; line-height: 1.7; }
+.choices { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.choice-btn {
+  background: #FFF3E0; border: 1.5px solid #FFE0B2;
+  border-radius: var(--radius-sm); padding: 13px 15px;
+  font-size: 15px; font-weight: 600; color: #E65100;
+  text-align: left; cursor: pointer; width: 100%;
+}
+.choice-btn:active { background: #FFE0B2; }
+.choice-btn.correct { background: var(--success-light); border-color: var(--success); color: #1B5E20; }
+.choice-btn.wrong   { background: #FFEBEE; border-color: #EF9A9A; color: #B71C1C; }
+.reveal-btn {
+  width: 100%; padding: 16px; background: var(--primary);
+  border: none; border-radius: var(--radius);
+  color: #fff; font-size: 16px; font-weight: 800; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255,112,67,0.35);
+}
+.reveal-btn:active { opacity: 0.85; }
+
+/* ── 解説エリア ── */
+.ans-area {
+  background: var(--surface); border-radius: var(--radius);
+  border: 2px solid var(--success); padding: 16px;
+  margin-top: 12px; display: none;
+}
+.ans-area.open { display: block; }
+.ans-label   { font-size: 12px; font-weight: 700; color: var(--success); margin-bottom: 6px; }
+.ans-text    { font-size: 20px; font-weight: 800; margin-bottom: 14px; }
+.exp-label   { font-size: 12px; font-weight: 700; color: var(--text-hint); margin-bottom: 8px; }
+.exp-step { background: #F3F8FF; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 5px 0; font-weight: 600; color: #1565C0; font-size: 14px; }
+.exp-warn { background: #FFF3E0; border-left: 3px solid #FF9800; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 5px 0; font-size: 13px; color: #E65100; }
+.exp-tip  { background: #FFF8E1; border-left: 3px solid #FFC107; border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 8px 0 0; font-size: 13px; color: #5D4037; font-weight: 700; }
+.exp-line { padding: 2px 0; font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+.nav-btns { display: flex; gap: 10px; margin-top: 14px; }
+.nav-btn {
+  flex: 1; padding: 14px; background: var(--surface);
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 700; color: var(--text-sub); cursor: pointer;
+}
+.nav-btn:active { background: var(--border); }
+.nav-btn.next { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ── イントロ画面 ── */
+.intro-hero {
+  background: linear-gradient(135deg, #42A5F5, #1565C0);
+  border-radius: var(--radius); padding: 20px 18px; margin-bottom: 18px; color: #fff;
+}
+.intro-hero-title { font-size: 18px; font-weight: 800; line-height: 1.4; }
+.intro-section {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 16px; margin-bottom: 12px;
+  box-shadow: 0 2px 10px var(--shadow); border: 1.5px solid var(--border);
+}
+.intro-section-h { font-size: 15px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+.intro-section-b { font-size: 14px; line-height: 1.9; color: var(--text-sub); white-space: pre-wrap; }
+.start-btn {
+  width: 100%; padding: 17px; background: var(--success);
+  border: none; border-radius: var(--radius);
+  color: #fff; font-size: 16px; font-weight: 800; cursor: pointer;
+  margin-top: 6px; box-shadow: 0 4px 12px rgba(102,187,106,0.35);
+}
+.start-btn:active { opacity: 0.85; }
+
+/* ── 共通パディング ── */
+.page-pad { padding: 16px 16px 40px; }
+.home-pad { padding: 18px 16px 36px; }
 </style>
 </head>
 <body>
 
-<!-- ═══ SCREEN: HOME ═══ -->
+<!-- ホーム画面 -->
 <div id="home" class="screen active">
   <div class="header">
-    <div>
+    <div class="header-text">
       <h1>🌟 らくらく数学</h1>
-      <div class="subtitle">高卒認定 対策アプリ</div>
+      <div class="sub">高卒認定 対策アプリ</div>
     </div>
   </div>
-  <div class="scroll-area">
+  <div class="scroll-body home-pad">
     <div class="hero-card">
       <h2>むずかしくない！<br>いっしょにやってみよう</h2>
       <p>高卒認定の数学、よく出るところだけ集めました。<br>単元をタップして始めよう！</p>
@@ -289,70 +236,67 @@
   </div>
 </div>
 
-<!-- ═══ SCREEN: UNIT (problem list) ═══ -->
+<!-- 単元画面 -->
 <div id="unit" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="goHome()">←</button>
-    <div class="header-info">
+    <button class="back-btn" onclick="showScreen('home')">←</button>
+    <div class="header-text">
       <h1 id="unit-title">単元名</h1>
-      <div class="subtitle" id="unit-subtitle"></div>
+      <div class="sub" id="unit-sub"></div>
     </div>
   </div>
-  <div class="scroll-area">
-    <div class="unit-desc-card" id="unit-desc">説明</div>
-    <button class="intro-btn" id="intro-btn" onclick="openIntro()">
-      📖 まずここから読もう！基礎から解説
-    </button>
-    <div class="problem-list" id="problem-list"></div>
+  <div class="scroll-body page-pad">
+    <div class="unit-desc" id="unit-desc"></div>
+    <button class="intro-btn" onclick="showIntro()">📖 まずここから読もう！基礎から解説</button>
+    <div class="prob-list" id="prob-list"></div>
   </div>
 </div>
 
-<!-- ═══ SCREEN: PROBLEM DETAIL ═══ -->
+<!-- 問題詳細画面 -->
 <div id="detail" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="goUnit()">←</button>
-    <div class="header-info">
-      <h1 id="detail-unit-name">単元名</h1>
-      <div class="subtitle" id="detail-progress">問題 1 / 10</div>
+    <button class="back-btn" onclick="showScreen('unit')">←</button>
+    <div class="header-text">
+      <h1 id="detail-unit"></h1>
+      <div class="sub" id="detail-prog"></div>
     </div>
   </div>
-  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-fill"></div></div>
-  <div class="scroll-area">
-    <div class="problem-card">
-      <div class="qlabel" id="detail-pnum">問題 1</div>
-      <div class="qtext" id="detail-q">問題文</div>
-      <div class="choices-area" id="choices-area"></div>
+  <div class="prog-wrap"><div class="prog-fill" id="prog-fill"></div></div>
+  <div class="scroll-body page-pad" id="detail-scroll">
+    <div class="q-card">
+      <div class="qlabel" id="detail-num"></div>
+      <div class="qtext" id="detail-q"></div>
+      <div class="choices" id="choices"></div>
     </div>
-    <button class="reveal-btn" id="reveal-btn" onclick="toggleAnswer()">✨ こたえを見る</button>
-    <div class="answer-area" id="answer-area">
-      <div class="answer-label">✅ こたえ</div>
-      <div class="answer-text" id="detail-answer"></div>
-      <div class="explain-label">💡 やさしい解説</div>
-      <div class="explain-text" id="detail-explain"></div>
+    <button class="reveal-btn" id="reveal-btn" onclick="revealAnswer()">✨ こたえを見る</button>
+    <div class="ans-area" id="ans-area">
+      <div class="ans-label">✅ こたえ</div>
+      <div class="ans-text" id="ans-text"></div>
+      <div class="exp-label">💡 やさしい解説</div>
+      <div id="exp-body"></div>
     </div>
     <div class="nav-btns" id="nav-btns" style="display:none">
-      <button class="nav-btn" id="prev-btn" onclick="prevProblem()">← 前の問題</button>
-      <button class="nav-btn next" id="next-btn" onclick="nextProblem()">次の問題 →</button>
+      <button class="nav-btn" id="prev-btn" onclick="moveProblem(-1)">← 前へ</button>
+      <button class="nav-btn next" id="next-btn" onclick="moveNext()">次へ →</button>
     </div>
   </div>
 </div>
 
-
-<!-- ═══ SCREEN: INTRO ═══ -->
+<!-- イントロ画面 -->
 <div id="intro" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="goUnit()">←</button>
-    <div class="header-info">
-      <h1 id="intro-unit-name">単元名</h1>
-      <div class="subtitle">まず読もう</div>
+    <button class="back-btn" onclick="showScreen('unit')">←</button>
+    <div class="header-text">
+      <h1 id="intro-unit"></h1>
+      <div class="sub">まず読もう</div>
     </div>
   </div>
-  <div class="scroll-area" id="intro-scroll">
-    <div class="intro-hero" id="intro-hero">
+  <div class="scroll-body page-pad">
+    <div class="intro-hero">
       <div class="intro-hero-title" id="intro-title"></div>
     </div>
     <div id="intro-sections"></div>
-    <button class="start-btn" onclick="goUnit()">✏️ 問題を解いてみる！</button>
+    <button class="start-btn" onclick="showScreen('unit')">✏️ 問題を解いてみる！</button>
   </div>
 </div>
 
@@ -1253,31 +1197,29 @@ const DATA = {
   ]
 };
 
-const tagMap = { calc:"計算", word:"文章問題", shape:"図形", func:"関数", other:"その他" };
-const tagClassMap = { calc:"tag-calc", word:"tag-word", shape:"tag-shape", func:"tag-func", other:"tag-other" };
+const tagMap   = {calc:"計算",word:"文章問題",shape:"図形",func:"関数",other:"その他"};
+const tagClass = {calc:"tag-calc",word:"tag-word",shape:"tag-shape",func:"tag-func",other:"tag-other"};
 
-let currentUnitIndex = 0;
-let currentProblemIndex = 0;
-let answerOpen = false;
+let curUnit = 0, curProb = 0;
 
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
+  // スクロールをトップに戻す
+  const sb = document.querySelector('#' + id + ' .scroll-body');
+  if (sb) sb.scrollTop = 0;
 }
 
+/* ── ホーム ── */
 function renderHome() {
-  const list = document.getElementById('unit-list');
-  list.innerHTML = DATA.units.map((u, i) => `
+  document.getElementById('unit-list').innerHTML = DATA.units.map((u, i) => `
     <div class="unit-card" onclick="openUnit(${i})">
-      <div class="unit-icon" style="background:${u.color}">
-        <span style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))">${u.icon}</span>
-      </div>
+      <div class="unit-icon" style="background:${u.color}">${u.icon}</div>
       <div class="unit-info">
         <h3>${u.unitName}</h3>
         <div class="unit-meta">
           ${u.hot ? '<span class="badge badge-hot">⭐ 頻出</span>' : ''}
-          <span class="badge badge-count">📝 ${u.problems.length}問</span>
+          <span class="badge badge-cnt">📝 ${u.problems.length}問</span>
         </div>
       </div>
       <div class="unit-arrow">›</div>
@@ -1285,156 +1227,140 @@ function renderHome() {
   `).join('');
 }
 
-function openUnit(index) {
-  currentUnitIndex = index;
-  const u = DATA.units[index];
+/* ── 単元 ── */
+function openUnit(i) {
+  curUnit = i;
+  const u = DATA.units[i];
   document.getElementById('unit-title').textContent = u.icon + ' ' + u.unitName;
-  document.getElementById('unit-subtitle').textContent = u.problems.length + '問';
+  document.getElementById('unit-sub').textContent = u.problems.length + '問';
   document.getElementById('unit-desc').textContent = u.desc;
-  const list = document.getElementById('problem-list');
-  list.innerHTML = u.problems.map((p, i) => `
-    <div class="problem-item" onclick="openProblem(${i})">
-      <div class="problem-header">
-        <span class="pnum">${i+1}</span>
-        <span class="problem-q">${p.question}</span>
+  document.getElementById('prob-list').innerHTML = u.problems.map((p, j) => `
+    <div class="prob-item" onclick="openProblem(${j})">
+      <div class="prob-header">
+        <div class="pnum">${j+1}</div>
+        <div class="prob-q">${p.question}</div>
       </div>
-      <span class="problem-type-tag ${tagClassMap[p.type]||'tag-other'}">${tagMap[p.type]||'その他'}</span>
+      <span class="type-tag ${tagClass[p.type]||'tag-other'}">${tagMap[p.type]||'その他'}</span>
     </div>
   `).join('');
   showScreen('unit');
 }
 
-function openProblem(index) {
-  currentProblemIndex = index;
-  renderDetail();
+/* ── イントロ ── */
+function showIntro() {
+  const u = DATA.units[curUnit];
+  if (!u.intro) return;
+  document.getElementById('intro-unit').textContent = u.icon + ' ' + u.unitName;
+  document.getElementById('intro-title').textContent = u.intro.title;
+  document.getElementById('intro-sections').innerHTML = u.intro.sections.map(s => `
+    <div class="intro-section">
+      <div class="intro-section-h">${s.heading}</div>
+      <div class="intro-section-b">${s.body}</div>
+    </div>
+  `).join('');
+  showScreen('intro');
+}
+
+/* ── 問題 ── */
+function openProblem(j) {
+  curProb = j;
+  renderProblem();
   showScreen('detail');
 }
 
-function renderDetail() {
-  const u = DATA.units[currentUnitIndex];
-  const p = u.problems[currentProblemIndex];
-  answerOpen = false;
+function renderProblem() {
+  const u = DATA.units[curUnit];
+  const p = u.problems[curProb];
 
-  document.getElementById('detail-unit-name').textContent = u.icon + ' ' + u.unitName;
-  document.getElementById('detail-progress').textContent = `問題 ${currentProblemIndex+1} / ${u.problems.length}`;
-  document.getElementById('detail-pnum').textContent = `問題 ${currentProblemIndex+1}`;
+  document.getElementById('detail-unit').textContent = u.icon + ' ' + u.unitName;
+  document.getElementById('detail-prog').textContent = `問題 ${curProb+1} / ${u.problems.length}`;
+  document.getElementById('detail-num').textContent = `問題 ${curProb+1}`;
   document.getElementById('detail-q').textContent = p.question;
-  document.getElementById('detail-answer').textContent = p.answer;
-  const rawExp = p.explanation;
-  const lines = rawExp.split('\n');
-  const html = lines.map(line => {
+  document.getElementById('ans-text').textContent = p.answer;
+  document.getElementById('prog-fill').style.width = ((curProb+1)/u.problems.length*100) + '%';
+
+  // 解説
+  const lines = p.explanation.split('\n');
+  document.getElementById('exp-body').innerHTML = lines.map(line => {
     const t = line.trim();
     if (!t) return '';
-    if (t.startsWith('①') || t.startsWith('②') || t.startsWith('③')) {
-      return '<div class="exp-step">' + t + '</div>';
-    } else if (t.startsWith('💡')) {
-      return '<div class="exp-tip">' + t + '</div>';
-    } else if (t.startsWith('⚠️')) {
-      return '<div class="exp-warn">' + t + '</div>';
-    }
-    return '<div class="exp-line">' + t + '</div>';
+    if (t.startsWith('①') || t.startsWith('②') || t.startsWith('③'))
+      return `<div class="exp-step">${t}</div>`;
+    if (t.startsWith('⚠️'))
+      return `<div class="exp-warn">${t}</div>`;
+    if (t.startsWith('💡'))
+      return `<div class="exp-tip">${t}</div>`;
+    return `<div class="exp-line">${t}</div>`;
   }).join('');
-  document.getElementById('detail-explain').innerHTML = html;
-  document.getElementById('answer-area').classList.remove('open');
-  document.getElementById('reveal-btn').textContent = '✨ こたえを見る';
 
-  const prog = ((currentProblemIndex+1) / u.problems.length) * 100;
-  document.getElementById('prog-fill').style.width = prog + '%';
-
-  const choicesArea = document.getElementById('choices-area');
+  // 選択肢
+  const choicesEl = document.getElementById('choices');
   if (p.choices) {
-    choicesArea.innerHTML = p.choices.map((c,i) => `
-      <button class="choice-btn" onclick="selectChoice(this, '${c.replace(/'/g,"\\'")}')">
+    choicesEl.innerHTML = p.choices.map((c, i) => `
+      <button class="choice-btn" onclick="selectChoice(this,'${c.replace(/'/g,"\'")}')">
         ${String.fromCharCode(65+i)}. ${c}
       </button>
     `).join('');
   } else {
-    choicesArea.innerHTML = '';
+    choicesEl.innerHTML = '';
   }
 
-  const navBtns = document.getElementById('nav-btns');
-  navBtns.style.display = 'none';
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  prevBtn.disabled = currentProblemIndex === 0;
-  prevBtn.style.opacity = currentProblemIndex === 0 ? '0.4' : '1';
-  if (currentProblemIndex === u.problems.length - 1) {
-    nextBtn.textContent = '単元一覧に戻る';
-    nextBtn.onclick = goUnit;
-  } else {
-    nextBtn.textContent = '次の問題 →';
-    nextBtn.onclick = nextProblem;
-  }
+  // リセット
+  document.getElementById('ans-area').classList.remove('open');
+  document.getElementById('reveal-btn').textContent = '✨ こたえを見る';
+  document.getElementById('nav-btns').style.display = 'none';
+
+  // 前後ボタン
+  const prev = document.getElementById('prev-btn');
+  const next = document.getElementById('next-btn');
+  prev.style.opacity = curProb === 0 ? '0.4' : '1';
+  prev.disabled = curProb === 0;
+  next.textContent = curProb === u.problems.length-1 ? '問題一覧へ' : '次へ →';
 }
 
-function selectChoice(btn, choice) {
-  const p = DATA.units[currentUnitIndex].problems[currentProblemIndex];
+function selectChoice(btn, val) {
+  const p = DATA.units[curUnit].problems[curProb];
   document.querySelectorAll('.choice-btn').forEach(b => {
-    b.classList.remove('selected-correct','selected-wrong');
     b.style.pointerEvents = 'none';
+    if (b.textContent.trim().slice(3) === p.answer) b.classList.add('correct');
   });
-  if (choice === p.answer) {
-    btn.classList.add('selected-correct');
-  } else {
-    btn.classList.add('selected-wrong');
-    document.querySelectorAll('.choice-btn').forEach(b => {
-      if (b.textContent.trim().endsWith(p.answer)) b.classList.add('selected-correct');
-    });
-  }
+  if (val === p.answer) btn.classList.add('correct');
+  else btn.classList.add('wrong');
+  openAnswer();
+}
+
+function revealAnswer() {
   openAnswer();
 }
 
 function openAnswer() {
-  answerOpen = true;
-  document.getElementById('answer-area').classList.add('open');
-  document.getElementById('reveal-btn').textContent = '✅ こたえを確認中';
+  document.getElementById('ans-area').classList.add('open');
+  document.getElementById('reveal-btn').textContent = '✅ こたえ確認中';
   document.getElementById('nav-btns').style.display = 'flex';
+  // 解説が見えるようにスクロール
   setTimeout(() => {
-    document.getElementById('answer-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const el = document.getElementById('ans-area');
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 100);
 }
 
-function toggleAnswer() {
-  if (!answerOpen) {
-    openAnswer();
+function moveProblem(dir) {
+  const u = DATA.units[curUnit];
+  const next = curProb + dir;
+  if (next < 0 || next >= u.problems.length) return;
+  curProb = next;
+  renderProblem();
+  document.getElementById('detail-scroll').scrollTop = 0;
+}
+
+function moveNext() {
+  const u = DATA.units[curUnit];
+  if (curProb === u.problems.length - 1) {
+    showScreen('unit');
+  } else {
+    moveProblem(1);
   }
 }
-
-function prevProblem() {
-  if (currentProblemIndex > 0) {
-    currentProblemIndex--;
-    renderDetail();
-    document.getElementById('detail').querySelector('.scroll-area').scrollTop = 0;
-  }
-}
-
-function nextProblem() {
-  const u = DATA.units[currentUnitIndex];
-  if (currentProblemIndex < u.problems.length - 1) {
-    currentProblemIndex++;
-    renderDetail();
-    document.getElementById('detail').querySelector('.scroll-area').scrollTop = 0;
-  }
-}
-
-function goHome() { showScreen('home'); }
-
-function openIntro() {
-  const u = DATA.units[currentUnitIndex];
-  if (!u.intro) return;
-  document.getElementById('intro-unit-name').textContent = u.icon + ' ' + u.unitName;
-  document.getElementById('intro-title').textContent = u.intro.title;
-  const sectionsEl = document.getElementById('intro-sections');
-  sectionsEl.innerHTML = u.intro.sections.map(s => `
-    <div class="intro-section">
-      <div class="intro-section-heading">${s.heading}</div>
-      <div class="intro-section-body">${s.body}</div>
-    </div>
-  `).join('');
-  document.getElementById('intro-scroll').scrollTop = 0;
-  showScreen('intro');
-}
-function goUnit() { showScreen('unit'); }
 
 renderHome();
 </script>
